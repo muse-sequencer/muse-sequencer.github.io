@@ -6,7 +6,8 @@ html, body {
      padding: 0;
      width: 100%;
      background-color: black;
-     font-family: Helvetica;
+     font-family: sans-serif;
+    font-size: 18px;
      color: white;
 }
  h1 {
@@ -34,7 +35,14 @@ html, body {
      z-index: 1;
      position: relative;
 }
+
+h4 {
+    color: darkred;
+    font-size: 32px;
+    margin: 0;
+    padding: 0;
 }
+
  .center {
      margin: 0 auto;
 }
@@ -45,6 +53,11 @@ html, body {
  .clear {
      clear: both;
 }
+
+.flex {
+    display: flex;
+}
+
  #header {
      width: 100%;
      background: url('../img/header-bg.png');
@@ -54,12 +67,13 @@ html, body {
 }
 
  #logo a {
-     color: inherit;
+     color: orange;
      text-decoration: none;
      float: left;
      font-size: 40px;
      margin: 16px 0 0 40px;
      font-weight: bold;
+     font-family: Times;
 }
 
  #nav {
@@ -109,32 +123,58 @@ html, body {
      background:url('../img/bg1.jpg') 100% 0 no-repeat fixed;
      height: 600px;
      margin: 0 auto;
-     padding: 160px 0 320px 0;
+     padding: 180px 0 320px 0;
 }
  #slide2{
-     height: 300px;
-/*     margin: 0 auto;*/
-     padding: 200px 0;
-     overflow: hidden;
+     height: 600px;
+     margin: 0 auto;
+     padding: 36px 20px 300px 20px;
 }
  #slide3{
      background: url(../img/bg3.jpg) 100% 0 no-repeat fixed;
      height: 600px;
-     padding: 170px 0 0 0;
+     margin: 0 auto;
+     padding: 60px 0 160px 0;
 /*     background-size: cover;*/
 }
  #slide4{
-     height: 300px;
-     padding: 200px 0;
+/*
+     height: 600px;
+*/
+     padding: 30px 20px 30px 20px;
+/*
      overflow: hidden;
+*/
 }
+/*
  #slide5{
      background: url(../img/bg5.jpg) 100% 0 no-repeat fixed;
      height: 600px;
      margin: 0 auto;
-     padding: 250px 0;
-/*     background-size: cover;*/
+     padding: 50px 0 250px 0;
 }
+*/
+
+#slide1 #news {
+    width: 320px;
+    margin: 20px;
+    padding: 10px;
+    background-color: rgba(255, 180, 30, 0.6);
+    color: black;
+/*
+    flex: 1;
+*/
+}
+
+#slide1 span {
+    font-weight: bold;
+}
+
+#slide1 img {
+    margin: 20px;
+}
+
+/*
  #copyright {
      color: #fff;
      font-family:"Palatino";
@@ -146,4 +186,5 @@ html, body {
      text-decoration: none;
      color: #fff;
 }
+*/
  
