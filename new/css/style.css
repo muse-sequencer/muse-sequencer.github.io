@@ -1,0 +1,196 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    height:auto!important;
+}
+body{
+     margin: 0;
+     padding: 0;
+     width: 100%;
+     background-color: black;
+}
+ h1 {
+     font-family:"Palatino";
+     font-weight:normal;
+     font-size: 55px;
+     text-align: center;
+     color: #fff;
+     margin: 0;
+     padding: 0;
+}
+ h2 {
+     font-family:"Palatino";
+     font-weight: normal;
+     font-size: 40px;
+     text-align: center;
+     color: #fff;
+     margin: 0;
+     padding: 0;
+}
+ h3 {
+     font-family: Palatino;
+     font-weight: normal;
+     font-size: 16px;
+     text-align: center;
+     margin: 5px 0;
+     padding: 0;
+     z-index: 1;
+     position: relative;
+}
+ .center {
+     margin: 0 auto;
+}
+ .content{
+     margin: 0 auto;
+     width: 960px;
+}
+ .clear {
+     clear: both;
+}
+ #header {
+     font-family: Palatino;
+     width: 100%;
+     background: url('../img/header-bg.png');
+     height: 80px;
+     position: fixed;
+     margin-top: 30px;
+}
+ #nav {
+     width: 500px;
+     float: right;
+     margin-top: 20px;
+}
+ #logo a {
+     color: #fff;
+     text-decoration: none;
+     float: left;
+     font-size: 30px;
+     margin-top: 20px;
+     color: #fff;
+     font-family:"Wellfleet";
+     font-weight: bold;
+}
+ #nav ul{
+     list-style: none;
+     display: block;
+     margin: 0 auto;
+     list-style: none;
+}
+ #nav li{
+     margin-top: 9px;
+     float: left;
+     padding-left: 21px;
+}
+ #nav li a {
+     color: #fff;
+     opacity:0.6;
+     font-size: 16px;
+     text-decoration: none;
+     font-family: 'Palatino';
+}
+ #nav li a.active {
+     color: #fff;
+     opacity:1;
+     border-bottom: 2px solid #fff;
+}
+ #nav li a:hover {
+     color: #fff;
+     opacity:1;
+}
+ .quotes {
+     font-family: 'Palatino', serif;
+     font-weight: normal;
+     font-size: 30px;
+     text-align: left;
+     margin: 50px auto;
+}
+ #startlogoimage {
+     background: url('../img/startlogoimage.png') no-repeat;
+}
+ #divider {
+     background: url('../img/divider.png') no-repeat;
+     width: 300px;
+     height: 35px;
+     margin: 0px auto 27px auto;
+}
+ #ribbon {
+     background: url('../img/ribbon.png') no-repeat;
+     width: 251px;
+     height: 48px;
+     margin: 0 auto;
+     display: block;
+     position: relative;
+     top: -38px;
+}
+ #snowflakes1 {
+     background: url('../img/snowflakes.png') no-repeat;
+     width: 24px;
+     height: 21px;
+     margin: 0 auto;
+     display: block;
+     position: relative;
+     bottom: -54px;
+     left: -102px;
+}
+ #snowflakes2 {
+     background: url('../img/snowflakes.png') no-repeat;
+     width: 24px;
+     height: 21px;
+     margin: 0 auto;
+     display: block;
+     position: relative;
+     bottom: -33px;
+     right: -100px;
+}
+ #slide1, #slide2{
+     width: 100%;
+}
+ #slide1{
+     background:url('../img/background1.jpg') 50% 0 no-repeat fixed;
+     color: #fff;
+     height: 600px;
+     margin: 0;
+     padding: 200px 0 260px 0;
+     background-size: cover;
+}
+ #slide2{
+     background-color: #fff;
+     color: #333333;
+     height: 300px;
+     margin: 0 auto;
+     overflow: hidden;
+     padding: 200px 0;
+}
+ #slide3{
+     background: url(../img/background3.jpg) 50% 0 no-repeat fixed;
+     color: #fff;
+     height: 600px;
+     padding: 170px 0 0 0;
+     background-size: cover;
+}
+ #slide4{
+     background-color: #fff;
+     color: #333333;
+     height: 300px;
+     padding: 200px 0;
+}
+ #slide5{
+     background: url(../img/background5.jpg) 50% 0 no-repeat fixed;
+     height: 200px;
+     margin: 0 auto;
+     padding: 250px 0;
+     color: #fff;
+     background-size: cover;
+}
+ #copyright {
+     color: #fff;
+     font-family:"Palatino";
+     font-size: 14px;
+     margin-top: 100px;
+     text-align: center;
+}
+ #copyright a {
+     text-decoration: none;
+     color: #fff;
+}
+ 

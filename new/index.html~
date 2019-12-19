@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex,follow" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>MusE Sequencer</title>
+<link rel="stylesheet" href="css/style.css" />
+
+</head>
+<body>
+
+<header id="header">
+<div class="content">
+<div id="logo"><a href="">MusE Sequencer</a></div>
+<nav id="nav">
+<ul>
+<li><a href="#slide1" class="active" title="Next Section">News</a></li>
+<li><a href="#slide2" title="Next Section">Support</a></li>
+<li><a href="#slide3" title="Next Section">Download</a></li>
+<li><a href="#slide4" title="Next Section">Wiki</a></li>
+<li><a href="#slide5" title="Next Section">Helping out</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+
+<div id="slide1">
+<div class="content">
+<div id="startlogoimage"> </div>
+<div id="secondview"></div>
+<div id="thirdview"></div>
+<h2>THE</h2>
+<h1>OPEN SOURCE SEQUENCER</h1>
+<img src="img/startlogoimage.png" align="left" />
+<div id="divider"> </div>
+<h3>SEQUENCER</h3>
+<div id="ribbon"></div>
+<div id="new_year"> </div>
+</div>
+</div>
+<div id="slide2">
+<div class="content">
+<div class="quotes_container">
+<h3 class="quotes">“MusE can be used to record music, how cool is that?!”</h3>
+<img src="img/mixer.png" align="right" /> <h4 class="author_name_gray">Abraham Lincoln</h4>
+</div>
+</div>
+</div>
+<div id="slide3">
+<div class="content">
+<div class="quotes_container">
+<h3 class="quotes">“If this song bombs I'm taking everybody else down with it!.” </h3>
+<img src="img/wave.png" align="left" />Bob Dylan <h4 class="author_name_white"></h4>
+</div>
+</div>
+</div>
+<div id="slide4">
+<div class="content">
+<div class="quotes_container">
+<h3 class="quotes">“Consider this apple, it's red on the outside, sweet on the inside, just like a moose...” </h3>
+<img src="img/midi.png" align="left" />No one<h4 class="author_name_gray">Dr. Seuss </h4>
+</div>
+</div>
+</div>
+<div id="slide5">
+<div class="content">
+<div class="quotes_container">
+<h3 class="quotes">“Crazy innit?” </h3>
+<img src="img/vers.png" align="left" /> <h4 class="author_name_white">Vincent Vega</h4>
+</div>
+</div>
+</div>
+
+</body>
+</html>
