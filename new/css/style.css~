@@ -1,34 +1,31 @@
 html, body {
     max-width: 100%;
     overflow-x: hidden;
-    height:auto!important;
-}
-body{
+    height: auto!important;
      margin: 0;
      padding: 0;
      width: 100%;
      background-color: black;
+     font-family: Helvetica;
+     color: white;
 }
  h1 {
-     font-family:"Palatino";
      font-weight:normal;
      font-size: 55px;
      text-align: center;
-     color: #fff;
      margin: 0;
      padding: 0;
+     color: darkred;
 }
  h2 {
-     font-family:"Palatino";
      font-weight: normal;
      font-size: 40px;
      text-align: center;
-     color: #fff;
      margin: 0;
      padding: 0;
+     color: darkred;
 }
  h3 {
-     font-family: Palatino;
      font-weight: normal;
      font-size: 16px;
      text-align: center;
@@ -36,6 +33,7 @@ body{
      padding: 0;
      z-index: 1;
      position: relative;
+}
 }
  .center {
      margin: 0 auto;
@@ -48,139 +46,94 @@ body{
      clear: both;
 }
  #header {
-     font-family: Palatino;
      width: 100%;
      background: url('../img/header-bg.png');
      height: 80px;
      position: fixed;
      margin-top: 30px;
 }
- #nav {
-     width: 500px;
-     float: right;
-     margin-top: 20px;
-}
+
  #logo a {
-     color: #fff;
+     color: inherit;
      text-decoration: none;
      float: left;
-     font-size: 30px;
-     margin-top: 20px;
-     color: #fff;
-     font-family:"Wellfleet";
+     font-size: 40px;
+     margin: 16px 0 0 40px;
      font-weight: bold;
+}
+
+ #nav {
+     float: right;
+     margin: 28px 40px 0 0;
+     font-size: 26px;
 }
  #nav ul{
      list-style: none;
      display: block;
-     margin: 0 auto;
-     list-style: none;
+     margin: 0;
+/*     margin: 0 auto;*/
 }
  #nav li{
-     margin-top: 9px;
      float: left;
      padding-left: 21px;
 }
  #nav li a {
-     color: #fff;
-     opacity:0.6;
-     font-size: 16px;
+     color: inherit;
+/*     opacity:0.6;*/
      text-decoration: none;
-     font-family: 'Palatino';
 }
  #nav li a.active {
-     color: #fff;
-     opacity:1;
+/*     opacity:1;*/
      border-bottom: 2px solid #fff;
 }
  #nav li a:hover {
-     color: #fff;
-     opacity:1;
+     color: greenyellow;
+/*     opacity:1;*/
+/*     padding: 20px;*/
+/*     border-bottom: 2px solid white;*/
 }
  .quotes {
-     font-family: 'Palatino', serif;
-     font-weight: normal;
      font-size: 30px;
      text-align: left;
      margin: 50px auto;
 }
- #startlogoimage {
-     background: url('../img/startlogoimage.png') no-repeat;
-}
+
  #divider {
      background: url('../img/divider.png') no-repeat;
      width: 300px;
      height: 35px;
      margin: 0px auto 27px auto;
 }
- #ribbon {
-     background: url('../img/ribbon.png') no-repeat;
-     width: 251px;
-     height: 48px;
-     margin: 0 auto;
-     display: block;
-     position: relative;
-     top: -38px;
-}
- #snowflakes1 {
-     background: url('../img/snowflakes.png') no-repeat;
-     width: 24px;
-     height: 21px;
-     margin: 0 auto;
-     display: block;
-     position: relative;
-     bottom: -54px;
-     left: -102px;
-}
- #snowflakes2 {
-     background: url('../img/snowflakes.png') no-repeat;
-     width: 24px;
-     height: 21px;
-     margin: 0 auto;
-     display: block;
-     position: relative;
-     bottom: -33px;
-     right: -100px;
-}
- #slide1, #slide2{
-     width: 100%;
-}
+
  #slide1{
-     background:url('../img/background1.jpg') 50% 0 no-repeat fixed;
-     color: #fff;
+     background:url('../img/bg1.jpg') 100% 0 no-repeat fixed;
      height: 600px;
-     margin: 0;
-     padding: 200px 0 260px 0;
-     background-size: cover;
+     margin: 0 auto;
+     padding: 160px 0 320px 0;
 }
  #slide2{
-     background-color: #fff;
-     color: #333333;
      height: 300px;
      margin: 0 auto;
-     overflow: hidden;
      padding: 200px 0;
+     overflow: hidden;
 }
  #slide3{
-     background: url(../img/background3.jpg) 50% 0 no-repeat fixed;
-     color: #fff;
+     background: url(../img/bg3.jpg) 100% 0 no-repeat fixed;
      height: 600px;
      padding: 170px 0 0 0;
-     background-size: cover;
+/*     background-size: cover;*/
 }
  #slide4{
-     background-color: #fff;
-     color: #333333;
      height: 300px;
      padding: 200px 0;
+     overflow: hidden;
 }
  #slide5{
-     background: url(../img/background5.jpg) 50% 0 no-repeat fixed;
-     height: 200px;
+     background: url(../img/bg5.jpg) 100% 0 no-repeat fixed;
+     height: 600px;
      margin: 0 auto;
      padding: 250px 0;
-     color: #fff;
-     background-size: cover;
+/*     background-size: cover;*/
 }
  #copyright {
      color: #fff;
