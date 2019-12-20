@@ -11,9 +11,9 @@ html, body {
     font-size: 18px;
     color: white;
 }
-@media only screen and (max-width: 600px or orientation: portrait) {
+@media only screen and ((max-width: 600px) or (orientation: portrait)) {
     html, body {
-    font-size: 32px;
+    font-size: 2vmin;
 }
 }
  h1 {
