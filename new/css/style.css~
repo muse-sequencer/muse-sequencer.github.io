@@ -13,7 +13,7 @@ html, body {
 }
 @media only screen and ((max-width: 600px) or (orientation: portrait)) {
     html, body {
-    font-size: 2vw;
+    font-size: 3vw;
 }
 }
  h1 {
