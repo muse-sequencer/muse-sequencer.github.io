@@ -11,9 +11,9 @@ html, body {
     font-size: 18px;
     color: white;
 }
-@media only screen and ((max-width: 600px) or (orientation: portrait)) {
-    html, body {
-    font-size: 32px;
+@media all and (orientation: portrait) {
+    html {
+    font-size: 1.5rem;
 }
 }
  h1 {
@@ -135,13 +135,13 @@ h4 {
     background: url('../img/bg1.jpg') 100% 0 no-repeat fixed;
     /* height: 600px;
     */
- margin: 0 auto;
-    padding: 180px 0 20px 0;
+ 	 margin: 0 auto;
+    padding: 180px 0 60px 0;
 }
  #slide2 {
     /* height: 600px;
     */
- margin: 0 auto;
+    margin: 0 auto;
     padding: 36px 20px 60px 20px;
 }
  #slide3 {
