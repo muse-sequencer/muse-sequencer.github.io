@@ -1,291 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta name="robots" content="noindex,follow" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name=”viewport” content=”width=device-width, initial-scale=1″>
-<title>MusE Sequencer</title>
-<link rel="stylesheet" href="css/style.css" />
-<link rel="shortcut icon" href="img/favicon.ico" />
-</head>
-
-<body>
-
-<header id="header">
-<div id="logo"><a href="index.html" class="active">MusE Sequencer</a></div>
-<nav id="nav">
-<ul>
-<!--
-<li><a href="news.html" title="News">News</a></li>
--->
-<li><a href="https://sourceforge.net/projects/lmuse/files/" title="Download">Download</a></li>
-<li><a href="https://github.com/muse-sequencer/muse/issues" title="Support">Support</a></li>
-<!--
-<li><a href="contributing.html" title="Contributing">Contributing</a></li>
--->
-<li><a href="https://github.com/muse-sequencer/muse/wiki" title="Wiki">Wiki</a></li>
-<li><a href="https://linuxmusicians.com/viewforum.php?f=61" title="Forum">Forum</a></li>
-</ul>
-</nav>
-</header>
-
-
-<div id="slide1">
-<h2>THE</h2>
-<h1>OPEN SOURCE SEQUENCER</h1>
-<!--<div id="divider" />-->
-
-<div style="margin-top: 40px;" />
-
-<div class="flex">
-<div id="news">
-<h4>News</h4>
-
-<p><span>MusE 3.1pre4</span> (December 11, 2019 )
-<br>The forth and probably last pre-release!</p> 
-	
-<p><span>MusE 3.1pre3</span> (November 12, 2019)
-<br>The second pre-release went missing so here's the third!!</p>
-
-<p><span>MusE 3.1pre1</span> (February 25, 2019)
-<br>A first pre-release of upcoming MusE 3.1, do test it and report any issue!</p>
-
-<p><span>MusE 3.0.2</span> (January 30, 2018)
-<br>MusE 3.0.2 more merry fixes!</p>
-
-<!--
-<li>January 19, 2018 - <span>More demonstration videos</span></li>
-<li>Added <a href="/index.php/Demos" title="Demos">videos</a> demonstrating MusE by Michael Oswald</li>
--->
-
-<p><span>MusE 3.0.1</span> (January 16, 2018)
-<br>MusE 3.0.1 released with some quick fixes!</p>
-
-</div>
-
-<div>
-<img src="img/arr.png" />
-</div>
-
-</div>
-</div>
-</div>
-
-
-
-<div id="slide2">
-<!--
-<div class="content">
-<div class="quotes_container">
-<h3 class="quotes">“MusE can be used to record music, how cool is that?!”</h3>
-<img src="img/mixer.png" align="right" /> 
-</div>
-</div>
--->
-
-<!--
-<tr>
-<td style="vertical-align: top; text-align: left; width: 50%; ">
--->
-<div style="width:50%">
-<h4>MusE</h4>
-<p>MusE is a MIDI/Audio sequencer with recording and editing 
-capabilities written originally by Werner Schweer now developed and 
-maintained by the MusE development team.</p>
-<p>MusE aims to be a complete multitrack virtual studio for Linux, it 
-is published under the GNU General Public License.</p>
-</div>
-<!--
-</td> 
-</tr>
-
-<tr>
-<td>
--->
-<br>
-<h4>MusE features include:</h4>
-<br>
-<!--
-</td>
-</tr>
--->
-
-<table>
-<tr>
-  <td style="vertical-align: top; text-align: left;">
-    <b>Midi sequencing</b>
-    <ul><li> Realtime record/playback
-    </li><li> Midi file import/export
-    </li><li> Midi part, as used in the arranger, import/export 
-    </li><li> Input filter
-    </li><li> Midi editing with:
-    <ul>
-      </li><li> Piano roll
-      </li><li> Drum editor
-      </li><li> List view
-      </li><li> Score editor
-    </ul>
-    </li><li> Internal synth plugins including:
-    <ul>
-      </li><li> Fluidsynth soundfont (sf2) capable softsynth
-      </li><li> Deicsonze FM synth emulating DX11
-    </ul>
-    </li><li> Standardized synth plugin formats: DSSI, VST, LV2
-    </li><li> Support for multi channel synths
-    </li><li> External synth support both hardware and software
-    </li><li> Midi transformer
-    </li><li> Midi editing plugin support
-    
-    </li></ul>
-  </td>
-  <td style="vertical-align: top; text-align: left;">
-    <b>Audio sequencing</b>
-    <ul><li> Realtime Record/Playback several mono/stereo inputs/outputs.
-    <ul><li> Graphical editing of automation
-    </li><li> Several types of audio tracks
-    <ul><li> Audio inputs
-    </li><li> Audio outputs
-    </li><li> Wave tracks
-    </li><li> Group tracks
-    </li><li> Aux outputs
-    </li></ul> 
-    </li><li> Standardized plugin formats: LADSPA, DSSI, VST, LV2
-    </li><li> Drag and drop import and arranging of:
-    <ul><li> Plugins and plugin presets
-    </li><li> Parts
-    </li><li> Midi files
-    </li><li> Audio files
-    </li><li> Aux outputs
-    </li></ul> 
-    
-    </li></ul> 
-  </td>
-  <td style="vertical-align: top; text-align: left;">
-    <b>Supported technologies</b>
-    <ul><li> LASH - for session control with external LASH enabled applications
-    </li><li> JACK-audio - <a href="http://jackaudio.org" class="external free" title="http://jackaudio.org" rel="nofollow">http://jackaudio.org</a> 
-    </li><li> JACK-midi - for midi support
-    </li><li> DSSI - synth plugins
-    </li><li> VST(i) - synth plugins
-    </li><li> ALSA-midi - for midi support
-    </li><li> RtAudio - for basic audio support from Pulse, ALSA, OSS
-    </li><li> FLAM plugin guis
-    </li><li> LV2 host support 
-    </li></ul> 
-    <br>
-    <ul><li><b>Muse is built on Qt5 toolkit</b></li></ul>
-  </td>
-</tr>
-</table>
-
-</div>
-
-<div id="slide3">
-<!--
-<div class="content">
-<div class="quotes_container">
--->
-<!--<h3 class="quotes">“If this song bombs I'm taking everybody else down with it!” </h3>-->
-<img src="img/midi.png" />
-<!--
-</div>
--->
-<!--
-</div>
--->
-</div>
-
-<div id="slide4">
-<!--
-<div class="content">
-<div class="quotes_container">
--->
-<!--<h3 class="quotes">“Consider this apple, it's red on the outside, sweet on the inside, just like a moose...” </h3>-->
-<!--
-<img src="img/midi.png" align="left" />
-</div>
-</div>
--->
-
-<h4>Demonstration videos of MusE in action:</h4>
-<p>(Videos demonstrating using MusE by Michael Oswald)</p>
-
-<ul>
-<li> Test driving the Drumgizmo Crocell Kit (MusE parts start a few minutes in)</li>
-</ul>
-<div style='width: 640px;'><iframe src="https://www.youtube.com/embed/hXDCTmcBmLg?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div>
-
-<ul>
-<li> Audio Production with Muse and Ardour</li>
-</ul>
-<div style='width: 640px;'><iframe src="https://www.youtube.com/embed/PFOUnyH3irU?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div>
-
-<p>Demos of LV2 host support:</p>
-<p>2015-01-20<br />
-Demonstration of MusE Qt5 port!<br />
-Used plugins (lv2 versions):<br />
-Calf Sidechain compressor<br />
-Calf Compressor<br />
-Calf Vintage delay line<br />
-Calf Eq<br />
-Eq10q<br />
-Yoshimi<br />
-Fabla<br />
-MDA piano<br />
-</p>
-
-<div class='embedvideo' style='width: 640px;'><iframe src="https://www.youtube.com/embed/Wvx_-ND0iSM?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div>
-<p>2014-12-23<br />
-New short demo song added to show ATOM_Event_Transfer plugin&lt;-&gt;UI communication:<br />
-Used plugins are (all LV2 versions):<br />
-Fabla drum sampler<br />
-Simple scope<br />
-Calf plugins<br />
-LinuxSampler<br />
-Yoshimi plugin (lv2 version)<br />
-</p>
-
-<div class='embedvideo ' style='width: 640px;'><iframe src="https://www.youtube.com/embed/AMklg13KI8Q?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div>
-<p>2014-12-22<br />
-Doing compressor sidechaining to the max! (over 9000!!!!)<br />
-Used plugins (all LV2):<br />
-Calf Sidechain compressor<br />
-MDA DX10<br />
-DrumSynth (produces a tiny kick sound that feeds the side chain)<br />
-drumkv1<br />
-Dexed<br />
-Vex<br />
-Tal Filter-I<br />
-</p>
-
-<div class='embedvideo ' style='width: 640px;'><iframe src="https://www.youtube.com/embed/1qpS0XGBSZA?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div>
-<p>2014-11-09 <br />
-Meet LV2<br />
-</p>
-
-<div class='embedvideo ' style='width: 640px;'><iframe src="https://www.youtube.com/embed/fXS9NPllu9M?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div>
-
-</div>
-
-
-<!--
-<div id="slide5">
--->
-<!--
-<div class="content">
-<div class="quotes_container">
-<h3 class="quotes">“Crazy innit?” </h3>-->
-<!--
-<img src="img/wave.png" />
--->
-<!--
-</div>
-</div>
--->
-
-<!--
-</div>
--->
-
-</body>
+  <head>
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+    <title>MusE Sequencer</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+  </head>
+  <body>
+    <header id="header">
+      <div id="logo"><a href="index.html" class="active">MusE Sequencer</a></div>
+      <nav id="nav">
+        <ul>
+          <!--
+            <li><a href="news.html" title="News">News</a></li>
+            -->
+          <li><a href="https://sourceforge.net/projects/lmuse/files/" title="Download">Download</a></li>
+          <li><a href="https://github.com/muse-sequencer/muse/issues" title="Support">Support</a></li>
+          <!--
+            <li><a href="contributing.html" title="Contributing">Contributing</a></li>
+            -->
+          <li><a href="https://github.com/muse-sequencer/muse/wiki" title="Wiki">Wiki</a></li>
+          <li><a href="https://linuxmusicians.com/viewforum.php?f=61" title="Forum">Forum</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="slide1">
+      <h2>THE</h2>
+      <h1>OPEN SOURCE SEQUENCER</h1>
+      <!--<div id="divider" />-->
+      <div style="margin-top: 40px;"></div>
+      <div class="flex">
+        <div id="news">
+          <h4>News</h4>
+          <p><span>MusE 3.1pre4</span> (December 11, 2019 )
+            <br>The forth and probably last pre-release!
+          </p>
+          <p><span>MusE 3.1pre3</span> (November 12, 2019)
+            <br>The second pre-release went missing so here's the third!!
+          </p>
+          <p><span>MusE 3.1pre1</span> (February 25, 2019)
+            <br>A first pre-release of upcoming MusE 3.1, do test it and report any issue!
+          </p>
+          <p><span>MusE 3.0.2</span> (January 30, 2018)
+            <br>MusE 3.0.2 more merry fixes!
+          </p>
+          <!--
+            <li>January 19, 2018 - <span>More demonstration videos</span></li>
+            <li>Added <a href="/index.php/Demos" title="Demos">videos</a> demonstrating MusE by Michael Oswald</li>
+            -->
+          <p><span>MusE 3.0.1</span> (January 16, 2018)
+            <br>MusE 3.0.1 released with some quick fixes!
+          </p>
+        </div>
+        <div>
+          <img src="img/arr.png" />
+        </div>
+      </div>
+    </div>
+    </div>
+    <div id="slide2">
+      <div style="width:50%">
+        <h4>MusE</h4>
+        <p>MusE is a MIDI/Audio sequencer with recording and editing capabilities written originally by Werner Schweer now developed and maintained by the MusE development team.</p>
+        <p>MusE aims to be a complete multitrack virtual studio for Linux, it is published under the GNU General Public License.</p>
+      </div>
+      <br>
+      <h4>MusE features include:</h4>
+      <br>
+      <div class="flexwrap">
+        <div class="subflex">
+          <b>Midi sequencing</b>
+          <ul>
+            <li> Realtime record/playback
+            </li>
+            <li> Midi file import/export
+            </li>
+            <li> Midi part, as used in the arranger, import/export
+            </li>
+            <li> Input filter
+            </li>
+            <li>
+              Midi editing with:
+              <ul>
+                <li> Piano roll
+                </li>
+                <li> Drum editor
+                </li>
+                <li> List view
+                </li>
+                <li> Score editor
+              </ul>
+            </li>
+            <li>
+              Internal synth plugins including:
+              <ul>
+                <li> Fluidsynth soundfont (sf2) capable softsynth
+                </li>
+                <li> Deicsonze FM synth emulating DX11
+              </ul>
+            </li>
+            <li> Standardized synth plugin formats: DSSI, VST, LV2
+            </li>
+            <li> Support for multi channel synths
+            </li>
+            <li> External synth support both hardware and software
+            </li>
+            <li> Midi transformer
+            </li>
+            <li> Midi editing plugin support
+            </li>
+          </ul>
+        </div>
+        <div class="subflex">
+          <b>Audio sequencing</b>
+          <ul>
+            <li>
+              Realtime Record/Playback several mono/stereo inputs/outputs.
+              <ul>
+                <li> Graphical editing of automation
+                </li>
+                <li>
+                  Several types of audio tracks
+                  <ul>
+                    <li> Audio inputs
+                    </li>
+                    <li> Audio outputs
+                    </li>
+                    <li> Wave tracks
+                    </li>
+                    <li> Group tracks
+                    </li>
+                    <li> Aux outputs
+                    </li>
+                  </ul>
+                </li>
+                <li> Standardized plugin formats: LADSPA, DSSI, VST, LV2
+                </li>
+                <li>
+                  Drag and drop import and arranging of:
+                  <ul>
+                    <li> Plugins and plugin presets
+                    </li>
+                    <li> Parts
+                    </li>
+                    <li> Midi files
+                    </li>
+                    <li> Audio files
+                    </li>
+                    <li> Aux outputs
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+          </ul>
+        </div>
+        <div class="subflex">
+          <b>Supported technologies</b>
+          <ul>
+            <li> LASH - for session control with external LASH enabled applications
+            </li>
+            <li> JACK-audio - <a href="http://jackaudio.org" class="external free" title="http://jackaudio.org" rel="nofollow">http://jackaudio.org</a>
+            </li>
+            <li> JACK-midi - for midi support
+            </li>
+            <li> DSSI - synth plugins
+            </li>
+            <li> VST(i) - synth plugins
+            </li>
+            <li> ALSA-midi - for midi support
+            </li>
+            <li> RtAudio - for basic audio support from Pulse, ALSA, OSS
+            </li>
+            <li> FLAM plugin guis
+            </li>
+            <li> LV2 host support
+            </li>
+          </ul>
+          <br />
+          <ul>
+            <li><b>Muse is built on Qt5 toolkit</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="slide3">
+      <!--
+        <div class="content">
+        <div class="quotes_container">
+        -->
+      <!--<h3 class="quotes">“If this song bombs I'm taking everybody else down with it!” </h3>-->
+      <img src="img/midi.png" />
+      <!--
+        </div>
+        -->
+      <!--
+        </div>
+        -->
+    </div>
+    <div id="slide4">
+      <!--
+        <div class="content">
+        <div class="quotes_container">
+        -->
+      <!--<h3 class="quotes">“Consider this apple, it's red on the outside, sweet on the inside, just like a moose...” </h3>-->
+      <!--
+        <img src="img/midi.png" align="left" />
+        </div>
+        </div>
+        -->
+      <h4>Demonstration videos of MusE in action:</h4>
+      <p>(Videos demonstrating using MusE by Michael Oswald)</p>
+      <ul>
+        <li> Test driving the Drumgizmo Crocell Kit (MusE parts start a few minutes in)</li>
+      </ul>
+      <div style='width: 640px;'><iframe src="https://www.youtube.com/embed/hXDCTmcBmLg?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div>
+      <ul>
+        <li> Audio Production with Muse and Ardour</li>
+      </ul>
+      <div style='width: 640px;'><iframe src="https://www.youtube.com/embed/PFOUnyH3irU?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div>
+      <p>Demos of LV2 host support:</p>
+      <p>2015-01-20<br /> Demonstration of MusE Qt5 port!<br /> Used plugins (lv2 versions):<br /> Calf Sidechain compressor<br /> Calf Compressor<br /> Calf Vintage delay line<br /> Calf Eq<br /> Eq10q
+        <br /> Yoshimi
+        <br /> Fabla
+        <br /> MDA piano<br />
+      </p>
+      <div class='embedvideo' style='width: 640px;'><iframe src="https://www.youtube.com/embed/Wvx_-ND0iSM?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div>
+      <p>2014-12-23<br /> New short demo song added to show ATOM_Event_Transfer plugin&lt;-&gt;UI communication:<br /> Used plugins are (all LV2 versions):<br /> Fabla drum sampler<br /> Simple scope<br /> Calf plugins<br /> LinuxSampler
+        <br /> Yoshimi plugin (lv2 version)<br />
+      </p>
+      <div class='embedvideo ' style='width: 640px;'><iframe src="https://www.youtube.com/embed/AMklg13KI8Q?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div>
+      <p>2014-12-22<br /> Doing compressor sidechaining to the max! (over 9000!!!!)<br /> Used plugins (all LV2):<br /> Calf Sidechain compressor<br /> MDA DX10<br /> DrumSynth (produces a tiny kick sound that feeds the side chain)<br /> drumkv1
+        <br /> Dexed
+        <br /> Vex
+        <br /> Tal Filter-I<br />
+      </p>
+      <div class='embedvideo ' style='width: 640px;'><iframe src="https://www.youtube.com/embed/1qpS0XGBSZA?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div>
+      <p>2014-11-09 <br /> Meet LV2<br />
+      </p>
+      <div class='embedvideo ' style='width: 640px;'><iframe src="https://www.youtube.com/embed/fXS9NPllu9M?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div>
+    </div>
+    <!--
+      <div id="slide5">
+      -->
+    <!--
+      <div class="content">
+      <div class="quotes_container">
+      <h3 class="quotes">“Crazy innit?” </h3>-->
+    <!--
+      <img src="img/wave.png" />
+      -->
+    <!--
+      </div>
+      </div>
+      -->
+    <!--
+      </div>
+      -->
+  </body>
 </html>
+
