@@ -1,52 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="robots" content="noindex,follow" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex,follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>MusE Sequencer</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style1.css" />
 
-    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-    
 </head>
+
 <body>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 
-<header id="header">
-    <div class="content">
-        <div id="logo"><a href=""><img src="img/muse_icon_64x64.png" align="top" height=50/>MusE Sequencer</a></div>
-        <nav id="nav">
-            <ul class="navbar-nav">
-                <li><a href="#slide2">News</a></li>
-                <li><a href="https://linuxmusicians.com/viewforum.php?f=61" >Forum</a></li>
-                <li><a href="https://github.com/muse-sequencer/muse/wiki/Download">Download</a></li>
-                <li><a href="https://github.com/muse-sequencer/muse/wiki">Wiki</a></li>
-                <li><a href="https://github.com/muse-sequencer/muse/wiki/Helping">Helping out</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+ 
+  <a class="navbar-brand" href="#"><img src="img/muse_icon_64x64.png" align="top" height="40">MusE Sequencer</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#news">News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/muse-sequencer/muse/wiki">Wiki</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/muse-sequencer/muse/issues">Support</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://linuxmusicians.com/viewforum.php?f=61">Forum</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/muse-sequencer/muse/releases">Download</a>
+      </li>
+    </ul>
+  </div> 
+</nav> 
+
 
 
 <div id="slide1">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <img src="img/arranger1.png" class="img-fluid">
+            <div class="col">
+                <img src="img/arranger.jpg" class="img-fluid">
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-0">
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-12">
+        </div>
+        <div class="row justify-content-center pt-4">
+             <div class="col-8">
                 <h3>MusE - A Digital Audio Workstation</h3>
                 <p>MusE is a full featured MIDI and audio sequencer with recording and editing functionality. Complete with plugin support and automation. See feature list below.</p>
                 <p>MusE was originally written by Werner Schweer and is now developed and maintained by the MusE development team. MusE aims to be a complete multitrack virtual studio for Linux.</p>
                 <p>It is published under the GNU General Public License.</p>
             </div>    
-            <div class="col-lg-2 col-md-2 col-sm-0">
+        </div>
+    </div> 
+</div>
+
+
+
+<div id="news">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                    <h4>Latest News</h4>
+                    <b>December 11, 2019</b> MusE 3.1pre4 - The fourth and probably last pre-release!<br>
+                    <b>January 30, 2018</b> MusE 3.0.2 - more merry fixes!<br>
+                    <a href="https://github.com/muse-sequencer/muse/wiki/News">See NEWS page for more information</a>
             </div>
         </div>
     </div> 
@@ -56,37 +84,15 @@
 
 <div id="slide2">
     <div class="container">
+      
         <div class="row">
-            <div class="col-lg-2 col-md-2 col-sm-0">
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-12">
-                <div id="news">
-                    <h4>Latest News</h4>
-                    <b>December 11, 2019</b> MusE 3.1pre4 - The fourth and probably last pre-release!<br>
-                    <b>January 30, 2018</b> MusE 3.0.2 - more merry fixes!<br>
-                    <a href="https://github.com/muse-sequencer/muse/wiki/News">See NEWS page for more information</a>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-0">
-            </div>
-        </div>
-
-        <div class="row">
-            <p><br></p>
-        </div>
-        
-        <div class="row">
-            <div class="col-lg-2 col-md-2 col-sm-0">
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-12" align="center">
+            <div class="col">
                 <h4>MusE features include<h4>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-0">
-            </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="row pt-4">
+            <div class="col">
                 <div>
                     <b>Midi sequencing</b>
                     <ul>
@@ -135,7 +141,7 @@
 
             </div>    
 
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col">
                 <b>Audio sequencing</b>
                 <ul>
                     <li>
@@ -179,7 +185,7 @@
                 </ul>
             </div>
             
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col">
                 <b>Supported technologies</b>
                 <ul>
                     <li> JACK-audio - <a href="http://jackaudio.org" class="external free" title="http://jackaudio.org" rel="nofollow">http://jackaudio.org</a>
@@ -215,46 +221,48 @@
 <div id="slide3">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12" align="center">
+            <div class="col" align="center">
                 <h3>Editors</h3>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <img src="img/midi1.png" class="img-fluid" />
+            <div class="col">
+                <img src="img/midi.png" class="img-fluid" />
             </div>    
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <img src="img/drum2.png" class="img-fluid" />
+            <div class="col">
+                <img src="img/drum.png" class="img-fluid" />
             </div>
         </div> 
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="col">
                 <img src="img/wave.png" class="img-fluid" />
             </div>    
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <img src="img/mixer1.png" class="img-fluid" />
+            <div class="col">
+                <img src="img/mixer.png" class="img-fluid" />
             </div>
         </div> 
     </div> 
 </div>
 
+
+
 <div id="slide4">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12" align="center">
+            <div class="col" align="center">
                 <h3>Video showcases from users and developers</h3>
             </div>
         </div>
-        <div class="row">  
-            <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="row pt-4">  
+            <div class="col">
                 <div>
-                    <iframe src="https://www.youtube.com/embed/hXDCTmcBmLg?" width="533" height="300" allowfullscreen="true">
+                    <iframe src="https://www.youtube.com/embed/hXDCTmcBmLg?" width="533" height="300" frameborder="0" allowfullscreen="true">
                     </iframe>
                 </div>
                 Test driving the Drumgizmo Crocell Kit by Michael Oswald, MusE parts start a few minutes in.
 
             </div>
-            <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="col">
                 <div>
                     <iframe src="https://www.youtube.com/embed/PFOUnyH3irU?" width="533" height="300" frameborder="0" allowfullscreen="true">
                     </iframe>
@@ -262,38 +270,28 @@
                 Audio Production with Muse and Ardour by Michael Oswald.
             </div>  
         </div> 
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12" align="center">
-            <br>
-            </div>
-        </div> 
-        <div class="row">
-            <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="row pt-4">
+            <div class="col">
                 <div>
-                    <iframe src="https://www.youtube.com/embed/Wvx_-ND0iSM?" width="533" height="300" allowfullscreen="true">
+                    <iframe src="https://www.youtube.com/embed/Wvx_-ND0iSM?" width="533" height="300" frameborder="0" allowfullscreen="true">
                     </iframe>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="col">
                 <div>
                     <iframe src="https://www.youtube.com/embed/AMklg13KI8Q?" width="533" height="300" frameborder="0" allowfullscreen="true">
                     </iframe>
                 </div>
             </div>  
         </div> 
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12" align="center">
-            <br>
-            </div>
-        </div> 
-        <div class="row">
-            <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="row pt-4">
+            <div class="col">
                 <div>
-                    <iframe src="https://www.youtube.com/embed/1qpS0XGBSZA?" width="533" height="300" allowfullscreen="true">
+                    <iframe src="https://www.youtube.com/embed/1qpS0XGBSZA?" width="533" height="300" frameborder="0" allowfullscreen="true">
                     </iframe>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="col">
                 <div>
                     <iframe src="https://www.youtube.com/embed/fXS9NPllu9M?" width="533" height="300" frameborder="0" allowfullscreen="true">
                     </iframe>
@@ -303,10 +301,11 @@
 
         </div> 
 </div>
+
+
 <div id="slide5">
-    <div class="container">
-    </div> 
-</div>
+	<div id="footer">&copy 2020 The MusE development team</div> 
+ </div>
 
 </body>
 </html>
