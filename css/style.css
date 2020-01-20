@@ -1,160 +1,72 @@
- 
-body{
-font-family: 'Raleway', serif;
-margin: 0;
-padding: 0;
-width: 100%;
+html, body {
+	font-family: 'Raleway', sans-serif;
+	background-color: black;
+	color: white;
 }
-h1 {
-font-family: 'Raleway', serif;
-font-weight:normal;
-font-size: 55px;
-text-align: center;
-color: #fff;
-margin: 0;
-padding: 0;
-}
-h2 {
-font-family: 'Raleway', serif;
-font-weight: normal;
-font-size: 40px;
-text-align: center;
-color: #fff;
-margin: 0;
-padding: 0;
-}
-h3 {
-font-family: 'Raleway', serif;
-font-weight: normal;
-font-size: 16px;
-text-align: center;
-margin: 5px 0;
-padding: 0;
-z-index: 1;
-position: relative;
-}
-.center { margin: 0 auto; }
-.content{ margin: 0 auto; width: 960px; }
-.clear { clear: both; }
-
-#header {
-font-family: 'Raleway', serif;
-width: 100%;
-background: url('../img/header-bg.png');
-height: 85px;
-#position: fixed;
-margin-top: 20px;
-}
-#nav { width: 500px; float: right; margin-top: 20px; }
-#logo a { color: #fff; text-decoration: none; float: left; font-size: 30px; margin-top: 20px; color: #fff; font-family:"Raleway", serif; font-weight: bold; }
-#nav ul{
-list-style: none;
-display: block;
-margin: 0 auto;
-list-style: none;
-}
-#nav li{
-margin-top: 9px;
-float: left;
-padding-left: 21px;
-}
-#nav li a { color: #fff; opacity:0.6; font-size: 16px; text-decoration: none; font-family: 'Raleway'; }
-#nav li a.active { color: #fff; opacity:1; border-bottom: 2px solid #fff; }
-#nav li a:hover { color: #fff; opacity:1; }
 
 .navbar {
-  background: #f0f0f0;
+	font-size: 18px;
+	background-color: #39F;
 }
 
-.nav-link,
 .navbar-brand {
- # color: #fff;
-  cursor: pointer;
-}
-.nav-link {
-  margin-right: 1em !important;
-}
-.nav-link:hover {
-  color: #000;
-}
-.navbar-collapse {
-  justify-content: flex-end;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-
-.features {
-  margin: 4em auto;
-  padding: 1em;
-  position: relative;
-}
-.feature-title {
-  color: #333;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-.features img {
-  -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
-  margin-bottom: 16px;
+#slide1 {
+   background: url('../img/background1.jpg') no-repeat fixed;
+	padding-top: 110px;
+	padding-bottom: 30px;
 }
 
 #news {
-#    width: 700px;
-#    min-width: 320px;
-#    margin: 10px;
-    padding: 10px;
-    padding-left: 30px;
-    background-color: rgba(255, 180, 20, 0.6);
+	background-color: orange;
+ 	color: black;
+   padding-top: 30px;
+	padding-bottom: 30px; 
 }
 
-#slide1, #slide2{ width: 100%; }
-
-#slide1{
-background:url('../img/background1.jpg') 50% 0 no-repeat fixed;
-color: #fff;
-height: 1040px;
-margin: 0;
-padding: 30px 0 50px 0;
-background-size: cover;
-}
-#slide2{
-background-color: #fff;
-color: #333333;
-height: 830px;
-margin: 0 auto;
-overflow: hidden;
-padding: 70px 0 0 0;
-}
-#slide3{
-background: url(../img/background3.jpg) 50% 0 no-repeat fixed;
-color: #fff;
-height: 900px;
-padding: 70px 0 0 0;
-background-size: cover;
-}
-#slide4{
-background-color: #fff;
-color: #333333;
-height: 1200px;
-padding: 70px 0;
-}
-#slide5{
-background: url(../img/background5_2.jpg) 50% 0 no-repeat fixed;
-height: 800px;
-margin: 0 auto;
-padding: 70px 0;
-color: #fff;
-background-size: cover;
-}
-#slide6{
-background-color: #fff;
-color: #333333;
-height: 600px;
-padding: 70px 0;
+#slide2 {
+   padding-top: 30px;
+	padding-bottom: 30px; 
 }
 
-#copyright { color: #fff; font-family:"Raleway"; font-size: 14px; margin-top: 100px; text-align: center; }
-#copyright a { text-decoration: none; color: #fff; }
+#slide3 {
+   background: url('../img/background3.jpg') no-repeat fixed;
+   background-size: cover;
+   padding-top: 30px;
+	padding-bottom: 20px;
+ }
+ 
+#slide4 {
+   padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+#slide5 {
+    background: url('../img/background5.jpg') no-repeat fixed;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+}
+
+.iframe_outer {
+	position: relative;
+	width: 100%; 
+	height: 0px; 
+	padding-bottom: 56.25%;
+}
+
+.iframe_inner {
+	position: absolute; 
+	left: 0; 
+	top: 0; 
+	width: 100%; 
+	height: 100%;
+}
+
+#footer {
+	padding-top: 560px;
+	text-align: center;
+}
