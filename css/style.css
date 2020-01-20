@@ -15,7 +15,7 @@ html, body {
 }
 
 #slide1 {
-   background: url('../img/background1.jpg') no-repeat fixed;
+    background: url('../img/background1.jpg') no-repeat fixed;
 	padding-top: 110px;
 	padding-bottom: 30px;
 }
@@ -23,30 +23,30 @@ html, body {
 #news {
 	background-color: orange;
  	color: black;
-   padding-top: 30px;
+    padding-top: 30px;
 	padding-bottom: 30px; 
 }
 
 #slide2 {
-   padding-top: 30px;
+    padding-top: 30px;
 	padding-bottom: 30px; 
 }
 
 #slide3 {
-   background: url('../img/background3.jpg') no-repeat fixed;
-   background-size: cover;
-   padding-top: 30px;
+    background: url('../img/background3.jpg') no-repeat fixed;
+    background-size: auto 100%;
+    padding-top: 30px;
 	padding-bottom: 20px;
  }
  
 #slide4 {
-   padding-top: 30px;
+    padding-top: 30px;
 	padding-bottom: 30px;
 }
 
 #slide5 {
     background: url('../img/background5.jpg') no-repeat fixed;
-    background-size: cover;
+    background-size: auto 100%;
     background-position: center;
     height: 600px;
 }
