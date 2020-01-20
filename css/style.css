@@ -15,9 +15,16 @@ html, body {
 }
 
 #slide1 {
-    background: url('../img/background1.jpg') no-repeat fixed;
+    background-image: url('../img/background1.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 	padding-top: 110px;
 	padding-bottom: 30px;
+}
+
+#news_anchor {
+	margin-top: -46px;
+	padding-top: 46px;
 }
 
 #news {
@@ -33,8 +40,10 @@ html, body {
 }
 
 #slide3 {
-    background: url('../img/background3.jpg') no-repeat fixed;
-    background-size: auto 100%;
+    background-image: url('../img/background3.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     padding-top: 30px;
 	padding-bottom: 20px;
  }
@@ -45,8 +54,10 @@ html, body {
 }
 
 #slide5 {
-    background: url('../img/background5.jpg') no-repeat fixed;
-    background-size: auto 100%;
+    background-image: url('../img/background5.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-position: center;
     height: 600px;
 }
