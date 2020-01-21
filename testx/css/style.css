@@ -43,13 +43,14 @@ html, body {
 
 #slide3 {
     background-image: url('../img/background3.jpg');
-/*
     background-attachment: fixed;
-*/
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 30px;
 	padding-bottom: 20px;
+	@supports (-webkit-overflow-scrolling: touch) {
+		background-attachment: scroll;
+	}
  }
  
 #slide4 {
@@ -59,13 +60,14 @@ html, body {
 
 #slide5 {
     background-image: url('../img/background5.jpg');
-/*
     background-attachment: fixed;
-*/
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 600px;
+    @supports (-webkit-overflow-scrolling: touch) {
+		background-attachment: scroll;
+	}
 }
 
 .iframe_outer {
