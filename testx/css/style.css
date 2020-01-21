@@ -48,10 +48,7 @@ html, body {
     background-size: cover;
     padding-top: 30px;
 	padding-bottom: 20px;
-	@supports (-webkit-overflow-scrolling: touch) {
-		background-attachment: scroll;
-	}
- }
+}
  
 #slide4 {
     padding-top: 30px;
@@ -65,7 +62,10 @@ html, body {
     background-size: cover;
     background-position: center;
     height: 600px;
-    @supports (-webkit-overflow-scrolling: touch) {
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+	#slide3, #slide5 {
 		background-attachment: scroll;
 	}
 }
