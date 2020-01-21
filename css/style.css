@@ -6,7 +6,7 @@ html, body {
 
 .navbar {
 	font-size: 18px;
-	background-color: #39F;
+	background-color: Teal;
 }
 
 .navbar-brand {
@@ -48,6 +48,9 @@ html, body {
     background-size: cover;
     padding-top: 30px;
 	padding-bottom: 20px;
+	@supports (-webkit-overflow-scrolling: touch) {
+		background-attachment: scroll;
+	}
  }
  
 #slide4 {
@@ -62,6 +65,9 @@ html, body {
     background-size: cover;
     background-position: center;
     height: 600px;
+    @supports (-webkit-overflow-scrolling: touch) {
+		background-attachment: scroll;
+	}
 }
 
 .iframe_outer {
