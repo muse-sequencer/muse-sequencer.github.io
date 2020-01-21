@@ -43,7 +43,9 @@ html, body {
 
 #slide3 {
     background-image: url('../img/background3.jpg');
+/*
     background-attachment: fixed;
+*/
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 30px;
@@ -57,7 +59,9 @@ html, body {
 
 #slide5 {
     background-image: url('../img/background5.jpg');
+/*
     background-attachment: fixed;
+*/
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
