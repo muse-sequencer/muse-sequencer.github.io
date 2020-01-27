@@ -6,7 +6,7 @@ html, body {
 
 .navbar {
 	font-size: 18px;
-	background-color: Teal;
+	background-color: #39F;
 }
 
 .navbar-brand {
@@ -42,7 +42,7 @@ html, body {
 }
 
 #slide3 {
-    background-image: url('../img/bg3.jpg');
+    background-image: url('../img/background3.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
