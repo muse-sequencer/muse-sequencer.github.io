@@ -85,6 +85,20 @@ html, body {
 	height: 100%;
 }
 
+#helping_out_anchor {
+    display: block; 
+    position: relative;
+    top: -46px; 
+    visibility: hidden;
+}
+
+#helping {
+	background-color: orange;
+ 	color: black;
+    padding-top: 30px;
+	padding-bottom: 30px; 
+}
+
 #footer {
 	padding-top: 560px;
 	text-align: center;
