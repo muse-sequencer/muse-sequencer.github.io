@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Tutorial</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="../contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1>Multichannel Audio Plugins</h1>
+    <h2 id="use-multichannel-audio-plugins">Use multichannel audio plugins</h2>
+    <p>The example uses the AVL Drumkit Black Pearl Multi. The goal is to have separate drum sounds on separate audio channels so we can add fx and pan the different sounds separately from one another.</p>
+    <p>From <a href="http://x42-plugins.com/x42/x42-avldrums">AVL Drumkits</a>:</p>
+    <blockquote>
+    <p>Multi Channel Layout</p>
+    <p>The plugin ports are named, when using pin-management in Ardour or Mixbus, the names are displayed. Also fan-out will use the port-name as part of the created bus. For reference the 9 ports are</p>
+    <p>1 Kick (mono)</p>
+    <p>2 Snare (mono)</p>
+    <p>3 Hi-Hat (mono)</p>
+    <p>4 Tom (mono)</p>
+    <p>5 Floor-Tom (mono)</p>
+    <p>6+7 Cymbals (stereo)</p>
+    <p>8+9 Percussions (stereo)</p>
+    </blockquote>
+    <p>Make sure you have installed the AVL Drumkit from for example <a href="http://x42-plugins.com/x42/x42-avldrums">AVL Drumkits</a> or <a href="https://kx.studio/Repositories:Plugins">KXStudio Plugins Repository</a>.</p>
+    <p>Start MusE.</p>
+    <p>Do the following in the Arranger:</p>
+    <ol type="1">
+    <li><p>Add the synth (drumkit) Right click in the Tracks list and select <code>Add Synth &gt; LV2 (Synths) &gt; Black Pearl Drumkit Multi LV2</code>.</p></li>
+    <li><p>Set the Channel grouping to Mono In the Audio Track for the drumkit click the small arrow to the right. Select <code>Output routing &gt; Channel grouping: Mono</code>.</p></li>
+    </ol>
+    <figure>
+    <img src="img/mc2.png" alt="Set the Channel grouping to Mono" /><figcaption>Set the Channel grouping to Mono</figcaption>
+    </figure>
+    <ol start="3" type="1">
+    <li><p>Add a Drum Track Add Drum Track for controlling the drums, and make sure it is connected to the Black Pearl drumkit. Rename it “drums”.</p></li>
+    <li><p>Add a Part Add a part, 1 bar long, and add some kicks and snares.</p></li>
+    <li><p>In the Arranger: Adjust the From and To markers to the beginning and end of the new part, and set Muse to Loop. Press Play. You should hear the Kick and Snare, the Kick to the left and the Snare to the right.</p></li>
+    </ol>
+    <figure>
+    <img src="img/mc5.png" alt="Listening to the snare and kick" /><figcaption>Listening to the snare and kick</figcaption>
+    </figure>
+    <ol start="6" type="1">
+    <li>Disable normal output of drums Select the Black Pearl synth track. In the mixer strip, make sure Black Pearl is not outputting to the main output by deselecting <code>Out 1</code>. Now you cannot hear anything but the meter is still moving.</li>
+    </ol>
+    <figure>
+    <img src="img/mc5.png" alt="Deselect Out 1" /><figcaption>Deselect Out 1</figcaption>
+    </figure>
+    <ol start="7" type="1">
+    <li><p>Create an Audio Group Track for the kick drum Create an Audio Group Track and rename it “BP Kick”.</p></li>
+    <li><p>Setup the Audio Group Track for the kick drum In the mixer strip set it to stereo to be able to pan it (enable the “eternity” symbol).</p></li>
+    </ol>
+    <figure>
+    <img src="img/mc8a.png" alt="Set the Audio Group Track to Stereo" /><figcaption>Set the Audio Group Track to Stereo</figcaption>
+    </figure>
+    <p>Click <code>Input routing</code>, set it to <code>Mono</code>, and in the list presented by <code>Black Pearl Drumkit Multi LV2</code> select channel 1: 1 and 2 (left and right). The meter should start to move.</p>
+    <figure>
+    <img src="img/mc8b.png" alt="Setup the input channels" /><figcaption>Setup the input channels</figcaption>
+    </figure>
+    <p>Click <code>Output routing</code>, set it to <code>Stereo</code> and in the list below <code>Out 1</code> select <code>1 &gt; 1</code> (left) and <code>2 &gt; 2</code> (right). (They are selected as a pair.) You should now hear the kick.</p>
+    <figure>
+    <img src="img/mc8c.png" alt="Setup the output channels" /><figcaption>Setup the output channels</figcaption>
+    </figure>
+    <ol start="9" type="1">
+    <li><p>Create an Audio Group Track for the snare drum Create an Audio Group Track and rename it “BP Snare”.</p></li>
+    <li><p>Setup the Audio Group Track for the snare drum In the mixer strip set it to stereo to be able to pan it (enable the “eternity” symbol). Click <code>Input routing</code>, set it to <code>Mono</code>, and in the list presented by <code>Black Pearl Drumkit Multi LV2</code> select channel 2: 1 and 2 (left and right). The meter should start to move. Click <code>Output routing</code>, set it to <code>Stereo</code> and in the list below <code>Out 1</code> select <code>1 &gt; 1</code> (left) and <code>2 &gt; 2</code> (right). (They are selected as a pair.) You should now also hear the snare.</p></li>
+    <li><p>Repeat for the rest of the channels you are going to use of the Black pearl kit. You can now adjust the pan and volume separately for each drum sound. You can also add fx to for example only the snare.</p></li>
+    </ol>
+    </div>
+  </div>
+  </body>
+</html>
