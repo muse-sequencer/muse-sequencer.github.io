@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="configuration">Configuration</h1>
+    <h2 id="midi-ports">MIDI ports</h2>
+    <p>MIDI ports provide an abstraction layer for your MIDI hardware and synthesizers (which can be both software and hardware synthesizers), and other MIDI applications. Ports are numbered. In order to produce sound, each MIDI track is assigned to exactly one MIDI port, to which the MIDI events are then sent.</p>
+    <p>The advantage of this abstraction layer is that if your system changes, for example you change MIDI hardware, then you need only modify the ports instead of all the tracks using those ports. This is similar to the audio input and output track abstraction to the outside world.</p>
+    <h2 id="midi-port-configuration">MIDI port configuration</h2>
+    <p>In the midi/softsynth configuration dialog, you must map the port numbers to the actual devices (by selecting ALSA or jack midi ports, or synth plugins).</p>
+    <p>Try the context menu of the “Port” column of some MIDI track to see and change the settings per track. If you use a soft synth, right-clicking the Track type column of the synth or any midi track using the synth lets you launch the synth’s GUI (generic and/or native if available).</p>
+    <div data-align="CENTER">
+    <img src="man/midi_config_window.png"></img>
+    </p>
+    </div>
+    <h3 id="columns-in-the-midi-configuration-ports-list">Columns in the MIDI configuration ports list:</h3>
+    <ul>
+    <li><strong>GUI:</strong><br />
+    For synthesizer devices, indicates if a gui is available and if it is showing. Click to show or hide.</li>
+    <li><strong>I:</strong><br />
+    If present, the port can accept MIDI input. Click to enable or disable it.</li>
+    <li><strong>O:</strong><br />
+    If present, the port can send MIDI output. Click to enable or disable it.</li>
+    <li><strong>Instrument:</strong><br />
+    Selects the instrument to be used when MIDI is played through the port.</li>
+    <li><strong>Device name:</strong><br />
+    Selects or creates a MIDI device assigned to the port. These can be Jack MIDI devices or ALSA MIDI devices (if ALSA is enabled), or soft synthesizers. Jack MIDI devices are created by selecting Create Jack Device from the Device name drop-down menu. Jack MIDI devices can be renamed as you wish by clicking the device name. Soft synthesizers are created by clicking in the soft synthesizer list and then Add Instance. Or you can simply create a new synthesizer track from the arranger track list, or even the mixer menus.</li>
+    <li><strong>In and Out routes:</strong><br />
+    These are for Jack MIDI devices, they are the routes to and from available Jack MIDI ports. Jack may provide different alias names for these ports, you can select which alias is shown.</li>
+    <li><strong>Default in channels:</strong><br />
+    Auto-connect these port channels to new midi or drum tracks.</li>
+    <li><strong>Default out channel:</strong><br />
+    Auto-connect new midi or drum tracks to this channel on the port.</li>
+    <li><strong>State:</strong><br />
+    Indicates the state of the port including any errors opening it.</li>
+    </ul>
+    <h2 id="audio-settings">Audio settings</h2>
+    <h3 id="minimum-control-period">Minimum control period</h3>
+    <p>Plugins can usually process an arbitrarily small (or large) amount of samples. If some plugin control value changes continuously, to provide ideal listening experience, MusE would need to call the plugin 44100 times a second, asking for one single value at a time. With the minimum control period setting, the user can force MusE to ask the plugin for at least N values. Setting this value to 64 would in this situation make MusE call the plugin 689 = 44100/64 times a second, asking for 64 values at a time. While doing this will reduce accuracy of control changes, it may also reduce CPU usage, because calling the plugin more often, requesting smaller chunks, is more expensive than calling it seldomly, requesting larger chunks.</p>
+    <p>If you have no performance problems, or if you want to do the final downmix of your project, setting this to a low value ensures fine grained parameter changes which could mean improved sound quality.</p>
+    <p>And conversely, if you’re experiencing performance problems, increasing this value might help.</p>
+    <h2 id="hidpi">HiDPI</h2>
+    <p>MusE uses the Qt framework which has a fairly good support for HiDPI screens. So the MusE application itself should be scaled automatically, according to your screen’s DPI. If it doesn’t (e.g. the monitor is not properly recognized or your desktop uses wrong presets), you should still be able to set an appropriate scaling using the corresponding environment variables. See <a href="https://doc.qt.io/qt-5/highdpi.html#high-dpi-support-in-qt">Qt HiDPI settings</a> for more information.</p>
+    <p>The typical problem with HiDPI (which affects all existing Linux DAWs) are the native GUIs of the plugins. They use different UI technologies, many of them are old and hardly any has a proper HiDPI support. Qt normally opens the native plugin window with the current application scale factor, which can lead to ugly effects as most plugins ignore this setting.</p>
+    <p>To cope with these issues, a new parameter exists as of MusE 3.1 (Global settings -&gt; GUI tweaks -&gt; Revert native GUI scaling in HiDPI). When set, the size of the native plugin window is explicitly adjusted to fit non-scaling plugins.</p>
+    <p>As the behaviour of the plugins can be very individual, there is a possibility to override the setting on a per plugin basis. This can be done in the Settings found in the generic plugin GUI.</p>
+    <p>Some plugins ignore the window size set by the caller (MusE in this case) and resize their windows uncontrollably.</p>
+    </div>
+  </div>
+  </body>
+</html>

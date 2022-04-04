@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="plugins">Plugins</h1>
+    <p>Plugins are small add-ons which can process a track’s data.</p>
+    <p>Audio plugins can be applied to any track handling audio (that is, inputs, outputs, wave tracks, synth tracks).</p>
+    <h2 id="the-audio-effects-rack">The audio effects rack</h2>
+    <p>All audio track types (Input, Output, Group, Wave, Synth, and Aux) have an effects rack into which audio plugins can be inserted in a chain. Currently each rack can accommodate up to eight plugins.</p>
+    <p>MusE currently supports LADSPA effect plugins and DSSI/LV2/VST2 synth and effects plugins.</p>
+    <p>Plugins can be added by double-clicking on an entry in the effect rack in the track info pane (which is shown at the left side of the arranger when the according track is selected). Right-clicking the rack items offers a self-explanatory popup menu.</p>
+    <p>All plugin controls can be automated. (See <a href="automation.html#audio-automation">audio automation</a>).</p>
+    <p>One must carefully consider how many audio inputs and outputs a plugin has, and how may channels the particular audio track has (1 mono or 2 stereo), and how MusE uses the plugins in the rack.</p>
+    <h3 id="audio-plugin-graphical-user-interfaces-guis">Audio plugin Graphical User Interfaces (GUIs)</h3>
+    <p>Once a plugin is added, you need a way to manipulate its controls, which affect its behaviour and operate on the sound. MusE can show a generic GUI which contains all of the plugin’s controls arranged in a rather plain generic fashion. Many plugins do however have a native GUI which usually looks better (it was specifically designed for the plugin). Both GUI types are opened from the effects rack right-click popup menu.</p>
+    <h2 id="understanding-the-effects-rack">Understanding the effects rack</h2>
+    <p>One must carefully consider how many audio inputs and outputs a plugin has, and how may channels the particular audio track has (1 mono or 2 stereo), and how MusE uses the plugins in the rack.</p>
+    <p>MusE will try to internally create as many independent copies (instances) of a plugin as necessary, to satisfy the number of channels in the audio track. Basically it divides the number of track channels by the number of plugin audio inputs or outputs to determine how many copies to make. First it examines the number of plugin audio outputs, and if there are none, it will examine the number of audio inputs, and if there are none, it will simply use just one plugin copy.</p>
+    <p>For mono tracks with plugins having more than one audio input or output, MusE uses the first input or output and ignores the rest.</p>
+    <p>For stereo tracks:</p>
+    <table>
+    <colgroup>
+    <col style="width: 17%" />
+    <col style="width: 9%" />
+    <col style="width: 8%" />
+    <col style="width: 31%" />
+    <col style="width: 32%" />
+    </colgroup>
+    <tbody>
+    <tr class="odd">
+    <td>plugin inputs</td>
+    <td>outputs</td>
+    <td>copies</td>
+    <td>track in route channels</td>
+    <td>track out route channels</td>
+    </tr>
+    <tr class="even">
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    </tr>
+    <tr class="odd">
+    <td>0</td>
+    <td>1</td>
+    <td>2</td>
+    <td>0</td>
+    <td>2</td>
+    </tr>
+    <tr class="even">
+    <td>0</td>
+    <td>&gt;=2</td>
+    <td>1</td>
+    <td>0</td>
+    <td>2</td>
+    </tr>
+    <tr class="odd">
+    <td>1</td>
+    <td>0</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    </tr>
+    <tr class="even">
+    <td>1</td>
+    <td>1</td>
+    <td>2</td>
+    <td>2</td>
+    <td>2</td>
+    </tr>
+    <tr class="odd">
+    <td>1</td>
+    <td>&gt;=2</td>
+    <td>1</td>
+    <td>1 (L only)</td>
+    <td>2</td>
+    </tr>
+    <tr class="even">
+    <td>&gt;=2</td>
+    <td>0</td>
+    <td>1</td>
+    <td>2</td>
+    <td>0</td>
+    </tr>
+    <tr class="odd">
+    <td>&gt;=2</td>
+    <td>1</td>
+    <td>2</td>
+    <td>2</td>
+    <td>2</td>
+    </tr>
+    <tr class="even">
+    <td>&gt;=2</td>
+    <td>&gt;=2</td>
+    <td>1</td>
+    <td>2</td>
+    <td>2</td>
+    </tr>
+    </tbody>
+    </table>
+    <p>Notice that on a stereo track with a plugin having one audio input and two audio outputs, only the first track input route channel is used (left only).</p>
+    <p>These same rules apply to inter-plugin audio when more than one plugin is in the rack chain. Extra audio outputs of one plugin may be ignored by the next plugin if not used.</p>
+    <p>Currently specialized plugins with many inputs and/or outputs are not really useful in MusE.</p>
+    <p>Nor are so-called ‘realtime’ control plugins which use audio inputs and outputs for control signals.</p>
+    <p>Loud noise alert! Beware of using such plugins in an audio effects rack.</p>
+    <p>Example: Consider a stereo Audio Input track with these effect rack LADSPA plugins:</p>
+    <ul>
+    <li>comb_splitter Comb Splitter by Steve Harris</li>
+    <li>tap_stereo_echo Tap Stereo Echo by Tom Szilagyi</li>
+    </ul>
+    <p>The Comb Splitter has one audio input and two audio outputs. The Stereo Echo has two audio inputs and two audio outputs.</p>
+    <p>The stereo Audio Input track will therefore ignore its second input route connection. It will process the left input only, separating it into stereo with the Comb Splitter, passing the split stereo signal into the Stereo Echo, finally producing stereo output available at the Audio Input track’s output routes.</p>
+    <p>One improvement would be not creating unused redundant plugin copies between plugins in stereo tracks. For example, for a plugin having one audio input and one audio output, feeding a plugin having one audio input and two audio outputs, the extra copy of the first plugin is redundant and not required, but currently it is created anyway.</p>
+    </div>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="routes">Routes</h1>
+    <p>Routes are how tracks are connected together and to the outside world. (They are also how Jack midi ports connect to the outside world. See midi <a href="configuration.html#midi-ports">port configuration</a>). Each track strip has two buttons whose icons look like arrows. One button is for input routing and the other is for output routing. Clicking on these buttons will pop up a menu of available input or output routes that you can connect to. Most audio tracks list other tracks to connect to, but audio input and output tracks are special: Audio input track input routing menus list available Jack audio input ports. Conversely audio output track output routing menus list available Jack audio output ports.</p>
+    <div data-align="CENTER">
+    <p><img src="man/output_routing.png"></img></p>
+    </div>
+    <p>Meanwhile MIDI and drum tracks allow you to route available MIDI ports and channels to the track using a handy popup matrix.</p>
+    <div data-align="CENTER">
+    <p><img src="man/midi_routing_matrix.png"></img></p>
+    </div>
+    <h2 id="anti-circular-routing">Anti circular routing</h2>
+    <p>Any routing menu item which would cause a circular routing condition is grayed out. Find out why the condition would exist by examining routing paths involved and correct the situation if required.</p>
+    <p>Also, you cannot use a track’s aux sends if the track has an input route path from ANY Aux Track. (See <a href="tracks.html#audio-aux-tracks">aux tracks</a>). Aux send knobs and labels are disabled in that case.</p>
+    <h2 id="soloing-chain-routes">Soloing chain routes</h2>
+    <p>Soloing chains (see <a href="trackssolo.html#soloing-chains">solo chains</a>) are really just routes like any other. The available solo chaining paths are displayed in the routing popup menus.</p>
+    </div>
+  </div>
+  </body>
+</html>

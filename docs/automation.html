@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="automation">Automation</h1>
+    <p>Automation is the ability to record (or construct) and playback exact sequences of control movements.</p>
+    <p>MusE can automate both MIDI and audio but they are handled somewhat differently although they share a number of similarities.</p>
+    <h2 id="audio-automation">Audio automation</h2>
+    <p>Almost all graphical audio controls in MusE can be automated. This includes an audio track’s volume and pan, and the controls of any plugins in the effects rack, and if the track is a synthesizer track, all of the synth’s controls.</p>
+    <p>Each control has a manual adjustment value. This value is shown when there is no automation data at all, or automation has been disabled.</p>
+    <p>For plugin and synth controls, it is usually more desirable to manipulate automation with the generic plugin GUIs, because MusE has full control over their behaviour. (See <a href="#the-audio-effects-rack">plugin GUIs</a>).</p>
+    <p>There are a few ways to enter audio automation data:</p>
+    <ul>
+    <li>By adjusting audio controls while the transport is rolling. MusE will record the exact movements.</li>
+    <li>By adjusting audio controls while the transport is stopped, at different transport positions. TOUCH mode allows this.</li>
+    <li>By right-clicking any audio control and choosing an operation from the automation popup menu. This includes storing, erasing, and clearing automation events, and seeking the next or previous event.</li>
+    <li>By drawing the data on the audio track’s automation graphs. (See <a href="#tracks">track automation</a>).</li>
+    </ul>
+    <h3 id="audio-automation-modes">Audio automation modes</h3>
+    <p>Each audio track strip has an automation mode button at the bottom. There are four automation modes:</p>
+    <ul>
+    <li><strong>OFF:</strong><br />
+    Disables all automation, uses manual value always.</li>
+    <li><strong>READ:</strong><br />
+    Automation data is applied to controls. If any automation data exists, the manual value is overridden and has no effect.</li>
+    <li><strong>TOUCH:</strong><br />
+    Allows you to alter a control at any time, while transport is stopped or rolling, If rolling, when the control is released it returns to reading from automation data.</li>
+    <li><strong>WRITE:</strong><br />
+    Allows to adjust an initial value before rolling the transport. While rolling, when the control is released it does not return to reading from automation data.</li>
+    </ul>
+    <p>Here is a screenshot of automation WRITE mode, and some automation data, with the track pane automation popup menu showing (see <a href="#tracks">track automation</a>):</p>
+    <div data-align="CENTER">
+    <p><img src="man/main_window_with_automation.png"></img></p>
+    </div>
+    <h2 id="midi-automation">Midi automation</h2>
+    <p>MIDI automation is a slightly different concept: Unlike audio automation, currently there is no automation ‘mode’ and it doesn’t record graphical control movements. Data is viewed from within the pianoroll and drum editors, by clicking on the ‘Ctrl’ button on those canvases.</p>
+    <p>Similar to audio controls, each midi control has a manual adjustment value. This value is overridden when there is midi automation data.</p>
+    <p>There are a few ways to enter MIDI automation data:</p>
+    <ul>
+    <li>By adjusting external MIDI controls (such as a midi keyboard pitch or modulation wheel) while the transport is rolling and both the transport and midi track are in record mode. MusE will record the exact movements. As mentioned earlier, note that graphical control movements are not recorded.</li>
+    <li>By right-clicking any midi control and choosing an operation from the automation popup menu. This includes storing and erasing automation events. <!-- - By adjusting volume, pan, bank or program boxes in the midi
+        trackinfo panel and clicking the corresponding volume, pan, or
+        program buttons. (See midi [trackinfo](#tracks)). --></li>
+    <li>By drawing the data on a midi part’s automation graphs.</li>
+    </ul>
+    <p>Here is a screen shot of a midi track, containing a midi part which has been opened with the pianoroll editor and automation data showing.</p>
+    <p>The ‘Ctrl’ popup menu (bottom left) shows available midi controllers and the green dot indicates there is some data.</p>
+    <div data-align="CENTER">
+    <p><img src="man/main_window_with_midi_automation.png"></img></p>
+    </div>
+    </div>
+  </div>
+  </body>
+</html>

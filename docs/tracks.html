@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="tracks-and-parts">Tracks and parts</h1>
+    <p>MusE arranges your music in <em>tracks</em> and <em>parts</em>. The following section will provide an overview of how things are done with MusE. If you are or were a Cubase or Cakewalk user, you will feel familiar with this.</p>
+    <h2 id="tracks">Tracks</h2>
+    <p>There are two general classes of tracks: MIDI tracks and audio tracks. MIDI tracks (and drum tracks which are internally MIDI tracks) can hold note data. The Wave track is a type of audio track which holds wave data. There are also several other kinds of audio tracks.</p>
+    <h3 id="midi-tracks">MIDI tracks</h3>
+    <p>MIDI and drum tracks hold MIDI event data. They don’t differ much, except that drum tracks offer a special editor which is more suitable for drum editing.</p>
+    <p>MIDI and drum tracks send their MIDI information to a MIDI output device, this is either a device externally to MusE or even the computer, for instance a Yamaha DX7 to give a retro example. The MIDI output device may also be an internal soft synth, represented by the Synthesizer track type below.</p>
+    <h3 id="wave-tracks">Wave tracks</h3>
+    <p>They hold audio data which can be just played back or be piped through effect plugin chains. They offer automation for these plugins.</p>
+    <h3 id="audio-input-tracks">Audio input tracks</h3>
+    <p>These provide the path for your audio data from outside MusE into your project. Set up the physical audio inputs you want to connect your audio input track with, and then route the input tracks to various other tracks such as wave tracks.</p>
+    <h3 id="audio-output-tracks">Audio output tracks</h3>
+    <p>These provide the path for your project’s audio data to outside. Set up the physical audio outputs you want to connect your audio out track with, and then route various other tracks, such as wave tracks, to the output tracks.</p>
+    <h3 id="audio-group-tracks">Audio group tracks</h3>
+    <p>Group tracks are like busses, where you can route other tracks to them, then route the groups to other tracks. Since group tracks have all the features of other audio tracks, like volume and pan, they provide a convenient common routing point where you have control of the sound before it is passed to other tracks.</p>
+    <h3 id="audio-aux-tracks">Audio aux tracks</h3>
+    <p>These provide a more convenient way to mix several audio tracks together. With each audio aux track added, other audio tracks will gain a common send knob for adjusting the level sent to the aux track. This can be more convenient than using several group tracks.</p>
+    <h3 id="synthesizer-tracks">Synthesizer tracks</h3>
+    <p>This type of track is a software synthesizer which MIDI and drum tracks can be assigned to. Meaning that the notes played on the MIDI or drum track will be sent to the synth for generating audio.</p>
+    <h3 id="creation">Creation</h3>
+    <p>You can create a track by either right-clicking in the arranger’s track list and then adding the desired track, or via the edit menu.</p>
+    <h3 id="attributes">Attributes</h3>
+    <p>Tracks have several attributes:</p>
+    <ul>
+    <li><strong>Mute:</strong><br />
+    If you click on the <em>Mute</em> field, the track gets muted and stops producing sound.</li>
+    <li><strong>Solo:</strong><br />
+    The solo button singles out a track for listening. It mutes some other tracks but may phantom solo others. For more info see the section on <a href="trackssolo.html#track-soloing">soloing</a> and <a href="trackssolo.html#phantom-soloing">phantom soloing</a>.</li>
+    <li><strong>Record:</strong><br />
+    The record column “arms” your track for recording. When you rec-arm your song and have no tracks rec-armed, you won’t be able to record anything. See also the config option “move rec-arm with selection”.</li>
+    <li><strong>Track name:</strong><br />
+    Double-click to edit the track name.</li>
+    <li><strong>Port:</strong><br />
+    For MIDI tracks, this lets you select the MIDI port to which the events should be routed. This can be your physical synthesizer or a software synthesizer. For soft synths, this is the port the synth is associated to. For other track types, this is disabled.</li>
+    <li><strong>Channel:</strong><br />
+    For MIDI tracks, this is the MIDI channel the output is sent to. For any kind of audio tracks, this is the number of channels (mono, stereo).</li>
+    <li><strong>Automation:</strong><br />
+    For audio tracks, this lets you set up the automation display in the arranger. (See <a href="automation.html#audio-automation">automation</a>). Clicking this will provide you with a popup menu with lots of submenus. Clicking on a submenu will select or unselect it showing or hiding the automation parameter as a graph overlaid on top of the track.</li>
+    </ul>
+    <p>The submenus let you select the color you want to associate with the automation parameter. There you can also assign midi controllers to the parameters, a dialog is shown where you can manually choose the midi controller, with a <em>learn</em> button to ‘listen for’ and automatically recognize any midi controller operated by you.</p>
+    <ul>
+    <li><strong>Clef:</strong><br />
+    For MIDI tracks, you can specify a clef here. This only affects the score editor.</li>
+    </ul>
+    <h3 id="the-mixer-strip-side-bar">The mixer strip side bar</h3>
+    <p>In the arranger and the part editors, you’ll have a mixer sidebar on the left side. You can set up track-type specific things there.</p>
+    <p>The MIDI sidebar lets you change program, volume, pan and more.</p>
+    <h3 id="drum-tracks">Drum tracks</h3>
+    <p>They are handled exactly like plain MIDI tracks (staying compatible with them), and offer all of the functionality, though in a different way. They allow you to re-order the drum map efficiently, you can open parts from multiple drum tracks in <em>one</em> drum editor (MusE will separate the sounds from different tracks according to your settings, see the “Display” menu), and you can set programs as with normal MIDI tracks.</p>
+    <h4 id="midi-controls">MIDI controls:</h4>
+    <ul>
+    <li><strong>Output port:</strong><br />
+    This drop-down list selects the midi port to send midi output from this track.</li>
+    <li><strong>Output channel:</strong><br />
+    This box selects the midi channel to be used on the output port.</li>
+    <li><strong>Input and output routing:</strong><br />
+    Selects midi ports and channels to receive midi from, and soloing paths. (See <a href="routes.html#routes">Routes</a>). <!-- - **Midi through:**  
+        This button selects whether midi input is passed through to the
+        selected output port.  
+
+        Depending on your midi devices and settings, there are cases when this
+        should be off such as using the same port and channel for input and
+        output (otherwise a double-note *echo* will be
+        heard), and cases when it must be on such as when using a synthesizer
+        track as output device. --></li>
+    </ul>
+    <p><!-- - **Input detect indicator:**  
+        Blinks when midi activity is detected on the selected midi channels
+        on the selected midi input ports. --> - <strong>Transpose:</strong><br />
+    This transposes midi input notes up or down in pitch. This is very useful if your midi keyboard hasn’t enough keys or the selected output device plays an octave too low or high, and you would like to shift the octave of the incoming notes to compensate. - <strong>Delay:</strong><br />
+    Adjusts the delay of the notes. - <strong>Length:</strong><br />
+    Adjusts the length of the notes. - <strong>Velocity:</strong><br />
+    Adjusts the velocity of incoming notes. Use it to compensate for a too-loud or too-soft keyboard. - <strong>Compression:</strong><br />
+    Adjusts the compression of incoming note velocities. Use it to make soft incoming notes louder, and loud notes not so loud. - <strong>Instrument:</strong><br />
+    Selects the midi instrument patch to be used by the selected output port. This is equivalent of dialing the patch in the bank and program boxes, except it displays a more friendly patch <em>name</em> as defined by the selected output port’s midi instrument. See instruments, or <a href="configuration.html#midi-ports">port configuration</a> - <strong>H-Bank:</strong><br />
+    Selects the high bank number of the current patch. - <strong>L-Bank:</strong><br />
+    Selects the low bank number of the current patch. - <strong>Prog:</strong><br />
+    Selects the program number of the current patch. - <strong>Volume:</strong><br />
+    Adjusts the midi volume controller. - <strong>Pan:</strong><br />
+    Adjusts the midi pan controller.</p>
+    <!-- The buttons beside the Prog, Volume, and Pan boxes store the value, at
+    the current transport position, for midi automation. (See
+    [automation](#midi-automation)). -->
+    <!-- Note that the 'Prog' button stores H-Bank and L-Bank along with 'Prog'
+    value, so there are no H-Bank and L-Bank buttons. -->
+    <!-- The 'All' button simply stores all three Program (and banks), Volume,
+    and Pan values at once. -->
+    <p><em>Tip:</em> If the Song Type is GM, GS, or XG, you may need to store desired values at transport position zero, otherwise your adjustments may be overridden by the instrument when the transport is moved back to position zero. <!-- If this behaviour is undesired, you can
+    set the Song Type to 'NO' meaning no song type. --></p>
+    <h3 id="audiomidi-sidebar">Audio/MIDI sidebar</h3>
+    <p>The side bar, also called Track-Pane, is an embedded mixer strip, the exact same strip as found in the mixers. (See <a href="basic.html#mixer">mixer</a>).</p>
+    <h4 id="effects-rack">Effects rack:</h4>
+    <p>On the top of the audio sidebar, there is an effects rack which allows you to apply various plugins on the audio. For more information on this, refer to <a href="plugins.html#the-audio-effects-rack">effects rack</a>.</p>
+    <h2 id="parts">Parts</h2>
+    <p>Within MIDI, drum and wave tracks, you can create <em>parts</em>. Parts are chunks of coherent notes or wave data which can be moved around, copied, cloned and deleted independent from other parts.</p>
+    <p>Parts are created by selecting the Pencil tool and then drawing onto the right part area in the arranger. You can move them with the Arrow tool, delete them using the <strong>DEL</strong> key, and a right-click opens a popup menu. This menu allows you even more stuff, such as setting the part’s color, saving the part to disk etc.. You can use <strong>CTRL+C</strong> and <strong>CTRL+V</strong> for copying and pasting parts. <strong>CTRL+B</strong> pastes the part as a clone. Pressing <strong>SHIFT</strong> additionally provides you a dialog which allows you to paste the part multiple times and set more stuff.</p>
+    <p>You can also copy parts with the mouse by moving the part with the mouse while holding down the <strong>CTRL</strong> key.</p>
+    </div>
+  </div>
+  </body>
+</html>

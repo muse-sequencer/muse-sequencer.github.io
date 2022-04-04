@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="the-panic-toolbar">The Panic Toolbar</h1>
+    <div data-align="CENTER">
+    <p><img src="man/panic_toolbar.png"></img></p>
+    </div>
+    <p>Due to the way MIDI works there is sometimes a need to reinitialize the state of MIDI devices, this functionality is collected on this toolbar.</p>
+    <h2 id="the-panic-button">The Panic button</h2>
+    <p>In rare cases some midi notes may be stuck on, and you just want them to shut up immediately.</p>
+    <p>The ‘panic’ button sends the midi controller ‘all sounds off’ and ‘reset all controls’ mode commands (controllers 0x78 and 0x79) to all channels on all MusE midi ports.</p>
+    <p>The panic button is found in the Arranger and Midi Editor toolbars, and several other window toolbars.</p>
+    <h2 id="the-local-off-button">The Local Off button</h2>
+    <p>The local off sends the midi controller ‘local off’ mode command (controller 0x7a) to all channels on all MusE midi ports.</p>
+    <h2 id="the-reset-instrument-button">The Reset Instrument button</h2>
+    <p>The ‘reset instrument’ button sends note-offs to all channels on all MusE midi ports.</p>
+    <h2 id="the-init-instrument-button">The Init Instrument button</h2>
+    <p>The ‘init instrument’ button re-sends initialization messages (typically mode sysex messages) as defined by the instrument (see the Edit Instrument dialog).</p>
+    <p>This is usually done automatically on project load but can be turned off in Settings, hence the manual button here.</p>
+    </div>
+  </div>
+  </body>
+</html>
