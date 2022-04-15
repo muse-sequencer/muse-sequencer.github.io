@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentación</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="projects">Projects</h1>
+    <h1 id="proyectos">Proyectos</h1>
+    <p>Los proyectos MusE constan de un archivo <strong>.med</strong> y un número cualquiera de archivos de audio, si se utiliza audio grabado. Como se señaló en el tutorial de inicio rápido, se recomienda marcar la la opción <em>crear subcarpeta de proyecto</em> (Create project subfolder) si su proyecto grabará archivos de audio.</p>
+    <p>Tenga en cuenta que esto es para los archivos de audio que crea MusE; si tiene archivos de audio externos que se importan a MusE, no importa a este respecto, ya que MusE hará referencia a la ubicación original del archivo. Sin embargo, para hacer que su proyecto sea portátil y más fácil de realizar una copia de seguridad, es una buena idea colocar también los archivos .wav importados en la carpeta del proyecto, antes de importarlos.</p>
+    <p>MusE creará proyectos en la carpeta de proyectos globales, que inicialmente es <code>$HOME/MusE</code>. Será creado si no existe. Por ejemplo, si se crea un proyecto llamado GreatSong con la opción de subcarpeta marcada, la ruta al archivo <strong>.med</strong> será <code>$HOME/MusE/GreatSong/GreatSong.med</code>. Además, cualquier archivo de audio que cree MusE se colocará en la carpeta <code>$HOME/MusE/GreatSong</code>.</p>
+    <p>La carpeta global del proyecto se puede cambiar desde el cuadro de diálogo <strong>Nuevo proyecto</strong> (New project).</p>
+    <h2 id="plantillas">Plantillas</h2>
+    <p>Una vez que haya comenzado a tener una comprensión más profunda de cómo prefiere trabajar con MusE, es posible que descubra que existen ciertos parámetros de configuración que siempre desea tener. Por ejemplo, que siempre cree pistas de entrada para todas sus entradas físicas en su tarjeta de sonido, o tal vez cree algunas instancias de sus sintetizadores de software favoritos que usa a menudo. Esto se puede lograr en MusE creando plantillas.</p>
+    <h2 id="plantillas-de-inicio">Plantillas de inicio</h2>
+    <p>MusE siempre usa plantillas. De forma predeterminada, cuando se inicia MusE, se carga una plantilla llamada <strong>default.med</strong>. Esta plantilla contiene solo una <strong>pista de salida</strong> que debe conectarse a la tarjeta de sonido, si existe una tarjeta de sonido.</p>
+    <p>En el cuadro de diálogo <strong>Configuración ➜ Configuración Global </strong>(Settings ➜ Global Settings) en la pestaña <strong>Aplicación</strong> (Application), la plantilla de inicio se puede cambiar a cualquier plantilla que exista en su sistema.</p>
+    <h3 id="creando-plantillas">Creando plantillas</h3>
+    <p>Para crear una plantilla para un caso de uso específico, simplemente configure las cosas que desea tener preconfiguradas en sus proyectos como lo haría normalmente al hacer una canción, y justo antes de comenzar a crear música, seleccione <strong>Archivo➜ Guardar como plantilla</strong> (File➜Save As Template), dé a la plantilla un nombre de archivo descriptivo y guárdelo en la carpeta seleccionada.</p>
+    <div data-align="CENTER">
+    <p><img src="man/template_superrock.png"></img></p>
+    </div>
+    <p><em>Nota: No está en contra de las reglas agregar música a una plantilla, por supuesto. Hágalo si tiene un caso de uso específico, pero para la mayoría de las veces no será necesario.</em></p>
+    <h3 id="usando-plantillas">Usando plantillas</h3>
+    <p>La opción <strong>Archivo ➜ Nuevo desde plantilla… </strong>(File ➜ New from Template… ) mostrará una lista de plantillas disponibles. De forma predeterminada, el cuadro de diálogo mostrará plantillas de la vista <strong>Global</strong>, que son algunas plantillas incluidas con MusE como ejemplos. Al hacer clic en el botón <strong>Usuario</strong> (User), se mostrará la plantilla que se acaba de crear. Use templates</p>
+    <div data-align="CENTER">
+    <p><img src="man/template_load.png"></img></p>
+    </div>
+    </div>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentación</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="pistas-solistas">Pistas solistas</h1>
+    <p>La funcionalidad “solista” (track soloing) le permite escuchar una pista mientras silencia a las otras, sin tener que silenciarlas una a una (Ver atributo “solo” en <a href="tracks.html#atributos-de-pistas">pistas</a>).</p>
+    <h2 id="solo-fantasma">Solo fantasma</h2>
+    <p>Para hacer solista a una pista y silenciar otras, MusE emplea la función de ‘solo fantasma’ (Phantom soloing): cuando una pista es solista, MusE hace automáticamente solistas a todas las pistas enrutadas hacia y desde esta pista. (Ver <a href="routes.html#rutas">rutas</a>). Una pista fantasma en solo se indica en la columna de solista (solo) del panel de pistas. (Ver <a href="tracks.html#atributos-de-pistas">atributos de pistas</a>).</p>
+    <div data-align="CENTER">
+    <p><img src="man/phantom_soloing.png"></img></p>
+    </div>
+    <h2 id="cadenas-de-solos">Cadenas de solos</h2>
+    <p>Cuando una pista de salida de audio envía audio a alguna entidad externa, como ser una aplicación externa en ejecución, y el audio de esa entidad externa se retroalimenta a una pista de entrada de audio de MusE, las cadenas de solo (Soloing chains) le permiten poner en solo la entrada o salida, y MusE completará el camino aislando automáticamente al otro y todas las rutas que vinieron antes o después de él.</p>
+    <p>Las cadenas de solo también funcionan con pistas MIDI encadenadas a entradas de audio: cuando una pista MIDI activa algún dispositivo externo MIDI cuyo audio se alimenta a MusE, las cadenas de solo permiten que toda la cadena sea solista.</p>
+    <p>Acceda a las “cadenas de solo” a través de los menús de enrutamiento. (Ver <a href="routes.html#rutas-de-cadenas-de-solos">rutas de cadenas de solos</a>).</p>
+    </div>
+  </div>
+  </body>
+</html>

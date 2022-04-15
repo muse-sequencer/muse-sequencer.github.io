@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentación</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="complementos-plugins">Complementos (plugins)</h1>
+    <p>Los complementos son pequeños programas auxiliares que pueden procesar los datos de una pista.</p>
+    <p>Los complementos de audio se pueden aplicar a cualquier pista que maneje audio (es decir, entradas, salidas, pistas de ondas, pistas de sintetizador). La sección del rack de efectos describe esto. (Ver <a href="https://github.com/muse-sequencer/muse/wiki/understanding-the-effects-rack">rack de efectos</a>).</p>
+    <h2 id="el-rack-de-efectos-de-audio-the-audio-effects-rack">El rack de efectos de audio (The audio effects rack)</h2>
+    <p>Todos los tipos de pistas de audio (entrada, salida, grupo, onda, sintetizador y auxiliar) tienen un rack de efectos en el que se pueden insertar complementos de audio en cadena. Actualmente, cada bastidor puede alojar hasta ocho complementos.</p>
+    <p>MusE actualmente admite complementos de efectos LADSPA y complementos de efectos y sintetizadores DSSI / LV2 / VST2.</p>
+    <p>Los complementos pueden ser agregados haciendo doble clic en una entrada en el rack de efectos en el panel de información de la pista (que se muestra en el lado izquierdo del Arreglador cuando se selecciona la pista correspondiente). Al hacer clic con el botón derecho en los elementos del bastidor, aparece un menú emergente intuitivo.</p>
+    <p>Todos los controles de complementos se pueden automatizar (ver <a href="automation.html#automatización-de-audio">automatización de audio</a>).</p>
+    <p>One must carefully consider how many audio inputs and outputs a plugin has, and how may channels the particular audio track has (1 mono or 2 stereo), and how MusE uses the plugins in the rack.</p>
+    <p>Uno debe considerar cuidadosamente cuántas entradas y salidas de audio tiene un complemento, y cuántos canales tiene la pista de audio en particular (1 mono o 2 estéreo), y cómo MusE usa los complementos en el rack.</p>
+    <p>Obtenga más información sobre esto en <a href="https://github.com/muse-sequencer/muse/wiki/understanding-the-effects-rack">entendiendo el rack de efectos</a>.</p>
+    <h3 id="gui-de-complementos">GUI de complementos</h3>
+    <p>Una vez que se agrega un complemento, necesita una forma de manipular sus controles, lo que afecta su comportamiento y así operar sobre el sonido. MusE puede mostrar una <em>GUI</em> (interfaz gráfica de usuario) genérica que contiene todos los controles del complemento organizados de una manera bastante simple. Sin embargo, muchos complementos tienen una GUI propia que generalmente se ve mejor (y que fue diseñada específicamente para el complemento). Ambos tipos de GUI se abren desde el menú emergente del botón derecho del ratón del rack de efectos.</p>
+    </div>
+  </div>
+  </body>
+</html>

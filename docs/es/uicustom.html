@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentación</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="customizing-ui">Customizing the User Interface</h1>
+    <p>The UI can be customized in two different ways:</p>
+    <ol type="1">
+    <li>By means of the internal colour dialog. This is a very simple and user-friendly way, the changes are immediately visible. Many of the colours of the MusE-speficic UI elements can be customized that way.</li>
+    <li>By means of external style sheets. This is generic Qt framework functionality, based on the CSS standard. It’s suitable for generic customizing of Qt widgets. See <a href="https://doc.qt.io/qt-5/stylesheet-reference.html">Qt style sheets</a> for more information.</li>
+    </ol>
+    <h2 id="internal-colors">Internal colors</h2>
+    <p>The colours can be changed in <em>Settings-&gt;Appearance…-&gt;Colors</em>. The colours are saved in the theme-specific .cfc file in the user home folder.</p>
+    <p>There is a colour definition file for each theme delivered by MusE (e.g. …/themes/Dark Flat.cfc). Starting with MusE 3.1, a user-specific file (e.g. ~/…/themes/Dark Flat.cfc) is saved in the home folder when the theme is switched (so the current theme-specific colours are not lost any more), and reloaded when switching back to this theme.</p>
+    <p>There are also functions to save and load the colour definition files manually.</p>
+    <h2 id="style-sheets">Style sheets</h2>
+    <p>Similarly, there is a style sheet for each theme bundled with MusE, which is loaded when a theme is switched (e.g. …/themes/Dark Flat.qss). It can be overridden by a file of the same name in the home folder (e.g. ~/…/themes/Dark Flat.qss). There is also an option (in <em>Settings-&gt;Appearance…-&gt;Themes</em>) to “cascade” both these files (if both exist), i.e. the files are merged and if identical rules are detected in both, the user-specific rule overrides the global one. This makes it easy to use the global rules as a basis and selectively change only some of them in the user style sheet.</p>
+    <h2 id="icons">Icons</h2>
+    <p>As of MusE 4.0, there is a possibility to override the bundled SVG icons (theme-specific). For that to work, create a folder with the theme name in your ~/…/themes/ directory (e.g. “Dark Flat”) and put your own icons in there under the same name as the <a href="https://github.com/muse-sequencer/muse/tree/master/muse3/svg">original icons</a>.</p>
+    <h2 id="user-themes">User themes</h2>
+    <p>As of MusE 4.01, custom user themes are supported. The corresponding .qss file can be copied into the ~/…/themes/ folder. It will then be displayed in the normal theme selection under Appearance-&gt;Themes.</p>
+    </div>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentación</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <p>On this page are various FAQ-like items listed, that may help in understanding in fixing certain issues with MusE.</p>
+    <p>You are also very welcome to visit our <a href="https://linuxmusicians.com/viewforum.php?f=61">forum</a> to join our community and ask questions there. The developers usually hang out there too.</p>
+    <h1 id="recommended-setup-to-enable-realtime-audio-support">Recommended setup to enable realtime audio support:</h1>
+    <ul>
+    <li><p>Create an “audio” group if it does not already exists and put yourself into this group</p></li>
+    <li><p>For realtime priority, you may want to ensure either the file: <code>/etc/security/limits.conf</code> or <code>/etc/security/limits.d/audio.conf</code> contains:</p></li>
+    </ul>
+    <pre><code>@audio   -  rtprio     95
+    @audio   -  memlock    unlimited</code></pre>
+    <p>Some distros have a graphical menu or tool which does this for you. For example Ubuntu Studio Controls.</p>
+    <h1 id="muse-complaining-about-less-than-500hz-timer-upon-startup">MusE complaining about less than 500hz timer upon startup</h1>
+    <p>MusE requires a high performance timer to be able to keep a stable beat. It is recommended that your operating system be setup to allow at least a 500hz timer, MusE will warn you if this is not available. Roughly it can be said that the higher resolution the better. 1000hz is a good round number, way above what most people are able to recognize. MusE supports several timing sources, RTC, ALSA and Dummy.</p>
+    <p><strong>Hint: For the easiest setup, skip ahead to the ALSA-timer chapter.</strong></p>
+    <h2 id="rtc-timer">RTC Timer</h2>
+    <p>This is the highest resolution timer that MusE can utilize. This is the one MusE first looks for, if it doesn’t work it falls back to the Alsa timer. There are three common reasons why the RTC timer may not work. 1. The RTC timer is not a shared resource, only one application can use it at a time, if some other timing critical application has already grabbed it you are out of luck. 2. The user may not have permission to open the rtc device. On some systems the rtc device is owned by a specific group. A good way to check if this may be an issue is to try starting MusE as root and see if the error goes away. 3. The RTC device may be limited in the max frequency settable for a user.</p>
+    <p>If you are having trouble getting rtc working try these changes: Add the following line:</p>
+    <pre><code>echo 3072 &gt;/sys/class/rtc/rtc0/max_user_freq</code></pre>
+    <p>to /etc/rc.local directly above the “exit” line.</p>
+    <p>However, it may still not work because the permissions to /dev/rtc may revert to root only. The solution to this listed below (as documented here http://linuxmusicians.com/viewtopic.php?f=27&amp;t=2191)</p>
+    <ol type="1">
+    <li><p>Create a file: /etc/udev/rules.d/40-timer-permissions.rules</p></li>
+    <li>Put the following lines in it:</li>
+    </ol>
+    <pre><code>KERNEL==&quot;rtc0&quot;, GROUP=&quot;audio&quot;
+    KERNEL==&quot;hpet&quot;, GROUP=&quot;audio&quot;</code></pre>
+    <p>This information was compiled from this mailinglist message http://sourceforge.net/p/lmuse/mailman/message/32887880/</p>
+    <h2 id="alsa-timer">Alsa Timer</h2>
+    <p><em>The following paragraph may be out of date. Some solid advice for enabling a high frequency alsa-timer is available in the following chapter.</em></p>
+    <p>ALSA is the fallback timer that MusE will use in most cases, in it’s default configuration it relies on a kernel setting for it’s maximum resolution. Laptop configurations often use a slower timer as a means to conserve battery. To improve the Alsa Timer look for an alternative kernel for your distribution, many distributions supply a multimedia and/or realtime kernel, these generally have a higher timer setting as well as often other patches to improve responsiveness which are a GOOD THING(tm) with audio applications in general.</p>
+    <h3 id="enable-high-performance-timer-in-alsa">Enable high performance timer in ALSA</h3>
+    <p>Recently we discovered that if the alsa-timer does not perform as well as MusE wishes, it may be because the kernel module snd_hrtimer is not loaded.</p>
+    <p>Some background information can be found <a href="https://linuxmusicians.com/viewtopic.php?t=19896">here</a>.</p>
+    <p>For testing it can be loaded by hand with the command:</p>
+    <p><code>$ modprobe snd_hrtimer</code></p>
+    <p>To make this change permanent, on debian derived distributions (including Ubuntu) add snd_hrtimer last in the list of modules to load in the file /etc/modules-load.d/modules.conf, like the example below.</p>
+    <pre><code>$ cat /etc/modules-load.d/modules.conf 
+    # /etc/modules: kernel modules to load at boot time.
+    #
+    # This file contains the names of kernel modules that should be loaded
+    # at boot time, one per line. Lines beginning with &quot;#&quot; are ignored.
+
+    snd-seq-midi
+    videodev
+    v4l2loopback_dc
+    snd_hrtimer</code></pre>
+    <p>For non debian systems there should be a similar way for adding module loading.</p>
+    <h2 id="dummy-timer">Dummy Timer</h2>
+    <p>The Dummy timer is used in some circumstances as a fallback when the timing is not a strict requirement. It is not a viable alternative for general timing in MusE.</p>
+    <h1 id="windows-vst-support-through-dssi-patch">Windows VST support through DSSI + patch</h1>
+    <pre><code>This chapter contains old information and although the support is still there the underlying 
+    dssi-vst package does not work without some serious code voodoo.
+
+    Today (2021) There are several alternatives to using dssi-vst for enabling Windows VST-plugin
+    compatibility, this includes projects Airwave, LinVst and Carla. There are others as well.
+
+    [ A note from Tim: ] For several years dssi-vst had not been working well. But recent tests
+    showed it is in fact working very well again, apparently due to some necessary work in the
+    Linux kernel being finally done. I showed that with a few tweaks to its somewhat outdated
+    build configuration scripts, it can work flawlessly again!</code></pre>
+    <p>When using muse with DSSI enabled it is possible to, by the dssi-vst package, utilize win32 VST(i) plugins. This is a great improvement as a world of synths and plugins are available (be aware that not all are supported, though many do work perfectly). dssi-vst patch</p>
+    <p>There is a patch for dssi-vst that enables ‘chunk support’ in dssi-vst. This means that VSTi’s that utilize ‘chunks’ for storing their state work better from muse projects.</p>
+    <p>Download the patch that is available here: http://muse-sequencer.org/downloads/dssipatches.zip and the dssi-vst-0.8 package (or newer) available here: http://dssi.sourceforge.net/download.html</p>
+    <p>Instructions First unpack the patch. For the first file dssi.h perform the following command:</p>
+    <p>sudo patch -p0 &lt; dssi.h.patch</p>
+    <p>Note that this patch file will update the installed version of dssi.h in /usr/include/dssi.h, hence the sudo.</p>
+    <p>Next unpack the dssi-vst-0.8 package and apply the second patch from the dssi-vst-0.8 dir with:</p>
+    <p>patch -p1 &lt; dssi-vst-0.8.patch</p>
+    <p>If the patch wasn’t ok try to find out the problem from the error message, contact the muse mailinglist or dssi mailinglist for help on the subject.</p>
+    <p>If all went well proceed with compiling dssi-vst according to the instructions.</p>
+    <p>Note that building the package on UBUNTU and derivatives produces binary files with wrong names. The binaries dssi-vst-scanner.exe and dssi-vst-server.exe should be renamed dssi-vst-scanner and dssi-vst-server before installation or the installation won’t be complete.</p>
+    <h1 id="is-my-soundcard-supported-by-muse">Is my soundcard supported by MusE?</h1>
+    <p>MusE does not require any specific type of soundcard, if the soundcard is support in Linux by either ALSA or directly by jack (some firewire devices), it can be used by MusE. It is however recommended to use a soundcard that is aimed at music making as they usually allow lower latency.</p>
+    <h1 id="hardware---what-other-hardware-do-i-have-to-run-muse">Hardware - what other hardware do I have to run MusE?</h1>
+    <p>There are no specific requirements, any computer built in the last 10 years should be capable of running MusE. Some computers, e.g. the smallest netbooks may not be able to run that many audio channels, but it will work.</p>
+    <p>More importantly is perhaps that MusE wants good realtime support. Check if you are running a sufficiently new linux kernel &gt; 2.6.x. A modern, standard desktop kernel should suit virtually all needs. For even stricter realtime performance a so-called ‘low latency’ or ‘realtime’ kernel may be available. Check your distro’s packages for availability. For information on this search the net for ‘linux realtime support’ or ask on the muse forum or mailinglist, we are happy to hear from you.</p>
+    <h1 id="im-stuck-i-cant-get-anything-to-work-can-someone-help-me">I’m stuck, I can’t get anything to work, can someone help me?</h1>
+    <p>If you can’t find what you are searching for here in the documentation or in the READMEs (if you have the source package) Please feel free to contact us on our <a href="https://linuxmusicians.com/viewforum.php?f=61">forum</a>!</p>
+    <h1 id="is-muse-running-on-insert-favourite-os">Is MusE running on (insert favourite OS)</h1>
+    <p>Currently MusE is mostly for Linux but there is a port for FreeBSD (possibly other BSD OSes too).</p>
+    <p>There has been work done to build on both Windows and OS X but these ports require more work before they are usable. If you feel you could and want to help us port MusE to other platforms, feel free to get in touch on the forum.</p>
+    <h1 id="using-midi-sometimes-gives-strange-results-pressing-some-keys-on-the-keyboard">Using midi sometimes gives strange results pressing some keys on the keyboard</h1>
+    <p>While playing the piano and using MusE’s midi abilities some keys lead to strange MusE behaviour like pressing play as done with the mouse usually. This can be because you enabled the Input Plugin - Midi Remote Keyboard function which is used to record multiple times without a single click, just pressing a certain key on your keyboard.</p>
+    <h1 id="recover-a-muse-crash">Recover a MusE crash</h1>
+    <p>For most Linux systems it is possible to retrieve core dump files from a crash, it is however not created by default. Before you start MusE, type this in the console:</p>
+    <p>ulimit -c 1000000000</p>
+    <p>Then, when MusE crashes, you will get a coredump. Coredumps can be used to extract info about what happened. Get in contact with us trough our mailing list and explain what happened, maybe we can recover the error based on your coredump and what you did.</p>
+    </div>
+  </div>
+  </body>
+</html>

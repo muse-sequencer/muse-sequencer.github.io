@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentación</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="configuración">Configuración</h1>
+    <h2 id="puertos-midi">Puertos MIDI</h2>
+    <p>Los puertos MIDI proporcionan una capa de abstracción para su hardware y sintetizadores MIDI (que pueden ser sintetizadores tanto de software como de hardware), y otras aplicaciones MIDI. Los puertos están numerados. Para producir sonido, cada pista MIDI debe asignarse exactamente a un puerto MIDI, al que luego se envían los eventos MIDI.</p>
+    <p>La ventaja de esta capa de abstracción es que si su sistema cambia, por ejemplo, cambia el hardware MIDI, entonces sólo necesita modificar los puertos en lugar de todas las pistas que usan esos puertos. Esto es similar a la abstracción de la pista de entrada y salida de audio al mundo exterior.</p>
+    <h2 id="configuración-del-puerto-midi">Configuración del puerto MIDI</h2>
+    <p>En el cuadro de diálogo de configuración midi/softsynth, debe asignar los números de puerto a los dispositivos reales (seleccionando puertos ALSA o jack midi, o complementos de sintetizador).</p>
+    <p>Pruebe el menú contextual de la columna “Puerto” de alguna pista MIDI para ver y cambiar la configuración por pista. Si usa un sintetizador por software, al hacer clic con el botón derecho en la columna Tipo de pista del sintetizador o en cualquier pista midi que use el sintetizador, podrá iniciar la <em>GUI</em> del sintetizador (genérico y/o nativo si está disponible).</p>
+    <div data-align="CENTER">
+    <img src="man/midi_config_window.png"></img>
+    </p>
+    </div>
+    <h3 id="columnas-en-la-lista-de-puertos-de-configuración-midi">Columnas en la lista de puertos de configuración MIDI:</h3>
+    <ul>
+    <li><strong>GUI</strong>: Para dispositivos sintetizadores, indica si hay una interfaz gráfica de usuario disponible y si se muestra. Haga clic para mostrar u ocultar.</li>
+    <li><strong>I</strong>: Si está presente, el puerto puede aceptar entrada MIDI. Haga clic para habilitarlo o deshabilitarlo.</li>
+    <li><strong>O</strong>: Si está presente, el puerto puede enviar salida MIDI. Haga clic para habilitarlo o deshabilitarlo.</li>
+    <li><strong>Instrumento</strong>: Selecciona el instrumento que se utilizará cuando se reproduzca MIDI a través del puerto.</li>
+    <li><strong>Nombre del dispositivo</strong>: Selecciona o crea un dispositivo MIDI asignado al puerto. Estos pueden ser dispositivos Jack MIDI o dispositivos ALSA MIDI (si ALSA está habilitado) o sintetizadores por software. Los dispositivos Jack MIDI se crean seleccionando Crear dispositivo Jack en el menú desplegable Nombre del dispositivo. Los dispositivos Jack MIDI se pueden renombrar como desee haciendo clic en el nombre del dispositivo. Los sintetizadores por software se crean haciendo clic en la lista de sintetizadores de software (soft synth list) y luego en Agregar instancia. O simplemente puede crear una nueva pista de sintetizador desde la lista de pistas del Arreglador, o incluso los desde los menús del mezclador .</li>
+    <li><strong>Rutas de entrada y salida</strong>: Estos son para dispositivos Jack MIDI, son las rutas hacia y desde los puertos Jack MIDI disponibles. Jack puede proporcionar diferentes nombres de alias para estos puertos, puede seleccionar qué alias se muestra.</li>
+    <li><strong>Canal de Entrada predeterminado</strong>: Conecta automáticamente estos canales de puerto a nuevas pistas midi o de percusión.</li>
+    <li><strong>Canal de Salida predeterminado</strong>: Conecta automáticamente nuevas pistas midi o de percusión a este canal en el puerto.</li>
+    <li><strong>Estado</strong>: Indica el estado del puerto, incluidos los errores al abrirlo.</li>
+    </ul>
+    <h2 id="configuraciones-de-audio">Configuraciones de audio</h2>
+    <h3 id="período-de-control-mínimo-minimum-control-period">Período de control mínimo (Minimum control period)</h3>
+    <p>Los complementos generalmente pueden procesar una cantidad arbitrariamente pequeña (o grande) de muestras de sonido (samples). Si algún valor de control del complemento cambia continuamente, para proporcionar una experiencia de escucha ideal, MusE necesitaría llamar al complemento 44100 veces por segundo, solicitando un solo valor a la vez.</p>
+    <p>Configurando el** período de control mínimo**, el usuario puede obligar a MusE a solicitar valores al complemento N veces menos. Por ejemplo, estableciendo este valor en 64 haría que MusE llamara al complemento 689 = 44100/64 veces por segundo, solicitando 64 valores a la vez. Si bien hacer esto reducirá la precisión de los cambios de control, también puede reducir el uso de la CPU, porque llamar al complemento con más frecuencia, solicitando fragmentos más pequeños, es más costoso (para la performance) que llamarlo con poca frecuencia, solicitando fragmentos más grandes.</p>
+    <p>Si no tiene problemas de rendimiento, o si desea realizar la mezcla final de su proyecto, establecer esto en un valor bajo asegura cambios de parámetros finos que podrían significar una mejor calidad de sonido.</p>
+    <p>Y a la inversa, si tiene problemas de rendimiento, aumentar este valor podría ser de ayuda.</p>
+    </div>
+  </div>
+  </body>
+</html>
