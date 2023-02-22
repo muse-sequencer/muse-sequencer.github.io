@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="getting-up-and-running">Getting up and running</h1>
+    <h2 id="quick-startup">Quick startup</h2>
+    <h3 id="for-impatient-people">…for impatient people</h3>
+    <p>Install MusE from the repository of your chosen distribution. To get decent performance start <a href="http://jackaudio.org/Jack" class="uri">http://jackaudio.org/Jack</a> with the following command in a terminal:<br />
+    <code>$&gt; jackd -d alsa -d hw:0 -p 256</code><br />
+    Or, if you prefer, use the launcher utility <a href="http://qjackctl.sourceforge.net/QJackCtl" class="uri">http://qjackctl.sourceforge.net/QJackCtl</a> to get some help starting Jack. After this, start MusE from the menu or fire up another terminal and type <code>muse4</code>.<br />
+    If this didn’t work out read on for the slightly more complete route for getting things started.</p>
+    <h3 id="for-really-impatient-people">…for REALLY impatient people</h3>
+    <p>MusE now supports PulseAudio, in this scenario you don’t even need Jack. For realtime playing, the latency will likely be an issue though but there are use cases, for instance mixing where it works perfectly.</p>
+    <p>Type <code>muse4 -t</code> to start MusE with the PulseAudio backend.</p>
+    <h2 id="installation-from-binaries">Installation from binaries</h2>
+    <p>There are several ways to install MusE depending on your situation. The most convenient way is to install a prepackaged version from your chosen distribution. The drawback of this is that it may not be the most recent version.</p>
+    <h3 id="appimage">AppImage</h3>
+    <p>Starting with version 4.0, MusE is available as a distro-independent AppImage, both for the (pre-)releases and the current development version (master). All you have to do is download the desired AppImage and make the downloaded file executable (some desktops offer to do that for you and also create a start menu entry automatically).</p>
+    <h2 id="installation-from-source">Installation from source</h2>
+    <p>Building MusE from source is not hard, there are a number of prerequisites that must be met but the actual building should be painless (ha, famous last words).</p>
+    <p>Have a look at the detailed instructions in the README file in the package file, or at: <a href="https://github.com/muse-sequencer/muse" class="uri">https://github.com/muse-sequencer/muse</a></p>
+    <h2 id="hardware">Hardware</h2>
+    <p>MusE on the Linux platform supports midi through <strong>ALSA</strong> and <strong>jack-midi</strong> and audio through <strong>Jack</strong> and <strong>PulseAudio</strong>. For information on what hardware is generally supported there are some convenient places to check:</p>
+    <ul>
+    <li>Alsa soundcard matrix at <a href="http://www.alsa-project.org/main/index.php/Matrix:Main" class="uri">http://www.alsa-project.org/main/index.php/Matrix:Main</a></li>
+    <li><a href="http://FFADO.org" class="uri">http://FFADO.org</a> for firewire devices.</li>
+    </ul>
+    <p>Also, as is often a very good approach for Linux and open source, the various forums available on the internet often contain good information. Chances are someone has already tried your configuration and/or had your specific problem and the solution is already written down.</p>
+    <p>These days (2021) most soundcards are USB based and many work out of the box. But please do not take this as gospel if you are in the market to buy a sound card. Please research it before buying.</p>
+    <h2 id="audio-preconditions">Audio preconditions</h2>
+    <p>In the standard case MusE expects to find and connect to the Jack audio server <a href="http://jackaudio.org" class="uri">http://jackaudio.org</a>. Make sure Jack is installed (if MusE was installed with a distribution-package Jack will very likely already be installed). For Jack to run with best performance your system should be sufficiently tuned to allow it to run with realtime capabilities. The realtime configuration of the operating system roughly consists of two parts:</p>
+    <ol type="1">
+    <li>By default on most distros only the superuser lets applications setup realtime capabilities. Please see the APPENDIX for setting up realtime.</li>
+    <li>Maximizing performance. A standard linux installation may not be able to reach the performance required by a power user. This requires exchanging the linux kernel for a so called lowlatency or realtime kernel, this is also covered by the realtime APPENDIX.</li>
+    </ol>
+    <h2 id="launching">Launching</h2>
+    <p>After installation, the binary <code>muse4</code> is installed on your computer. If MusE was installed from a distribution repository the binary may have a different name depending on the distribution policies. Most distributions do however install a menu entry so MusE should be conveniently available from there.</p>
+    <h3 id="running-muse">Running MusE</h3>
+    <p>Find MusE in the menu or open a terminal and enter muse4.</p>
+    <p><code>$&gt; muse4</code></p>
+    <p>A splash screen should pop up followed by the main application window and you are off!</p>
+    <p>If an error like the screenshot below pops up the Jack audio server is either not running or started as a different user than what you are trying to start MusE as.</p>
+    <div data-align="center">
+    <p><img src="man/no_audio.png"></img></p>
+    </div>
+    <h3 id="running-with-pulseaudio-backend">Running with PulseAudio backend</h3>
+    <p>MusE can now conveniently be started without Jack, either by changing audio device configuration in MusE’s settings (and restarting) or by starting MusE with the argument -t, like this:</p>
+    <p><code>$&gt; muse4 -t</code></p>
+    <p>Do note however that running with PulseAudio might not be good enough if you want to record in realtime and listening to what you are doing. The latency of PulseAudio (though not bad) is probably a bit much for playing along. The RTaudio/PulseAudio driver does not support latency reporting so no latency correction is possible (like with the Jack driver). For editing and mixing it is however perfectly usable.</p>
+    <h3 id="running-midi-only">Running Midi-only</h3>
+    <p>MusE can also be started in Midi-only mode, where MusE does not have any external dependencies apart from ALSA midi. In this case start MusE from a terminal:</p>
+    <p><code>$&gt; muse4 -a</code></p>
+    <p>This is a remnant of old times, in general there should be very little reason to disable audio in this way, but the option is there if someone finds this to be useful.</p>
+    <h3 id="alsa-midi-and-jack-midi">ALSA MIDI and jack-midi</h3>
+    <p>MusE supports connecting to midi devices directly from ALSA or as exposed by jack. If Jack is running, by default MusE will not use ALSA devices, preferring jack-midi instead. To force ALSA devices to be used as well as jack-midi, start MusE with the -A option:</p>
+    <p><code>$&gt; muse4 -A</code>.</p>
+    <p><em>Note (2021), though the above is still more or less true, these days it is possible to turn on/off ALSA devices dynamically in the device configuration.</em></p>
+    <p><em>There is actually a case that could be made that ALSA midi is a better option due to potential latency issues with jack-midi. This is not a universal truth but in MusE’s case it is still debated as true.</em></p>
+    <h3 id="command-line-parameters">Command line parameters</h3>
+    <p><code>$&gt; muse4 -h</code></p>
+    <p>Will list all command line parameters of MusE. Especially when trying to isolate some issue it may be good to play with the various parameters for limiting plugin loading or more verbose debug trace.</p>
+        </div>
+  </div>
+  </body>
+</html>

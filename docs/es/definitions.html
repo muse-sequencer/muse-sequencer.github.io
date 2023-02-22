@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentación</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="instrument-definitions">Instrument Definitions</h1>
+    <h2 id="muse-loadable-midi-instrument-definitions">MusE loadable Midi Instrument Definitions</h2>
+    <ul>
+    <li>File Extension “.idf”</li>
+    <li>Searched in “instruments” in “share” installation subdirectory (global) and in “~/.config/MusE/MusE/instruments” (user-specific). You can copy your own valid .idf files into the user-specific folder (MusE restart is necessary to make them visible in the Instrument Editor).</li>
+    <li>Can be viewed, created or edited with menu ‘Midi -&gt; Edit Instrument…’</li>
+    <li>In the Instrument Editor, when an existing instrument is modified and saved, a COPY of that instrument is saved in the user’s “~/.config/MusE/MusE/instruments” directory, and it is used instead. This preserves original instruments while allowing modifications.</li>
+    </ul>
+    <p>All found instrument definitions are presented by MusE in Settings-&gt;Config-&gt;MidiPorts in Pulldown in column “Instrument”. They can also be selected directly from within a midi mixer strip.</p>
+    <p>You choose an appropriate Instrument for the playback device being used. For example if playing back to a Yamaha S-90 keyboard, choose Yamaha S-90. If the Yamaha model is not listed, it may be a Yamaha XG compatible device so try the more general XG. Similarly there is a more general Roland SG. More specific Instrument models are defined as well. When in doubt, or if all else does not seem to work, try GM (General Midi), it is always a safe bet with most devices, and is the default Instrument.</p>
+    <p>As of MusE-2.1 or so, Drum Maps can be integrated into the .idf file. The Instrument Editor has a facility for editing them. See the GM2, GS, or XG instruments for examples.</p>
+    <p>TODO: Formal specs.</p>
+    <h3 id="example-of-instrument-definition-file">Example of Instrument Definition File:</h3>
+    <div class="sourceCode" id="cb1"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot;<span class="kw">?&gt;</span></a>
+    <a class="sourceLine" id="cb1-2" title="2"><span class="kw">&lt;muse</span><span class="ot"> version=</span><span class="st">&quot;1.0&quot;</span><span class="kw">&gt;</span></a>
+    <a class="sourceLine" id="cb1-3" title="3">  <span class="kw">&lt;MidiInstrument</span><span class="ot"> name=</span><span class="st">&quot;GM&quot;</span><span class="kw">&gt;</span></a>
+    <a class="sourceLine" id="cb1-4" title="4">  </a>
+    <a class="sourceLine" id="cb1-5" title="5">    <span class="co">&lt;!-- Supported sysex messages: --&gt;</span></a>
+    <a class="sourceLine" id="cb1-6" title="6">    <span class="co">&lt;!-- Notice that the enclosing F0 ... F7 are not required: --&gt;</span></a>
+    <a class="sourceLine" id="cb1-7" title="7">    <span class="kw">&lt;SysEx</span><span class="ot"> name=</span><span class="st">&quot;GM on&quot;</span><span class="kw">&gt;</span></a>
+    <a class="sourceLine" id="cb1-8" title="8">      <span class="kw">&lt;comment&gt;</span>Switch General Midi mode on<span class="kw">&lt;/comment&gt;</span></a>
+    <a class="sourceLine" id="cb1-9" title="9">      <span class="kw">&lt;data&gt;</span>7e 7f 09 01<span class="kw">&lt;/data&gt;</span></a>
+    <a class="sourceLine" id="cb1-10" title="10">      <span class="kw">&lt;/SysEx&gt;</span></a>
+    <a class="sourceLine" id="cb1-11" title="11">      </a>
+    <a class="sourceLine" id="cb1-12" title="12">    <span class="co">&lt;!-- Sysex event list which initializes instrument: --&gt;</span></a>
+    <a class="sourceLine" id="cb1-13" title="13">    <span class="kw">&lt;Init&gt;</span></a>
+    <a class="sourceLine" id="cb1-14" title="14">        <span class="kw">&lt;event</span><span class="ot"> tick=</span><span class="st">&quot;0&quot;</span><span class="ot"> type=</span><span class="st">&quot;2&quot;</span><span class="ot"> datalen=</span><span class="st">&quot;4&quot;</span><span class="kw">&gt;</span> </a>
+    <a class="sourceLine" id="cb1-15" title="15">            7e 7f 09 01           </a>
+    <a class="sourceLine" id="cb1-16" title="16">            <span class="kw">&lt;/event&gt;</span></a>
+    <a class="sourceLine" id="cb1-17" title="17">      <span class="kw">&lt;/Init&gt;</span></a>
+    <a class="sourceLine" id="cb1-18" title="18">      </a>
+    <a class="sourceLine" id="cb1-19" title="19">    <span class="kw">&lt;PatchGroup</span><span class="ot"> name=</span><span class="st">&quot;Piano&quot;</span><span class="kw">&gt;</span></a>
+    <a class="sourceLine" id="cb1-20" title="20">       <span class="kw">&lt;Patch</span><span class="ot"> name=</span><span class="st">&quot;Grand Piano&quot;</span><span class="ot"> prog=</span><span class="st">&quot;0&quot;</span><span class="kw">/&gt;</span></a>
+    <a class="sourceLine" id="cb1-21" title="21">       <span class="kw">&lt;Patch</span><span class="ot"> name=</span><span class="st">&quot;Bright Piano&quot;</span><span class="ot"> prog=</span><span class="st">&quot;1&quot;</span><span class="kw">/&gt;</span></a>
+    <a class="sourceLine" id="cb1-22" title="22">       ...</a>
+    <a class="sourceLine" id="cb1-23" title="23">      <span class="kw">&lt;/PatchGroup&gt;</span></a>
+    <a class="sourceLine" id="cb1-24" title="24">    <span class="kw">&lt;PatchGroup</span><span class="ot"> name=</span><span class="st">&quot;Bass&quot;</span><span class="kw">&gt;</span></a>
+    <a class="sourceLine" id="cb1-25" title="25">      <span class="kw">&lt;Patch</span><span class="ot"> name=</span><span class="st">&quot;Acoustic Bass&quot;</span><span class="ot"> prog=</span><span class="st">&quot;32&quot;</span><span class="kw">/&gt;</span></a>
+    <a class="sourceLine" id="cb1-26" title="26">      <span class="kw">&lt;Patch</span><span class="ot"> name=</span><span class="st">&quot;Fingered Bass&quot;</span><span class="ot"> prog=</span><span class="st">&quot;33&quot;</span><span class="kw">/&gt;</span></a>
+    <a class="sourceLine" id="cb1-27" title="27">      <span class="kw">&lt;/PatchGroup&gt;</span></a>
+    <a class="sourceLine" id="cb1-28" title="28">    ...</a>
+    <a class="sourceLine" id="cb1-29" title="29">    <span class="kw">&lt;Controller</span><span class="ot"> name=</span><span class="st">&quot;Pan&quot;</span><span class="ot"> l=</span><span class="st">&quot;10&quot;</span><span class="ot"> min=</span><span class="st">&quot;-64&quot;</span><span class="ot"> max=</span><span class="st">&quot;63&quot;</span><span class="ot"> init=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span></a>
+    <a class="sourceLine" id="cb1-30" title="30">    <span class="kw">&lt;Controller</span><span class="ot"> name=</span><span class="st">&quot;PitchBendSensitivity&quot;</span><span class="ot"> type=</span><span class="st">&quot;RPN&quot;</span><span class="ot"> h=</span><span class="st">&quot;0&quot;</span><span class="ot"> l=</span><span class="st">&quot;0&quot;</span><span class="ot"> max=</span><span class="st">&quot;24&quot;</span><span class="ot"> init=</span><span class="st">&quot;2&quot;</span> <span class="kw">/&gt;</span></a>
+    <a class="sourceLine" id="cb1-31" title="31">    </a>
+    <a class="sourceLine" id="cb1-32" title="32">    ...</a>
+    <a class="sourceLine" id="cb1-33" title="33">    <span class="kw">&lt;/MidiInstrument&gt;</span></a>
+    <a class="sourceLine" id="cb1-34" title="34">  <span class="kw">&lt;/muse&gt;</span></a></code></pre></div>
+    <h3 id="notes">Notes</h3>
+    <ol type="1">
+    <li>PatchGroups are not mandatory; its valid to write:</li>
+    </ol>
+    <div class="sourceCode" id="cb2"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb2-1" title="1">      <span class="kw">&lt;MidiInstrument</span><span class="ot"> name=</span><span class="st">&quot;GM&quot;</span><span class="kw">&gt;</span></a>
+    <a class="sourceLine" id="cb2-2" title="2">        <span class="kw">&lt;Patch</span><span class="ot"> name=</span><span class="st">&quot;Grand Piano&quot;</span><span class="ot"> prog=</span><span class="st">&quot;0&quot;</span><span class="kw">/&gt;</span></a>
+    <a class="sourceLine" id="cb2-3" title="3">        <span class="kw">&lt;Patch</span><span class="ot"> name=</span><span class="st">&quot;Bright Piano&quot;</span><span class="ot"> prog=</span><span class="st">&quot;1&quot;</span><span class="kw">/&gt;</span></a>
+    <a class="sourceLine" id="cb2-4" title="4">        <span class="kw">&lt;Patch</span><span class="ot"> name=</span><span class="st">&quot;Acoustic Bass&quot;</span><span class="ot"> prog=</span><span class="st">&quot;32&quot;</span><span class="kw">/&gt;</span></a>
+    <a class="sourceLine" id="cb2-5" title="5">        <span class="kw">&lt;Patch</span><span class="ot"> name=</span><span class="st">&quot;Fingered Bass&quot;</span><span class="ot"> prog=</span><span class="st">&quot;33&quot;</span><span class="kw">/&gt;</span></a>
+    <a class="sourceLine" id="cb2-6" title="6">        ...</a>
+    <a class="sourceLine" id="cb2-7" title="7">     <span class="kw">&lt;/MidiInstrument&gt;</span></a></code></pre></div>
+    <ol start="2" type="1">
+    <li><p>An “Instrument Definition File” can define more than one Instrument, but it is recommended to use one file for one instrument</p></li>
+    <li><p>the “prog” parameter in a “Patch” is mandatory. Missing “hbank” or “lbank” are treated as “don’t care”. Missing “drum” is treated as drum=“0”.</p>
+    <p>A XG-Patch looks like:</p>
+    <p><code>&lt;Patch name="Electro" drum="1" hbank="127" lbank="0" prog="24"/&gt;</code></p></li>
+    <li><p>Prior to version 2.1:</p>
+    <p>A patch can be associated with a “mode” with one of</p>
+    <pre><code>     1  - GM
+        2  - GS
+        4  - XG</code></pre>
+    <p>Example:</p>
+    <p><code>&lt;Patch name="Electro" mode="4" drum="1" hbank="127" lbank="0" prog="24"/&gt;</code></p>
+    <p>Mode id’s can be ore’d together for patches which are valid for more than one mode:</p>
+    <p><code>&lt;Patch name="Grand Piano" mode=7" hbank="0" lbank="0" prog="0"/&gt;</code></p>
+    <p>From version 2.1:</p>
+    <p>There is no ‘mode’ parameter. The selection of GM, GS, or XG instruments or other instruments with a sysex ‘Init’ section, determines what ‘mode’ the device is in.</p></li>
+    <li>example for MusE event (Sysex “XG-On”):</li>
+    </ol>
+    <div class="sourceCode" id="cb4"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb4-1" title="1">      <span class="co">&lt;!-- Notice that the enclosing F0 ... F7 are not required: --&gt;</span></a>
+    <a class="sourceLine" id="cb4-2" title="2">      <span class="kw">&lt;event</span><span class="ot"> tick=</span><span class="st">&quot;0&quot;</span><span class="ot"> type=</span><span class="st">&quot;5&quot;</span><span class="ot"> datalen=</span><span class="st">&quot;7&quot;</span><span class="kw">&gt;</span></a>
+    <a class="sourceLine" id="cb4-3" title="3">        43 10 4c 00 00 7e 00</a>
+    <a class="sourceLine" id="cb4-4" title="4">      <span class="kw">&lt;/event&gt;</span></a></code></pre></div>
+    <ol start="6" type="1">
+    <li><p><code>&lt;Init&gt; ... &lt;/Init&gt;</code> part can be omitted</p>
+    <p>From version 2.1:</p>
+    <p>This section contains initialization events to be sent to the devices upon certain changes such as device selection, change of instrument etc. Usually it contains a brief series of sysex commands such as (4) to set the device to a ‘mode’.</p></li>
+    <li>Controllers have the following properties:</li>
+    </ol>
+    <pre><code>      name: arbitrary unique (short) string describing the controller
+        
+        type:     Controller7       regular 7-bit controller
+                    Controller14      14-bit controller
+                    RPN               registered parameter 7-bit
+                    NRPN              non registered parameter 7-bit
+                    RPN14             registered parameter 14-bit
+                    NRPN14            non registered parameter 14-bit
+                    Pitch             pitch mod wheel
+                    Program           program 
+                From version 2.1:
+                    PolyAftertouch    key pressure controller
+                    Aftertouch        channel pressure controller
+
+                Default Controller7 if omitted.
+                Pitch Program PolyAftertouch and Aftertouch are convenience controllers which
+                wrap functionality in one controller. They translate to and from the real midi messages
+                which are behind the scenes such as Pitch -&gt; midi 0xE0. Their controller numbers are
+                internal and cannot be changed. PolyAftertouch is really an internal per-pitch controller.
+
+        h:  controller number MSB. Default 0 if omitted.
+        l:  controller number LSB. Defaultcontroller 0 if omitted.
+                For per-pitch controllers, &#39;l&#39; can also be &quot;pitch&quot; indicating each &#39;note&#39; or
+                &#39;drum sound&#39; has its own controller. Some devices such as XG or GM2 support this.
+
+        min:  minimum value for controller
+        max:  maximum value for controller
+        init: reset value for controller; when controller value is
+                undefined after instrument reset, use the &#39;&#39;undefined&#39;&#39;
+                value 0x10000
+
+            The min/max/init values can be omitted
+            Auto-biasing feature: If min is less than zero, such as with 
+                pan = -64 -&gt; 63, MusE automatically displays this range, 
+                yet uses the true range of 0-127 &#39;behind the scenes&#39;.</code></pre>
+    <p>From version 2.1:</p>
+    <pre><code>  showType: Combination of 1: Show controller in drum tracks.
+                        and 2: Show controller in midi tracks.
+                Default is to show in both drum and midi tracks if omitted (same as &quot;3&quot;).</code></pre>
+    <p>Here is a per-pitch drum controller example from the XG instrument definition file:</p>
+    <p><code>&lt;Controller name="Drum Pan" type="NRPN" h="28" l="pitch" min="-64" max="63" showType="1" /&gt;</code></p>
+    </div>
+  </div>
+  </body>
+</html>

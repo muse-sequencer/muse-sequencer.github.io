@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentación</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="edición-en-muse">Edición en MusE</h1>
+    <h2 id="editor-midi">Editor Midi</h2>
+    <p>El editor MIDI en MusE es un editor de tipo pianoroll tradicional como los que existen en la mayoría de los editores MIDI, por lo que es de esperar que ya esté acostumbrado a su uso.</p>
+    <p>Básicamente, la edición comienza con una pista midi y grabando midi en esta pista desde un teclado midi externo, o creando una parte midi a mano usando la herramienta de dibujo (atajo de teclado <strong>D</strong>) en el arreglador (arranger).</p>
+    <p>Cuando existe una parte midi en el arreglador, simplemente puede hacer doble clic en ella o seleccionarla y presionar <strong>Ctrl + E</strong> para abrir el Piano Roll.</p>
+    <div data-align="CENTER">
+    <p><img src="man/pianoroll_with_notes.png"></img></p>
+    </div>
+    <p>Omitiendo el panel de conexiones en el extremo izquierdo, el pianoroll consta de tres partes: <strong>teclado del piano</strong>, <strong>área de trabajo</strong> (canvas) y <strong>controladores</strong> (controller view).</p>
+    <h3 id="pianoroll">Pianoroll</h3>
+    <p>A la izquierda hay una representación del teclado de un piano. Al hacer clic en las teclas, se reproducen las notas relevantes utilizando el dispositivo midi conectado a esta pista midi.</p>
+    <h3 id="área-de-trabajo-canvas">Área de trabajo (Canvas)</h3>
+    <p>El siguiente es el área de trabajo que muestra una conexión desde cada tecla del piano sobre el área. Las notas se pueden colocar y editar a lo largo de cada parte.</p>
+    <p><em>En realidad, las notas también se pueden colocar después de la parte la cual se extenderá automáticamente. Sin embargo, los eventos no se pueden colocar antes del inicio de la parte, en ese caso, la parte debe cambiarse de tamaño en el arreglador antes de la edición.</em></p>
+    <h3 id="controladores">Controladores</h3>
+    <p>Finalmente, en la parte inferior está la vista predeterminada del controlador, que muestra en este caso <strong>Velocity</strong>. La vista del controlador permite seleccionar cualquier otro controlador disponible haciendo clic en el botón <strong>Seleccionar controlador</strong>, situado a la izquierda.</p>
+    <p>Si hay espacio para ello, se pueden agregar vistas de controlador adicionales desde la alternativa de menú <strong>Pantalla ⇢ Agregar vista de controlador</strong> (Display ⇢ Add controller view).</p>
+    <p>Como en la captura de pantalla precedente, la vista del controlador mostrará una representación gráfica del controlador elegido, en este caso la velocidad (velocity). Los eventos en la vista se pueden cambiar usando el mouse con las herramientas <strong>Lápiz</strong> (pencil) o <strong>Dibujar</strong> (draw).</p>
+    <p>In the case of <strong>Velocity</strong> only the available events can be manipulated, but for most other controllers, for instance <strong>Pan</strong>, new events can be added with the same procedure.</p>
+    <p>En el caso de <strong>Velocity</strong>, solo se pueden editar sobre las notas disponibles, pero para la mayoría de los otros controladores, por ejemplo, Balance (pan), se pueden agregar nuevos eventos con el mismo procedimiento.</p>
+    <blockquote>
+    <p>There are some midi controllers who describe properties of a certain event on the pianoroll (that’s, a note!). And others that are used globally. Velocity is the example in the first case, and Volume in the second.There are some midi controllers who describe properties of a certain event on the pianoroll (that’s, a note!). And others that are used globally. Velocity is the example in the first case, and Volume in the second. (notice this paragraph is not in the english documentation)</p>
+    </blockquote>
+    <blockquote>
+    <p>Algunos controladores midi describen propiedades de un determinado evento en el pianoroll (o sea, una nota musical!). Y otros que son de uso general. Velocity es un caso del primero, y volumen del segundo.</p>
+    </blockquote>
+    <div data-align="CENTER">
+    <p><img src="man/pianoroll_controller_view_pan.png"></img></p>
+    </div>
+    <p>Si explícitamente no desea agregar nuevos eventos, sino solo cambiar los eventos existentes mientras edita, mantenga presionada la tecla <strong>CTRL</strong> mientras dibuja.</p>
+    <p>Además, es posible que a veces desee eliminar los controladores; en ese caso, consulte el capítulo <a href="event.html#editor-de-eventos">Editor de eventos</a>.</p>
+    <h3 id="barra-de-herramientas-del-pianoroll">Barra de herramientas del Pianoroll</h3>
+    <p>En el pianoroll hay una barra de herramientas para manipular notas. También se enumeran en el menú contextual del area de trabajo (clic botón derecho) :</p>
+    <div data-align="CENTER">
+    <p><img src="man/pianoroll_right_click_menu.png"></img></p>
+    </div>
+    <ul>
+    <li><strong>Puntero</strong> (pointer): esta es la herramienta predeterminada donde al hacer clic en una nota la selecciona, y al hacer clic y arrastrar la puede mover.</li>
+    <li>Las herramientas de <strong>Balance</strong> (Pan) y <strong>Zoom</strong> están disponibles y son recuerdos de un pasado de ratones sin ruedas de desplazamiento, que es la forma recomendada de desplazarse y hacer zoom.
+    <ul>
+    <li><strong>rueda del mouse</strong> para desplazarse hacia arriba/abajo</li>
+    <li><strong>Mayús + rueda del mouse</strong> para desplazarse hacia la izquierda/derecha</li>
+    <li><strong>Ctrl + rueda del mouse</strong> para acercar/alejar</li>
+    </ul></li>
+    </ul>
+    <p><em>Las letras a la derecha de cada herramienta son el atajo de teclado seleccionado actualmente.</em></p>
+    <h3 id="atajos-de-teclado-en-piano-roll">Atajos de teclado en piano roll</h3>
+    <p>Consulte el capítulo sobre <a href="shortcuts.html">atajos del teclado</a> para obtener más información.</p>
+    <h3 id="barra-de-herramientas-de-pianoroll">Barra de herramientas de Pianoroll</h3>
+    <h4 id="botón-de-agregar-vista-del-controlador-controller-view-button">Botón de agregar vista del controlador (controller view button)</h4>
+    <p>Agrega una vista de controlador tal como se describe en el capítulo sobre <a href="#controladores">controladores</a>.</p>
+    <h4 id="botón-de-grabación-paso-a-paso-step-recording">Botón de grabación paso a paso (step recording)</h4>
+    <p>Otra forma de grabar midi en el pianoroll es con la <strong>grabación paso a paso</strong> (step recording), disponible en la <strong>barra de herramientas de Pianoroll</strong>.</p>
+    <div data-align="CENTER">
+    <p><img src="man/pianoroll_step_recording.png"></img></p>
+    </div>
+    <p>Cuando está seleccionada, cada clic en el piano producirá una nota grabada para la tecla presionada, la duración de la nota se deriva del valor Snap en la barra de herramientas Pos/Snap/Solo-tools.</p>
+    <div data-align="CENTER">
+    <p><img src="man/pianoroll_possnapsolotools.png"></img></p>
+    </div>
+    <h4 id="botón-de-entrada-midi-midi-input-button">Botón de entrada MIDI (MIDI Input button)</h4>
+    <p>Si el <strong>botón de entrada Midi</strong> está marcado, pulsar las teclas de cualquier dispositivo de entrada Midi configurado será equivalente a hacer clic en el piano.</p>
+    <h4 id="botón-reproducir-eventos-play-events">Botón reproducir eventos (play events)</h4>
+    <p>Si está seleccionado, reproducirá solo la nota en la que se hace clic con el mouse. Si el menú desplegable está configurado en <strong>Reproducir Acordes</strong> (Play Chords), todas las notas se reproducirán al arrastrar el ratón.</p>
+    </div>
+  </div>
+  </body>
+</html>

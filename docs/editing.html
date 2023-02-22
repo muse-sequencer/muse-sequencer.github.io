@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="editing-in-muse">Editing in MusE</h1>
+    <h2 id="midi-editor">Midi editor</h2>
+    <p>The MIDI editor in MusE is a traditional pianoroll type editor that exist in the majority of MIDI editors out there so hopefully you are already accustomed to their workflow.</p>
+    <p>Basically the editing start with having a midi track and either recording midi unto this track from an external midi keyboard OR creating a midi part by hand using the draw tool (keyboard shortcut <strong>D</strong>) in the arranger.</p>
+    <p>When a midi part exists in the arranger you can simply double click on it OR select it and press <strong>Ctrl+E</strong> to open the pianoroll.</p>
+    <div data-align="CENTER">
+    <p><img src="man/pianoroll_with_notes.png"></img></p>
+    </div>
+    <p>Omitting the channel strip on the far left, the pianoroll consists of three parts, <strong>piano keys</strong>, <strong>canvas</strong> and the <strong>controller view</strong>.</p>
+    <h3 id="piano">Piano</h3>
+    <p>To the left are the piano keys, a representation of a piano. Clicking on the piano keys plays the relevant note using the midi device connected to this midi track.</p>
+    <h3 id="canvas">Canvas</h3>
+    <p>Next is the canvas which extends lanes from each piano key over the canvas where notes can be placed and edited over the duration of the part.</p>
+    <p><em>Actually notes can be placed after the part too and the part will be automatically extended. Events can however not be placed before the part start, in that case the part must be resized in the arranger prior to editing.</em></p>
+    <h3 id="controller-view">Controller view</h3>
+    <p>Finally, at the bottom is the default controller view, which shows <strong>Velocity</strong>. The controller view can be changed to show any other available controller by clicking on the <strong>Select controller</strong> button to the left of the view.</p>
+    <p>If there is space for it, additional controller views can be added from the <strong>Display-&gt;Add controller view</strong> menu alternative.</p>
+    <p>As in the screenshot above the controller view will show a representation of the controller the view shows, in this case velocity. The events in the view can be changed using the mouse with the <strong>Pencil</strong> or <strong>Draw</strong> tool.</p>
+    <p>In the case of <strong>Velocity</strong> only the available events can be manipulated, but for most other controllers, for instance <strong>Pan</strong>, new events can be added with the same procedure.</p>
+    <div data-align="CENTER">
+    <p><img src="man/pianoroll_controller_view_pan.png"></img></p>
+    </div>
+    <p>If you explicitly do not want to add new events but only change existing events while editing, hold down the <strong>CTRL</strong> key while drawing.</p>
+    <p>Also you may sometimes want to remove controllers, in that case check out the chapter about the <a href="event.html#event-editor">Event editor</a>.</p>
+    <h3 id="pianoroll-graphical-editing">Pianoroll graphical editing</h3>
+    <p>In the pianoroll there are a number of tools on the toolbar for manipulating notes in the pianoroll. They are also listed in the right click menu on the canvas:</p>
+    <div data-align="CENTER">
+    <p><img src="man/pianoroll_right_click_menu.png"></img></p>
+    </div>
+    <ul>
+    <li><p><strong>Pointer</strong> this is the default tool where clicking on parts selects them and clicking and dragging moves parts.</p></li>
+    <li><strong>Pan</strong> and <strong>Zoom</strong> tools are still available and reminders of past without mice with scroll-wheels, which is the recommended way pan and zoom.
+    <ul>
+    <li>mouse wheel to pan up/down</li>
+    <li>shift+mouse wheel to pan left/right</li>
+    <li>ctrl+mouse wheel to zoom in/out</li>
+    </ul></li>
+    </ul>
+    <p><em>The letters to the right of each tool is the currently selected keyboard shortcut.</em></p>
+    <h3 id="keyboard-shortcuts-in-pianoroll">Keyboard shortcuts in pianoroll</h3>
+    <p>Checkout the chapter about shortcuts for more information <a href="shortcuts.html">here</a>.</p>
+    <h3 id="pianoroll-toolbar">Pianoroll toolbar</h3>
+    <h4 id="add-controller-view-button">Add controller view button</h4>
+    <p>Adds a controller view as described in the <a href="#controller-view">controller</a> chapter.</p>
+    <h4 id="step-recording-button">Step recording button</h4>
+    Another way to record midi into the pianoroll is with <strong>Step recording</strong>, available on the <strong>Pianoroll tools</strong> toolbar.
+    <div data-align="CENTER">
+    <p><img src="man/pianoroll_step_recording.png"></img></p>
+    </div>
+    <p>When checked each click on the Piano will produce a recorded note for the key clicked, the length of the note is derived from the Snap value in the Pos/Snap/Solo-tools toolbar.</p>
+    <div data-align="CENTER">
+    <p><img src="man/pianoroll_possnapsolotools.png"></img></p>
+    </div>
+    <h4 id="midi-input-button">Midi input button</h4>
+    <p>if the <strong>Midi input</strong> button is checked any configured Midi input device will produce the same result as clicking on the Piano.</p>
+    <h4 id="play-events-button">Play events button</h4>
+    <p>If checked it will play the note being clicked with the mouse. If the dropdown is set to <strong>Play Chords</strong> all notes will be played when multiple notes are dragged.</p>
+    </div>
+  </div>
+  </body>
+</html>

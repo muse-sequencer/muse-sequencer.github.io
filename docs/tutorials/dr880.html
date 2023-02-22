@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="../contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="recording-midi">Recording Midi with DR880</h2>
+    <p>This is an example of recording a Midi pattern into MusE 3.0.2 using Qjackctl and a Boss DR-880 with USB Midi.</p>
+    <p>The basic procedure should be the same for most devices but device details do differ from one to another. e.g., some devices always require enabling the Midi channels to send, they don’t default to any channel being ON.</p>
+    <h3 id="settings">Settings</h3>
+    <ol type="1">
+    <li><p>Prepare the device for transmitting Midi.</p>
+    <p>DR-880 Midi settings:</p>
+    <ul>
+    <li>Connect the DR-880 to the computer.</li>
+    <li>Go to the pattern you want to transfer.</li>
+    <li>Press Edit.</li>
+    <li>Scroll through the list to “USB”.
+    <ul>
+    <li>Set Mode to “MIDI”.</li>
+    <li>Exit once, then Exit again to the Edit list.</li>
+    </ul></li>
+    <li>Select “Midi -&gt; Setting”.
+    <ul>
+    <li>Note the Channels for Drum and Bass; defaults are 10 and 2.</li>
+    <li>Set “Sync Mode” to “Internal”.</li>
+    <li>Exit once, then Exit back to the Pattern screen.</li>
+    </ul></li>
+    </ul></li>
+    <li><p>Start MusE.</p></li>
+    <li><p>Go to Qjackctl:</p>
+    <ul>
+    <li>Open Connect -&gt; ALSA.</li>
+    <li>Connect “Readable clients -&gt;”0:DR-880 MIDI 1" to “Writable clients -&gt; 0:MusE Port 0”.</li>
+    </ul>
+    <figure>
+    <img src="img/rmim_jack-connections.png" title="Jack Connections" alt="Jack Connections" /><figcaption>Jack Connections</figcaption>
+    </figure>
+    <ul>
+    <li><p>To also use the DR-880 as the output device:</p>
+    <p>Connect “Readable clients -&gt;”0:MusE Port 0" to “Writable clients -&gt; 0:DR-880 MIDI 1”.</p></li>
+    </ul></li>
+    <li><p>In MusE:</p>
+    <ul>
+    <li>Go to “Muse Settings -&gt; Midi sync”; this shows a table of devices and their sync options.</li>
+    </ul>
+    <figure>
+    <img src="img/rmim_midi-sync-dialog.png" title="Midi Sync Dialog" alt="Midi Sync Dialog" /><figcaption>Midi Sync Dialog</figcaption>
+    </figure>
+    <ul>
+    <li><p>Set the JACK options:</p>
+    <ul>
+    <li>Use Jack Transport: ON</li>
+    <li>Make Muse the Jack Transport time base master: ON</li>
+    <li>Slave to external sync: OFF</li>
+    </ul></li>
+    <li><p>Set the DR-880 row to:</p>
+    <ul>
+    <li>s(ync) - ON</li>
+    <li>c(lock) - ON (set by MusE)</li>
+    <li>rw (Receive start rewinds before playing) - ON</li>
+    <li>rid = tid = 127 (all)</li>
+    <li>all others OFF</li>
+    </ul></li>
+    </ul></li>
+    </ol>
+    <h3 id="set-up-the-recording-track">Set up the recording track</h3>
+    <ul>
+    <li><p>Add a Drum track to Muse. The Ch output column should show 10, the default drum channel. However, that might not be what the input channel is set to.</p>
+    <figure>
+    <img src="img/rmim_drum-track-added.png" title="Add Drum Track" alt="Add Drum Track" /><figcaption>Add Drum Track</figcaption>
+    </figure></li>
+    <li><p>Click the Track 1 input routing arrow on the track mixing strip.</p>
+    <figure>
+    <img src="img/rmim_track-input-arrow.png" title="Input Routing Arrow" alt="Input Routing Arrow" /><figcaption>Input Routing Arrow</figcaption>
+    </figure></li>
+    <li><p>Either “Omni” or 10 should be selected.</p>
+    <figure>
+    <img src="img/rmim_input-channel.png" title="Track Input Channel" alt="Track Input Channel" /><figcaption>Track Input Channel</figcaption>
+    </figure></li>
+    <li><p>Left Click the Port entry, select “Open midi config”.</p>
+    <figure>
+    <img src="img/rmim_port-midi-config.png" title="Open Midi Config" alt="Port - Open Midi Config" /><figcaption>Port - Open Midi Config</figcaption>
+    </figure></li>
+    <li><p>Under “Usable devices” in the DR-880 row, select I and O.</p>
+    <figure>
+    <img src="img/rmim_device-port-assignments.png" title="Device Port Assignments" alt="Device Port Assignments" /><figcaption>Device Port Assignments</figcaption>
+    </figure></li>
+    <li><p>Under “Device port assignments”, set Port 1 (for example) to DR-880 MIDI 1.</p>
+    <ul>
+    <li>Select an Instrument. GM is OK.</li>
+    <li><p>For subsequent tracks, set “Def in ch” (“Default in ch”) to “none”, “all”, or a specific channel transmitted by the device; for the DR-880 it’s typically 10 for drums, 2 for bass.</p>
+    <p><strong>NOTE: “Def in ch” will be applied to tracks added <em>after</em> this one. It does not affect the track input channel set above.</strong></p></li>
+    <li><p>Click OK to save.</p></li>
+    </ul></li>
+    <li><p>Left Click the track Port entry again.</p>
+    <ul>
+    <li><p>Select DR-880 MIDI 1.</p>
+    <figure>
+    <img src="img/rmim_select-track-port.png" alt="Select Track Port" /><figcaption>Select Track Port</figcaption>
+    </figure></li>
+    </ul></li>
+    <li><p>In the track mixing strip, left Click the instrument input.</p>
+    <figure>
+    <img src="img/rmim_set-track-instrument.png" alt="Set Track Instrument" /><figcaption>Set Track Instrument</figcaption>
+    </figure></li>
+    <li><p>Select a drum kit.</p>
+    <figure>
+    <img src="img/rmim_select-track-instrument.png" title="Select Track Instrument" alt="Select Track Instrument" /><figcaption>Select Track Instrument</figcaption>
+    </figure></li>
+    <li><p>Set the track to record.</p>
+    <figure>
+    <img src="img/rmim_set-track-record.png" title="Set Track Record" alt="Set Track Record" /><figcaption>Set Track Record</figcaption>
+    </figure></li>
+    </ul>
+    <h3 id="recording">Recording</h3>
+    <ul>
+    <li><p>Click the RECORD button.</p>
+    <figure>
+    <img src="img/rmim_start-recording.png" title="Start Recording" alt="Start Recording" /><figcaption>Start Recording</figcaption>
+    </figure></li>
+    <li><p>The Create Project dialog appears; fill it out and click OK. MusE should now be in standby mode.</p>
+    <figure>
+    <img src="img/rmim_create-project-dialog.png" title="Create Project Dialog" alt="Create Project Dialog" /><figcaption>Create Project Dialog</figcaption>
+    </figure></li>
+    <li><p>To record, the transport has to be rolling. One way to do this is to click PLAY on the MusE transport panel.</p>
+    <figure>
+    <img src="img/rmim_start-muse-transport.png" title="Start Transport" alt="Start Transport" /><figcaption>Start Transport</figcaption>
+    </figure>
+    <p><br> The track starts filling with an empty region:</p>
+    <figure>
+    <img src="img/rmim_transport-rolling.png" title="Transport Rolling" alt="Transport Rolling" /><figcaption>Transport Rolling</figcaption>
+    </figure></li>
+    <li>Press the play button on the DR-880.</li>
+    <li><p>In MusE, press the STOP button. The track should show the pattern just played.</p>
+    <figure>
+    <img src="img/rmim_midi-recorded.png" title="Midi Recorded" alt="Midi Recorded" /><figcaption>Midi Recorded</figcaption>
+    </figure></li>
+    </ul>
+    <h3 id="problems">Problems</h3>
+    <p>If the pattern isn’t recorded, a common problem is that the device Midi output channel numbers don’t match the MusE input channels. Reviewing those before doing anything else is a good first step.</p>
+    </div>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentación</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="pistas-y-partes">Pistas y Partes</h1>
+    <p>MusE organiza su música en <em>pistas</em> (tracks) y <em>partes</em> (parts). La siguiente sección proporcionará una descripción general de cómo se debe trabajar con MusE. Si es o fue usuario de Cubase o Cakewalk, se sentirá familiarizado con esto.</p>
+    <h2 id="pistas">Pistas</h2>
+    <p>Hay dos clases generales de pistas: <strong>pistas MIDI</strong> y <strong>pistas de audio</strong>. Las pistas MIDI (y las pistas de percusión que son internamente pistas MIDI) contienen datos de notas. La pista Wave es un tipo de pista de audio que contiene datos de ondas. También hay de pistas de audio con otros formatos de audio.</p>
+    <h3 id="pistas-midi">Pistas MIDI</h3>
+    <p>Las pistas MIDI y de percusión contienen los datos de los eventos MIDI. No difieren mucho entre sí, excepto que las pistas de percusión ofrecen un editor especial que es más adecuado para la edición de percusión.</p>
+    <p>Las pistas MIDI y de percusión envían su información MIDI a un dispositivo de salida MIDI, que puede ser un dispositivo externo a MusE o incluso a la computadora, por ejemplo, un Yamaha DX7 para dar un ejemplo <em>retro</em>. El dispositivo de salida MIDI también puede ser un sintetizador de software interno, representado por el tipo de pista del sintetizador a continuación.</p>
+    <h3 id="pistas-de-audio-wave-tracks">Pistas de audio (Wave Tracks)</h3>
+    <p>Contienen datos de audio que se pueden reproducir o canalizar a través de cadenas de complementos de efectos. Ofrecen automatización para estos complementos.</p>
+    <h3 id="pistas-de-entrada-de-audio-audio-input-tracks">Pistas de Entrada de Audio (Audio Input Tracks)</h3>
+    <p>Estas pistas posibilitan el ruteo de sus archivos de audio externos hacia su proyecto MusE. Configure las entradas de audio físico con las que desea conectar su pista de entrada de audio y luego enrute las pistas de entrada a varias otras pistas, como las pistas de ondas.</p>
+    <h3 id="pistas-de-salida-de-audio-audio-output-tracks">Pistas de salida de audio (Audio Output Tracks)</h3>
+    <p>Estas proporcionan la ruta para los datos de audio de su proyecto hacia el exterior. Configure las salidas de audio físicas con las que desea conectar su pista de salida de audio y luego enrute varias otras pistas, como pistas de ondas, a las pistas de salida.</p>
+    <h3 id="pistas-de-grupo-de-audio-audio-group-tracks">Pistas de grupo de audio (Audio Group Tracks)</h3>
+    <p>Las pistas de grupo son utilizadas como “buses”, donde puede enrutar otras pistas hacia ellas y luego enrutar los grupos a otras pistas. Dado que las pistas de grupo tienen todas las características de otras pistas de audio, como el volumen y el balance, proporcionan un punto de enrutamiento común conveniente en el que tiene el control del sonido antes de que pase a otras pistas.</p>
+    <h3 id="pistas-auxiliares-de-audio">Pistas Auxiliares de audio</h3>
+    <p>Las pistas auxiliares de audio (Audio Aux Tracks) proporcionan una forma más conveniente de mezclar varias pistas de audio. Con cada pista auxiliar de audio agregada, otras pistas de audio obtendrán una perilla de envío común para ajustar el nivel enviado a la pista auxiliar. Esto puede resultar más conveniente que utilizar varias pistas de grupo.</p>
+    <h3 id="pistas-del-sintetizador">Pistas del sintetizador</h3>
+    <p>Este tipo de pista es para un sintetizador de software al que se pueden asignar pistas MIDI y de percusión. Lo que significa que las notas tocadas en la pista MIDI o de percusión se enviarán al sintetizador para generar audio (o sea, utilizando la capacidad de síntesis de su dispositivo MIDI externo).</p>
+    <h3 id="creación-de-una-pista">Creación de una pista</h3>
+    <p>Puede crear una pista haciendo clic con el botón derecho en la lista de pistas del Arreglador y luego agregando la pista deseada, o mediante el menú de edición.</p>
+    <h3 id="atributos-de-pistas">Atributos de pistas</h3>
+    <p>Las pistas tienen varios atributos: - <strong>Mute</strong> (Silencio): Si hace clic en el campo Silenciar, la pista se silencia y deja de producir sonido. - <strong>Solo</strong>: El botón de <strong>solo</strong> destaca una pista para escuchar. Silencia algunas otras pistas pero puede hacer un “solo fantasma” en otras. Para obtener más información, consulte la sección <a href="#pistas-solistas">pistas solistas</a> y <a href="trackssolo.html#solo-fantasma">solo fantasma</a>. - <strong>Record</strong> (Grabación): La columna de grabación “arma” su pista para la grabación. “Armar” una pista para grabación significa prepararla para recibir audio. Si falla el armado de la pista, no podrá grabar nada. Consulte también la opción de configuración “mover pistas armadas para grabación”. - <strong>Nombre de la pista</strong> (track name): Haga doble clic para editar el nombre de la pista. - <strong>Puerto</strong> (port): Para las pistas MIDI, esto le permite seleccionar el puerto MIDI al que se deben enrutar los eventos, que puede ser su sintetizador físico o un sintetizador de software (soft synth). Para los sintetizadores de software, este es el puerto al que está asociado el sintetizador. Para otros tipos de pistas, esto está deshabilitado. - <strong>Canal</strong>: Para las pistas MIDI, este es el canal MIDI al que se envía la salida. Para cualquier tipo de pistas de audio, este es el número de canales (mono, estéreo). - <strong>Automatización</strong>: Para las pistas de audio, esto le permite configurar la visualización de automatización en el Arreglador. (Ver <a href="automation.html#automatización-de-audio">automatización de audio</a>). Al hacer clic aquí, aparecerá un menú emergente con submenús. Al hacer clic en un submenú, se seleccionará o anulará la selección, mostrando u ocultando el parámetro de automatización como un gráfico superpuesto en la parte superior de la pista. Los submenús le permiten seleccionar el color que desea asociar con el parámetro de automatización. También pueden usarse para asignar controladores midi a los parámetros. Se muestra un cuadro de diálogo donde puede elegir manualmente el controlador midi, con un botón de aprendizaje para ‘escuchar’ y reconocer automáticamente cualquier controlador midi. - <strong>Clave</strong> (Clef): Para las pistas MIDI, puede especificar una clave aquí. Este es un elemento que afecta solamente al editor de partituras.</p>
+    <h3 id="barra-lateral-de-la-tira-del-mezclador">Barra lateral de la tira del mezclador</h3>
+    <p>En el Arreglador y los editores de partes, tendrá una barra lateral del mezclador en el lado izquierdo. Puede configurar allí parámetros específicos de ese tipo de pista.</p>
+    <p>La barra lateral MIDI te permite cambiar de programa, volumen, balance y más.</p>
+    <h3 id="pistas-de-percusión-drum-tracks">Pistas de Percusión (Drum Tracks)</h3>
+    <p>Se manejan igual que las pistas MIDI simples (siendo compatibles con ellas) y ofrecen toda la funcionalidad, aunque de una manera diferente. Le permiten reordenar el mapa de percusión de manera eficiente, puede abrir partes de varias pistas de percusión en un solo editor de percusión (MusE separará los sonidos de diferentes pistas de acuerdo con su configuración, consulte el menú “Display”) y puede configurar los programas igual que con las pistas MIDI normales.</p>
+    <h4 id="controles-midi">Controles MIDI:</h4>
+    <ul>
+    <li>Output Port (<strong>Puerto de salida</strong>): Esta lista desplegable selecciona el puerto midi para enviar salida midi desde esta pista.</li>
+    <li><strong>Canal de salida</strong> (Output Channel): Este cuadro selecciona el canal midi que se utilizará en el puerto de salida.</li>
+    <li><strong>Enrutamiento de entrada y salida</strong> (Input and Output Routing): Selecciona puertos y canales midi desde los que recibir midi y rutas en solitario. (Ver <a href="routes.html#rutas">Rutas</a>).</li>
+    <li><strong>Transponer</strong> (Transpose): Esto transpone notas de entrada midi hacia arriba o hacia abajo. Esto es muy útil si su teclado midi no tiene suficientes teclas o el dispositivo de salida seleccionado toca una octava demasiado baja o alta, y le gustaría cambiar la octava de las notas entrantes para compensar.</li>
+    <li><strong>Retardo</strong> (Delay): Ajusta el retardo de las notas.</li>
+    <li><strong>Largo</strong> (length): Ajusta la duración de las notas.</li>
+    <li><strong>Velocidad</strong> (velocity): Ajusta la velocidad de las notas entrantes. Úselo para ajustar un teclado demasiado <em>forte</em> o demasiado <em>piano</em>.</li>
+    <li><strong>Compresión</strong>: Ajusta la compresión de las velocidades de las notas entrantes. Úselo para hacer notas entrantes suaves las notas más fuertes y fuertes no tan fuertes.</li>
+    <li><strong>Instrumento</strong>: Selecciona el parche de instrumento midi que utilizará el puerto de salida seleccionado. Esto es equivalente a marcar el parche (patch) en los cuadros del banco y del programa, excepto que muestra un nombre de parche más amigable según lo definido por el instrumento midi del puerto de salida seleccionado. Ver instrumentos o <a href="configuration.html#puertos-midi">configuración de puertos</a>.</li>
+    <li><strong>H-Bank</strong>: Selecciona el número de banco alto del programa actual.</li>
+    <li><strong>L-Bank</strong>: Selecciona el número de banco bajo del programa actual.</li>
+    <li><strong>Programa</strong> (prog): Selecciona el número de programa del parche actual.</li>
+    <li><strong>Volumen</strong>: Ajusta el controlador de volumen midi.</li>
+    <li><strong>Balance</strong> (Pan): Ajusta el balance en el controlador midi.</li>
+    </ul>
+    <p><em>Tip:</em> Si el tipo de canción es GM, GS o XG, es posible que deba almacenar los valores deseados en la posición de transporte cero; de lo contrario, el instrumento puede anular sus ajustes cuando el transporte vuelva a la posición cero.</p>
+    <h3 id="barra-lateral-de-audio-midi">Barra lateral de audio / MIDI</h3>
+    <p>La barra lateral, también llamada Track-Pane, es una tira mezcladora integrada (mixer strip), exactamente la misma tira que se encuentra en las mezcladoras. (Ver <a href="#mezclador">mezclador</a>).</p>
+    <h4 id="rack-de-efectos">Rack de efectos</h4>
+    <p>En la parte superior de la barra lateral de audio, hay un estante de efectos que le permite aplicar varios complementos al audio. Para obtener más información sobre esto, consulte el <a href="plugins.html#rack-de-efectos%22">rack de efectos</a>.</p>
+    <h2 id="partes">Partes</h2>
+    <p>Se puede crear <em>partes</em> dentro de las pistas MIDI, de percusión y de ondas. Las partes son fragmentos de notas coherentes o datos de ondas que se pueden mover, copiar, clonar y eliminar independientemente de otras partes.</p>
+    <p>Las partes se crean utilizando la herramienta Lápiz y luego dibujando en el área de la parte derecha en el Arreglador.</p>
+    <ul>
+    <li>Pueden ser movidas con la herramienta Flecha (arrow)</li>
+    <li>eliminadas usando la tecla <strong>SUPR</strong>.</li>
+    <li>Al hacer clic con el botón derecho sobre una parte, se abre un menú emergente. Este menú le permite aún más cosas, como configurar el color de la parte, guardar la parte en el disco, etc.</li>
+    <li>Puede usar <strong>CTRL+C</strong> y <strong>CTRL+V</strong> para copiar y pegar partes.</li>
+    <li><strong>CTRL+B</strong> pega la parte como un clon. Presionar <strong>MAYÚS</strong> también le proporciona un cuadro de diálogo que le permite pegar la parte varias veces y configurar más cosas.</li>
+    <li>También puede clonar partes arrastrando la parte con el mouse mientras mantiene presionada la tecla <strong>CTRL</strong>.</li>
+    </ul>
+    </div>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="track-soloing">Track soloing</h1>
+    <p>Soloing allows you to single out a track for listening while muting others, without you having to mute the other tracks. (See soloing <a href="tracks.html#tracks">track attribute</a>).</p>
+    <h2 id="phantom-soloing">Phantom soloing</h2>
+    <p>In order to solo a track and mute others so that it is heard, MusE employs ‘phantom’ soloing: When a track is soloed, MusE automatically solos all tracks routed to and from this track. (See <a href="routes.html#routes">routes</a>). A phantom soloed track is indicated in the track pane solo column. (See <a href="tracks.html#tracks">track attributes</a>).</p>
+    <div data-align="CENTER">
+    <p><img src="man/phantom_soloing.png"></img></p>
+    </div>
+    <h2 id="soloing-chains">Soloing chains</h2>
+    <p>When an audio output track sends audio to some external entity, such as an external running application, and audio from the external entity is fed back into a MusE audio input track, solo chains allow you to solo the input or output, and MusE will complete the path automatically soloing the other, and all paths that came before or after it.</p>
+    <p>Solo chains also work with MIDI tracks chained to audio inputs: When a MIDI track drives some MIDI device whose audio is fed into MusE, solo chains allow the entire chain to be soloed.</p>
+    <p>Solo chains are accessed via routing menus. (See <a href="routes.html#soloing-chain-routes">solo chain routes</a>).</p>
+    </div>
+  </div>
+  </body>
+</html>

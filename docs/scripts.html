@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="scripts">Scripts</h1>
+    <h2 id="introduction">INTRODUCTION</h2>
+    <p>MusE has a script interface for creating or manipulating midi through external programs.</p>
+    <p>MIDI scripts operate on midi and drum tracks, and are found in the <strong>Scripts</strong> menu (or <strong>Plugins</strong> in MusE &lt; 4.0). In the Arranger this is a submenu of the <strong>Functions</strong> menu (or <strong>Midi</strong> menu in MusE &lt; 4.0).</p>
+    <p>It is mostly useful for making the same change on a lot of places at once. As an example there is a script that processes all selected notes and makes them the same length. There are a number of bundeled scripts but more can be added by the user when a need arises.</p>
+    <p>MusE supports a simple protocol for manipulating event data.</p>
+    <h2 id="specification">SPECIFICATION</h2>
+    <p>The format of the scripts is just a set of text lines which deliberately has been kept very brief and should be possible to handle from any programming language, Python, Perl, C/C++, even shell script. Though for faster development an interpreted language is probably recommended.</p>
+    <p>There are two main requirements on scripts.</p>
+    <ol type="1">
+    <li>the actual script file must have the executable flag set, that is, it must be considered an executable from the perspective of the operating system (chmod +x &lt;script file&gt;).</li>
+    <li>a script takes it’s input from a file given as argument and will send it’s output to the same file.</li>
+    </ol>
+    <p>The tags that may occur in the file sent to the script are currently: - TIMESIG &lt;n&gt; &lt;z&gt; - PART &lt;part start&gt; &lt;part length&gt; - PARTLEN &lt;length in ticks of the current Part&gt; - BEATLEN &lt;length in ticks of a beat&gt; - QUANTLEN &lt;length in ticks of the current quantization&gt; - NOTE &lt;tick&gt; &lt;pitch&gt; &lt;length in ticks&gt; &lt;velocity&gt; - CONTROLLER &lt;tick&gt; &lt;a&gt; &lt;b&gt; &lt;c&gt;</p>
+    <p>TIMESIG, PARTLEN, BEATLEN and QUANTLEN are there for informational purposes, to make some transformations possible. e.g. quantization, beat delay.</p>
+    <p>NOTE and CONTROLLER are the ones that are read back into MusE when the filter stops executing. These may be manipulated, removed or multiplied as seen fit by the filter.</p>
+    <ul>
+    <li>Note that it is generally a good idea to just pass on the lines your script is not interested in, otherwise data may be unintentionally removed</li>
+    </ul>
+    <h2 id="installation">INSTALLATION</h2>
+    <p>Scripts can be put in two different dirs: - <install_path>/share/muse/scripts</p>
+    <p>for scripts bundled, or: - $HOME/.config/MusE/MusE/scripts</p>
+    <p>for user created scripts</p>
+    <p>Remember that a script must have the executable bit set. This means that the script must be executable -on it’s own-. For an interpreted language that means the file should start with a hashbang (#!) and the path to it’s interpreter. e.g</p>
+    <p>#!/usr/bin/python</p>
+    <h2 id="example-data">EXAMPLE DATA</h2>
+    <p>A short example of input data:</p>
+    <blockquote>
+    <p>TIMESIG 4 4</p>
+    </blockquote>
+    <blockquote>
+    <p>PART 6144 6144</p>
+    </blockquote>
+    <blockquote>
+    <p>BEATLEN 384</p>
+    </blockquote>
+    <blockquote>
+    <p>QUANTLEN 96</p>
+    </blockquote>
+    <blockquote>
+    <p>NOTE 1536 65 96 70</p>
+    </blockquote>
+    <blockquote>
+    <p>NOTE 2400 69 96 70</p>
+    </blockquote>
+    <h2 id="example-files">EXAMPLE FILES</h2>
+    <p>There are a few existing scripts in this directory that can be used as templates for creating more advanced scripts.</p>
+    <ul>
+    <li>Constant Length - Set note length (dialog).</li>
+    <li>Constant Velocity For Note - Set fixed velocity for specified note (dialog).</li>
+    <li>CreateBassline - Creates a sequence of notes of a specified pitch, quantization and gate length (dialog).</li>
+    <li>Delay2048 - obsolete - removed.</li>
+    <li>DoNothing - just reads the input file, loops through the lines and outputs them again.</li>
+    <li>DoubleSpeed - reads all notes and outputs them with all ticks divided in half.</li>
+    <li>Humanize - Humanize notes by randomizing velocity and position (dialog).</li>
+    <li>RandomizeVelocityRelative - Randomize the note velocity relative to its current value (dialog).</li>
+    <li>RandomPosition1 - Randomize the note position relative to its current value (dialog).</li>
+    <li>RemoveAftertouch - Removes all Aftertouch controller data.</li>
+    <li>RemoveDoubles - If note with same tick, pitch, velocity already exists, new note is skipped.</li>
+    <li>RemoveShortEvents - Remove events shorter than specified length (dialog).</li>
+    <li>Rhythm1 - Creates a simple drum rhythm.</li>
+    <li>SpeedDouble - Doubles tempo of existing notes.</li>
+    <li>SpeedHalf - Halves tempo of existing notes.</li>
+    <li>SwingQuantize1 - Quantize to specified beat (dialog).</li>
+    <li>TempoDelay - Creates delay with midi notes (dialog).</li>
+    </ul>
+    <p>For the moment there are only scripts written in python in the standard installation.</p>
+    <h2 id="debugging">DEBUGGING</h2>
+    <p>The process of debugging a script may seem daunting. There is no immediate way to retrieve information about the internals of the script.</p>
+    <p>Currently the standard output is suppressed from the scripts so while running from MusE the script won’t make a peep in the console. if MusE is started with -D argument the contents of the data file is written to standard out both before it enters the script and after it returns, this can be used as a means for communication. The file containing the script data is normally removed but when running MusE with -D it will be kept. So, when the file exists you can use it and run the script from a command line, remember though that the file will be overwritten by the script.</p>
+    <p>Running the script like this makes it a bit easier (with data and a test script in the same folder):</p>
+    <p>cp origData testData &amp;&amp; ./MyTestScript testData</p>
+    <p>Then the data can be compared to the original and prints in the script can be read on the commandline.</p>
+    </div>
+  </div>
+  </body>
+</html>

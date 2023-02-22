@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentación</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="configuración-del-metrónomo">Configuración del Metrónomo</h1>
+    <p>El metrónomo en MusE se habilita con el botón de la barra de herramientas del Metrónomo o con el atajo de teclado <strong>C</strong></p>
+    <p>La configuración del metrónomo se puede realiza con el menú <strong>Configuración ➜ Metrónomo</strong>.</p>
+    <div data-align="CENTER">
+    <p><img src="man/settings_metronome.png"></img></p>
+    </div>
+    <p>It can be configured to output clicks on the audio output and/or emit MIDI to be played back by an external MIDI device. By default audio output is enabled but not MIDI.</p>
+    <p>Puede configurarse para generar clics en la salida de audio y/o emitir MIDI para ser reproducido por un dispositivo MIDI externo. Por defecto, solo la salida de audio está habilitada.</p>
+    <p>Con MusE se incluyen algunas muestras de sonido para utilizarlas como sonido de metrónomo. Si tiene un sonido de metrónomo favorito, también es posible copiar este archivo como .WAV a la carpeta metronome en <code>share/muse-4.0/metronome in the installation.</code> creada en la instalación.</p>
+    <h2 id="tempo-y-mapa-de-tempo">Tempo y mapa de Tempo</h2>
+    <p>La configuración predeterminada para el metrónomo es 120 bpm (120 pulsos por minuto), pero sería poco útil si no fuera configurable. Esto se puede cambiar en la barra de herramientas Tempo o en el panel de transporte <strong>View ➜Transport panel</strong>, o en el atajo de teclado <strong>F11</strong>.</p>
+    <p>Además, de forma predeterminada, el <strong>tempo de la pista maestra</strong> (Mastertrack-tempo) está habilitado (el botón verde en la barra de herramientas Tempo o el panel de transporte). Esto puede resultar un poco confuso para el principiante, pero para hacer música con cambios de tempo es una necesidad.</p>
+    <p>Lo que significa en la práctica es que el cambio de tempo se agrega como un cambio de tempo donde se encuentra actualmente el cursor de reproducción. Por lo tanto, si no está haciendo música con cambios de tempo, asegúrese de desmarcar el botón de tempo de pista maestra mastertrack-tempo o siempre haga el cambio después de haber rebobinado la canción al principio.</p>
+    <p><em>Si ha realizado un cambio de tempo sin querer y es un poco tarde para deshacerlo, el <strong>editor de la lista de pistas maestra</strong> <a href="mastertrack.html#editor-de-la-pista-maestra">Mastertrack list</a> es su amigo.</em></p>
+    </div>
+  </div>
+  </body>
+</html>

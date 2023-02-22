@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="useful-shortcuts-in-muse">Useful shortcuts in MusE</h1>
+    <p>MusE has a number of keyboard shortcuts for various uses, let’s go through the ones applicable to each editor. <em>Note that most shortcuts can be changed in the settings.</em></p>
+    <h2 id="arranger-shortcuts">Arranger shortcuts</h2>
+    <h2 id="mixer-shortcuts">Mixer shortcuts</h2>
+    <p>First of, it can happen that focus is stuck in a widget and the keyboard shortcuts seems not working, before giving up try hitting the ESC key. In the case of the mixer this should revert focus to the mixer-window.</p>
+    <p>Here is a list of keyboard shortcuts:</p>
+    <p><strong>CTRL+ALT LEFT</strong>, <strong>CTRL+ALT RIGHT</strong> are used for switching which track is currently selected, a yellow outline will be displayed on the currently selected track.</p>
+    <blockquote>
+    <p><em>By CTRL+clicking on a track label it is also possible to select several tracks.</em></p>
+    </blockquote>
+    <p>While a track is selected use the following shortcuts:</p>
+    <p><strong>META+M</strong> will toggle the mute state of selcted track(s)</p>
+    <p><strong>META+N</strong> will toggle the solo state of selected track(s)</p>
+    <p><strong>ALT+LEFT</strong>, <strong>ALT+RIGHT</strong> will change the panning of selected track(s)</p>
+    <p><strong>ALT+UP</strong>, <strong>ALT+DOWN</strong> will change the volume of selected track(s)</p>
+    <h2 id="midi-editor-shortcuts">MIDI editor shortcuts</h2>
+    <p>In the midi editors Pianoroll and Drumeditor there are a number of keyboard shortcuts that might be hard to understand their usefulness without some explanation.</p>
+    <h3 id="edit-toolbar">Edit toolbar</h3>
+    <p>So, without further ado let’s first list the shortcuts commonly available in the midi and drum editors.</p>
+    <p>Edit toolbar shortcuts:</p>
+    <ul>
+    <li>A - <strong>Pointer tool</strong> Allows to select and move already existing notes with the mouse</li>
+    <li>D - <strong>Draw tool</strong> Draw new notes by clicking on the canvas or resize existing notes</li>
+    <li>E - <strong>Eraser tool</strong> Delete notes by clicking on them</li>
+    <li>F - <strong>Line draw tool</strong> Can be used to manipulate values in the controller view at the bottom by drawing lines over several notes to create ramps.</li>
+    <li><p>U - <strong>Cursor tool</strong> Only available in the drum editor, see the following chapter about drum editing using cursor.</p></li>
+    <li><p>P - <strong>Pan tool</strong> Scroll view vertically (not very useful in this day and age, scrollwheel or mouse pad scrolling is recommended)</p></li>
+    </ul>
+    <p>Snap shortcuts:</p>
+    <ul>
+    <li>1 - Snap grid 1</li>
+    <li>2 - Snap grid 2</li>
+    <li>3 - Snap grid 4</li>
+    <li>4 - Snap grid 8</li>
+    <li>5 - Snap grid 16</li>
+    <li>6 - Snap grid 32</li>
+    <li>7 - Snap grid 64</li>
+    <li>, and . - Toggle dotted snap</li>
+    <li>T - Toggle triplets</li>
+    </ul>
+    <h3 id="drum-editing-using-shortcuts">Drum editing using shortcuts</h3>
+    <p>The drum editor in MusE supports a keyboard based editing mode dubbed CURSOR Mode. CURSOR Mode is somewhat a relative to trackers but still applied to a common drum matrix editor. Basically it enables drum editing without using the mouse.</p>
+    <p>To get into CURSOR Mode press U or click on the [] tool icon.</p>
+    <p>In CURSOR Mode the following relevant shortcuts are available:</p>
+    <ul>
+    <li>Arrow keys - move cursor</li>
+    <li>9 - cursor step down The number of steps to jump between added notes</li>
+    <li>0 - cursor step up - "" -</li>
+    <li>V - add note with LV1 velocity (usually lowest)</li>
+    <li>B - add note with LV2 velocity (next lowest)</li>
+    <li>N - add note with LV3 velocity (next higher)</li>
+    <li>M - add note with LV4 velocity (highest)</li>
+    <li>DELETE key - remove note</li>
+    </ul>
+    <h4 id="step-by-step-example-making-a-four-by-four-beat">Step by step example, making a four by four beat:</h4>
+    <ol type="1">
+    <li>First create a drum part that is four bars long and open it.</li>
+    <li>U to enter cursor mode</li>
+    <li>3 to set set snap grid to 4 snaps per bar</li>
+    <li>Press 0 until cursor step is 4</li>
+    <li>Navigate with the arrow keys to the first beat of the kick drum</li>
+    <li>Press N four times to place 4 kick drums each spaced four steps apart</li>
+    <li>Navigate to the third beat of the snare drum</li>
+    <li>Press N four times to place 4 snare drums each spaced four steps apart</li>
+    <li>Navigate to first beat of the hihat 10.Press on 9 until cursor step is 1 11.Press B 16 times to add hihat on all beats</li>
+    </ol>
+    <p>The result should look something like the following:</p>
+    <pre><code>----------1---2---3---4---5---6
+    Kickdrum: x---x---x---x---
+    Snare:    --x---x---x---x-
+    Hihat     xxxxxxxxxxxxxxxx</code></pre>
+    </div>
+  </div>
+  </body>
+</html>

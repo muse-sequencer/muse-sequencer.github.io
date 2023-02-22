@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="python-remote-control">Python Remote Control</h1>
+    <p>MusE can be remotely controlled by the Python scripting language, even over a network.</p>
+    <p>It supports Python 3. It requires Pyro 4 (Python Remote Objects).</p>
+    <p>Once Python and Pyro have been installed, make sure that this MusE cmake option is set to ‘ON’:</p>
+    <p><code>ENABLE_PYTHON</code> (Default is ‘ON’)</p>
+    <p>Then build and install MusE.</p>
+    <p>To enable the feature, include the command line option ‘-y’ when starting MusE.</p>
+    <p>The feature uses Pyro to talk on the network. If you want to talk to other machines, ensure that the network host name resolves to a valid address. Pyro won’t broadcast if the host name resolves to 127.0.0.1, but it’ll work fine locally.</p>
+    <p>If desired, the Pyro nameserver can be started manually before starting MusE, for example like this: <code>python -m Pyro4.naming [-n &lt;hostname&gt;] [-p &lt;port&gt;]</code> or <code>python3 -m Pyro4.naming [-n &lt;hostname&gt;] [-p &lt;port&gt;]</code></p>
+    <p>If a Pyro nameserver is NOT already running when MusE is started, MusE will automatically start it for you, with default settings.</p>
+    <p>The Pyro nameserver host name and port can be set with these MusE command line options: <code>--pyro-ns-host&lt;host&gt;  --pyro-ns-port&lt;port&gt;</code></p>
+    <p>The Pyro daemon host name and port can be set with these MusE command line options: <code>--pyro-daemon-host=&lt;host&gt; --pyro-daemon-port&lt;port&gt;</code></p>
+    <p>The Pyro communication timeout can be set with this MusE command line option: <code>--pyro-comm-timeout&lt;time (s)&gt;</code></p>
+    <p>It is set to about five seconds by default. When closing MusE, there may be noticable delay of up to the given amount of time.</p>
+    <p>When launched with -y MusE will initialize a Python bridge. This means you can access MusE internals via Python through Pyro. An example of how to initialize the connection to MusE can be found in the distributed package under share/pybridge, a file named musepclient.py. There are several examples found in share/pybridge/examples.</p>
+    <h3 id="list-of-commands">List of commands:</h3>
+    <pre><code>  # Get current position
+    getCPos(self):
+
+    # Start playback
+    
+    startPlay(self):
+
+    # Stop playback
+    stopPlay(self):
+
+    # Rewind current position to start
+    rewindStart(self):
+
+    # Get position of left locator
+    getLPos(self):
+
+    # Get position of right locator
+    getRPos(self):
+
+    # Get tempo at particular tick
+    getTempo(self, tick):
+
+    # get track names
+    getTrackNames(self):
+
+    # get parts in a particular track
+    getParts(self, trackname):
+
+    # create part in track
+    createPart(self, trackname, starttick, lenticks, part):
+
+    # modify a part (the part to be modified is specified by its id
+    modifyPart(self, part):
+
+    # delete a part
+    deletePart(self, part):
+
+    # get first selected track in arranger window
+    getSelectedTrack(self):
+
+    # import part file to a track at a given position
+    importPart(self, trackname, filename, tick):
+
+    # set current position
+    setCPos(self, tick):
+
+    # set left locator
+    setLPos(self, tick):
+
+    # set right locator
+    setRPos(self, tick):
+
+    # set song length
+    setSongLen(self, ticks):
+
+    # get song length
+    getSongLen(self):
+
+    # get division (ticks per 1/4, or per beat?)
+    getDivision(self):
+
+    # set midi track parameter (velocity, compression, len, transpose)
+    setMidiTrackParameter(self, trackname, paramname, value):
+
+    # get loop flag
+    getLoop(self):
+
+    # set loop flag
+    setLoop(self, loopFlag):
+
+    # get track mute parameter
+    getMute(self, trackname):
+
+    # set track mute parameter
+    setMute(self, trackname, enabled):
+
+    # set mixer volume
+    setVolume(self, trackname, volume):
+
+    # get a particular midi controller value for a track
+    getMidiControllerValue(self, trackname, ctrlno):
+
+    # set a particular midi controller value for a track
+    setMidiControllerValue(self, trackname, ctrlno, value):
+
+    # set volume for audio track
+    setAudioTrackVolume(self, trackname, dvol):
+
+    # get volume for audio track
+    getAudioTrackVolume(self, trackname):
+
+    # get effect names for an audio track
+    getTrackEffects(self, trackname):
+
+    # toggle specific effect on/off
+    toggleTrackEffect(self, trackname, effectno, onoff):
+
+    #change track name
+    changeTrackName(self, trackname, newname):
+
+    # add midi track
+    addMidiTrack(self, trackname):
+
+    # add wave track
+    addWaveTrack(self, trackname):
+
+    # add audio input
+    addInput(self, trackname):
+
+    # add audio output
+    addOutput(self, trackname):
+
+    # add audio group
+    addGroup(self, trackname):
+
+    # delete a track
+    deleteTrack(self, trackname):</code></pre>
+    </div>
+  </div>
+  </body>
+</html>

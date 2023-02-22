@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="beginners-tutorial">Beginners tutorial</h1>
+    <p>To get a quick grip of what MusE can achieve please follow this beginners tutorial.</p>
+    <blockquote>
+    <p>There are also several videos on this subject here: <a href="tutorials.html">Tutorials</a></p>
+    </blockquote>
+    <h2 id="soft-synth-test">Soft synth test</h2>
+    <p>Fire up MusE as was described in the previous chapter, try to make sure that the jack audio server is started with sufficient configuration to allow for audio output without breakup.</p>
+    <p>As an alternative you can opt for starting MusE with the Pulse Audio backend (see <a href="start.html#running-with-pulseaudio-backend">above</a>).</p>
+    <p>Also, please make sure your system can actually make sound, for instance that you haven’t left the volume at zero. Not that that has ever happened to anyone :).</p>
+    <p>With MusE up and running, right click in the track pane (see <a href="basic.html#basic-overview">Arranger</a>) and select <strong>Synth &gt; MESS &gt; vam soft synth</strong>. A Soft Synth track called vam-0 should appear.</p>
+    <p>Now right click once more in the track pane and select <strong>Midi Track</strong>. Another track appears called Track 1, and its track list <strong>Port</strong> column should show it is bound to the synth that was just created vam-0. If it for some reason is not, right-click on the Track 1 Port column to open a drop-down list of available devices and choose vam-0.</p>
+    <p>Now select the Pencil tool icon from the toolbar, alternatively press the shortcut key <strong>D</strong>. Move the mouse over to the arranger canvas as referenced in <a href="basic.html#basic-overview">Arranger</a> and point at the midi track, the mouse should have changed to a small pencil. Draw a part along the midi track using the mouse. For this exercise it is not important where or how large the drawn part is. When you are done double click on the drawn part. This will open up the Piano Roll editor. To the left of the Piano Roll there are piano keys in a vertical line, try clicking on the keys in this virtual keyboard - each click should be rewarded with a synth sound (maybe of questionable quality, a sound nevertheless).</p>
+    <p>If this produces sound you have successfully completed this test. Clicking <strong>ESC</strong> will close the midi editor and return you to the Arranger window.</p>
+    <p>As a last thing, locate the colum Port in the tracklist and find the entry for the vam synth, it should read as a number and the word vam-0, double clicking on the port should reward you with popping up the GUI for the Vam synthesizer, as shown in the screenshot below.</p>
+    <div data-align="center">
+    <p><img src="man/vam_synth.png"></img></p>
+    </div>
+    <h2 id="missing-sound">Missing sound</h2>
+    <p>If you got sound from the previous exercise you can carry on to the next chapter, or keep reading for further enlightenment in case you come upon trouble later on.</p>
+    <p>If there is no sound we need to do some fault hunting. First off, open the Mixer window (<strong>F10</strong>) and look for the the vam-0 track there.</p>
+    <!-- <div align="CENTER">
+    <img src="man/main_window_with_midi_editor_vam.png"></img>
+    </div> -->
+    <p>Now bring back Piano Roll window and align the windows so you can see the piano keys as well as the Mixer (see the 5 Function by function chapters for more information on these windows).</p>
+    <p>When pressing one of the keys on virtual Keyboard the Meter on the Mixer Strip should light up in green to visualize that the Synth is making sound, if it is not, try to back trace your steps and see if you did anything differently than described. Now, if the Meter lights up but there is still no sound we need to check the routing between the tracks.</p>
+    <p>To check the output routing, click on the Arranger window again and select the Out 1 track, this is the predefined output which MusE by default loads at startup. At the top of Mixer Strip there are two buttons looking like arrows, these bring up the inputs and outputs of the track.</p>
+    <div data-align="CENTER">
+    <p><img src="man/mixer_out_arrows.png"></img></p>
+    </div>
+    <p>Click on the right one, the <em>output arrow</em>, and make sure that it is connected to some valid outputs on your system.</p>
+    <div data-align="CENTER">
+    <p><img src="man/output_routing.png"></img></p>
+    </div>
+    <p>Click on the outputs to select them, if you did changes here go back and try clicking on the Piano Roll keyboard again, hopefully it helped. If there still are problems make sure your system actually can make sound through Jack, this is however getting outside the scope of this manual. On tip however is to try the jack_simple_client application which is usually bundled with jack. This is a command line tool that when executed should output a tone on jacks output device.</p>
+    <p><code>$&gt; jack_simple_client</code></p>
+    <p><em>This might be the time to bring up the concept of community support. Open source software could never be what it is without the support given by individuals on forums and mailinglists, if the information given in this document is not enough, try googling your problem and/or get in touch with one of the online forums for MusE or Linux audio in general. See some pointers in the <a href="support.html">Support</a> section.</em></p>
+    <h2 id="introduction-to-recording-audio">Introduction to recording Audio</h2>
+    <p>At this point we’ll make a slight detour into full on audio recording. Getting audio out of MusE has already been covered in the previous chapters so we will concentrate on the additional steps needed to record sound onto an audio track.</p>
+    <p>When MusE is first fired up, the output track has already been created (more about this in the <a href="projects.html#templates">templates</a> chapter), to proceed with audio recording we need to add two additional tracks, a wave track and an input track. When MusE is first started, right click in an empty space on the track view.</p>
+    <div data-align="CENTER">
+    <p><img src="man/main_window_add_track.png"></img></p>
+    </div>
+    <p>and select <strong>Audio Input</strong>. Right click again and also select <strong>Wave Track</strong>. Two additional tracks are now visible in the Arranger, “Input 1” and “Track 1”. Bringing up the mixer with <strong>F10</strong> should show the following configuration.</p>
+    <div data-align="CENTER">
+    <p><img src="man/mixer_with_one_input.png"></img></p>
+    </div>
+    <p>Do note all the buttons on each mixer strip. Hover over them to see their respective functionality. For more information on all the buttons see the chapter about <a href="basic.html#mixer">the mixer</a>.</p>
+    <p>For now lets just do what we must. <em>Note that the first three steps are likely not needed as this should already be their default setting but are listed to highlight their functionality as they are common errors</em> 1. Click on the stereo symbol over the slider to change the input to a mono track (optional step).<br />
+    2. Do the same for the wave track (optional step) . 3. Click on the Mute icon on the input track to unmute it (optional step).<br />
+    4. Click on the input routing button on the input track and select an appropriate connection from your system, where you hopefully have an audio source connected.<br />
+    5. Click on the output routing button on the input track and select <strong>Track 1</strong></p>
+    <p>Already after step 4, the meter on the input track should come alive if there is incoming sound from your sound source.</p>
+    <p>We are now nearly ready to start recording. First we need to select a location to store the files as MusE does not use a centralized storage of soundfiles. MusE instead uses the path of the song-file (extension .med) as guidance as to where the audio files will be placed.</p>
+    <p>As it happens MusE will prohibit us from starting a recording until the songfile has been stored. So lets take advantage of this behaviour and just go ahead and try to record.</p>
+    <p>In the mixer click on the red <strong>record</strong> dot on the Audio Track to <strong>ARM</strong> it for recording (or <strong>enable</strong> if you prefer). Now when there is audio coming into the input it will also show up on the Audio Track. Also note that all the input and output routing buttons on the tracks now have the same active color, this means that all of the tracks have a proper connection.</p>
+    <div data-align="CENTER">
+    <p><img src="man/mixer_with_one_input_buttons.png"></img></p>
+    </div>
+    <p>All fine and dandy. Now bring up the arranger window and find the round, red on white <strong>record</strong> button and click on it. This is your command to MusE to prepare for recording. However since we have (deliberately) not saved our song, we are presented with a dialog to do just that.</p>
+    <div data-align="CENTER">
+    <p><img src="man/project_my_first_song.png"></img></p>
+    </div>
+    <p>Note the check box for <strong>Create project subfolder</strong>, when working with audio this is very much recommended or you may soon loose track of what audio files belong to which song.</p>
+    <p>Finally we are ready to start recording! The process is completed by clicking on the <strong>Play</strong> button in the Arranger.</p>
+    <p>If all went well, MusE then starts to record a wave file from the Input Track placed in your song directory. At this point, do try to make some noise so something is indeed recorded.</p>
+    <p>When you wish to stop recording press the <strong>Stop</strong> button. Now the resulting waveform should be visible on the created part in the Arranger. After rewinding the Play position and pressing <strong>Play</strong> again the resulting sound should be played through the connected output.</p>
+    <p><em>A quick note about rewinding: This may not be necessary as there is a setting for doing automatic <strong>Rewind on Stop</strong> on the <strong>Settings</strong> menu, if this was checked it will already have returned to the starting point upon pressing stop!</em></p>
+    <h2 id="recording-midi-with-external-keyboard">Recording MIDI with external Keyboard</h2>
+    <p>Let us briefly complete this beginners tutorial by going over how to record MIDI into MusE from an external keyboard.</p>
+    <p>First complete the steps in the first tutorial, <a href="#soft-synth-test">Soft synth test</a>. This will ensure that we have a synthesizer connected that can play back the recorded MIDI.</p>
+    <p>If you want to use some other synth from the Soft synth list, or for that matter an hardware synth that is fine too. If clicking on the piano in the Piano Roll produces sound you are good to go.</p>
+    <h3 id="connect-external-midi-device">Connect external MIDI device</h3>
+    <p>Nowadays most external MIDI devices have a USB connector, connecting this to your computer should yield a USB-MIDI device. If your device is more old-style (some would say better) it has a traditional MIDI connector, to connect this to your computer you need to have a MIDI port on your computer. Many more advanced soundcards have MIDI connectors builtin but there are also stand alone USB-MIDI converters for this purpose.</p>
+    <p>For the purpose of this guide, let’s assume you have a means to connect your external MIDI keyboard to your computer.</p>
+    <p>Here is an example configuration:</p>
+    <div data-align="CENTER">
+    <p><img src="man/midi_config_window_closed_device.png"></img></p>
+    </div>
+    <p>The <strong>XP MIDI mate MIDI 1</strong> listed in the <strong>Useable devices</strong> is a USB-MIDI adapter through which I have my external MIDI keyboard connected.</p>
+    <p>Note that the device <strong>State</strong> says Closed. This signals that this device has not been assigned to a Port. It can quickly be remedied by clicking on the first non configured <strong>Device Name</strong> in the <strong>Device port assignments</strong> dialog and select the <strong>XP MIDI mate MIDI 1</strong> device. More about this in the <a href="configuration.html#midi-ports">midi ports</a> chapter.</p>
+    <p>After doing this, the State of the device will change to OK. Also note the green diamonds in the <strong>I</strong> and <strong>O</strong> columns, which signifies that the device is capable of both receiving and sending MIDI information. These should already be set to the right state but if they for some reason do not, enable them and click Apply and/or OK.</p>
+    <h3 id="checking-connectivity">Checking connectivity</h3>
+    <p>With the external MIDI device configured in MusE go back to the arranger. Set up a software synth as in chapter <a href="#soft-synth-test">Soft Synth Test</a> and add a MIDI track connected to this track.</p>
+    <p>Now click on the <strong>input monitor</strong> button, green circle, for the midi track in the track list. If everything was configured OK you should now be able to play on the keyboard and hear the sound from the software synth!</p>
+    <h3 id="enable-metronome">Enable Metronome</h3>
+    <p>Now let us quickly enable the metronome so we have a beat to play to. Among the toolbars there are two toolbars, <strong>Metronome</strong> and <strong>Tempo</strong>. Make sure the Metronome button is checked, more reading about the metronome <a href="metronome.html#metronome-configuration">here</a> The tempo is not necessary to change for this test but for future reference this is where the tempo is changed. By default the tempo-map is enabled which can complicate things but more on that later on.</p>
+    <h3 id="make-a-quick-recording">Make a quick recording</h3>
+    </div>
+  </div>
+  </body>
+</html>

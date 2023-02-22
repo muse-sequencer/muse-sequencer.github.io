@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentación</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="para-ponerse-en-marcha">Para ponerse en marcha</h1>
+    <h2 id="inicio-rápido">Inicio rápido</h2>
+    <h3 id="para-gente-impaciente">…para gente impaciente</h3>
+    <p>Instale MusE desde el repositorio de su distribución Liunx. Para obtener un buen rendimiento, inicie <a href="http://jackaudio.org/Jack" class="uri">http://jackaudio.org/Jack</a> en una terminal con el siguiente comando: <code>$&gt; jackd -d alsa -d hw:0 -p 256</code> O, si lo prefiere, use la utilidad de sistema <a href="http://qjackctl.sourceforge.net/QJackCtl" class="uri">http://qjackctl.sourceforge.net/QJackCtl</a> para obtener ayuda acerca de cómo iniciar a Jack. Después de esto, inicie MusE desde el menú o inicie otra terminal y escriba <code>$&gt; muse4</code> Si esto no funcionó, siga leyendo para saber un poco más cómo comenzar.</p>
+    <h3 id="para-gente-realmente-impaciente">… para gente REALMENTE impaciente</h3>
+    <p>MusE ahora es compatible con PulseAudio; en este escenario ni siquiera necesita Jack. Sin embargo, para la reproducción en tiempo real la latencia probablemente será un problema, aunque hay casos de uso donde, por ejemplo usando solo la mezcla, funciona perfectamente.</p>
+    <p>Escriba <code>muse4 -t</code> para iniciar MusE con el entorno PulseAudio. <code>$&gt; muse4 -t</code></p>
+    <h2 id="instalación-desde-binarios">Instalación desde binarios</h2>
+    <p>Hay varias formas de instalar MusE dependiendo de su situación. La forma más conveniente es instalar una versión preempaquetada de la distribución Linux en uso. El inconveniente de esto es que puede que no sea la versión más reciente.</p>
+    <h3 id="appimage-programa-ejecutable">AppImage (programa ejecutable)</h3>
+    <p>A partir de la versión 4.0, MusE está disponible como una AppImage precompilada e independiente de la distribución, tanto para las versiones previas (pre-releases) como para la versión de desarrollo actual (master). Todo lo que tiene que hacer es descargar la AppImage deseada y hacer que el archivo descargado sea ejecutable (algunos entornos de escritorio ofrecen hacerlo por usted y también crear automáticamente una entrada en el menú de inicio).</p>
+    <h2 id="instalación-desde-el-código-fuente">Instalación desde el código fuente</h2>
+    <p>Construir MusE desde la fuente no es difícil, hay una serie de requisitos previos que deben cumplirse, pero la construcción no debería ser problemática (ja, las famosas últimas palabras).</p>
+    <p>Eche un vistazo a las instrucciones detalladas en el archivo README incluído en el archivo del paquete MusE, o en:</p>
+    <p><a href="https://github.com/muse-sequencer/muse" class="uri">https://github.com/muse-sequencer/muse</a></p>
+    <h2 id="hardware">Hardware</h2>
+    <p>MusE en la plataforma Linux admite midi a través de <strong>ALSA</strong> y <strong>jack-midi</strong>; y audio a través de <strong>Jack</strong> y <strong>PulseAudio</strong>. Para obtener información sobre qué hardware es compatible, hay algunos lugares que se pueden consultar:</p>
+    <ul>
+    <li>Matriz de la tarjeta de sonido Alsa en <a href="http://www.alsa-project.org/main/index.php/Matrix:Main" class="uri">http://www.alsa-project.org/main/index.php/Matrix:Main</a></li>
+    <li><a href="http://FFADO.org" class="uri">http://FFADO.org</a> para dispositivos devices.</li>
+    </ul>
+    <p>Además, como es habitual para un buen enfoque para Linux y el código abierto, los diversos foros disponibles en Internet suelen contener buena información. Es probable que alguien ya haya probado su configuración y/o haya tenido su problema específico y la solución ya esté escrita.</p>
+    <p>En estos días (2021) la mayoría de las tarjetas de sonido están basadas en USB y muchas están listas para usar. Pero, por favor, no lo tome como verdadero si está por comprar una tarjeta de sonido. Por favor investigue antes de comprar.</p>
+    <h2 id="consideraciones-de-audio">Consideraciones de audio</h2>
+    <p>En el caso estándar, MusE espera encontrar y conectarse al servidor de audio Jack <a href="http://jackaudio.org" class="uri">http://jackaudio.org</a>. Asegúrese de que Jack esté instalado (si MusE se instaló con un paquete de distribución, es muy probable que Jack ya se ecuentre instalado como dependencia). Para que Jack funcione con el mejor rendimiento, su sistema deberá estar lo suficientemente ajustado para permitir que funcione con capacidades en tiempo real. La configuración en tiempo real del sistema operativo consta normalmente de dos partes:</p>
+    <ol type="1">
+    <li>De forma predeterminada, en la mayoría de las distribuciones, solo el superusuario permite que las aplicaciones configuren capacidades en tiempo real. Consulte el APÉNDICE de configuración en tiempo real.</li>
+    <li>Maximización del rendimiento. Es posible que una instalación estándar de Linux no pueda alcanzar el rendimiento requerido por un usuario avanzado. Esto requiere cambiar el kernel de linux por un kernel de baja latencia o de tiempo real, tema que también está cubierto por el APÉNDICE de configuración en tiempo real.</li>
+    </ol>
+    <h2 id="iniciando-la-aplicación">Iniciando la aplicación</h2>
+    <p>Después de la instalación, el binario <code>muse4</code> se instala en su computadora. Si MusE se instaló desde un repositorio de distribución, el binario puede tener un nombre diferente, dependiendo de las políticas de esa distribución. Sin embargo, la mayoría de las distribuciones instalan una entrada de menú, por lo que MusE debería estar convenientemente disponible desde allí.</p>
+    <h3 id="ejecutando-muse">Ejecutando MusE</h3>
+    <p>Busque MusE en el menú o abra una terminal e ingrese muse4.</p>
+    <p><code>$&gt; muse4</code></p>
+    <p>Debería aparecer una pantalla de bienvenida seguida de la ventana principal de la aplicación y ¡ya está!</p>
+    <p>Si aparece un error como el de la captura de pantalla siguiente, el servidor de audio Jack no se está ejecutando o se inició como un usuario diferente al que está intentando iniciar MusE.</p>
+    <div data-align="center">
+    <p><img src="man/no_audio.png"></img></p>
+    </div>
+    <blockquote>
+    <p>(Error fatal en MusE: MusE no pudo encontrar el servidor de audio. MusE continuará en ejecución sin capacidad de procesar audio)(Error fatal en MusE: MusE no pudo encontrar el servidor de audio. MusE continuará en ejecución sin capacidad de procesar audio)</p>
+    </blockquote>
+    <h3 id="ejecutando-muse-con-el-entorno-pulseaudio">Ejecutando MusE con el entorno PulseAudio</h3>
+    <p>MusE ahora se puede iniciar convenientemente sin Jack, ya sea cambiando la configuración del dispositivo de audio en la configuración de MusE (y reiniciando) o iniciando MusE con el argumento -t, de esta manera:</p>
+    <p><code>$&gt; muse4 -t</code></p>
+    <p>Sin embargo, tenga en cuenta que la ejecución con PulseAudio puede no ser lo suficientemente buena si desea grabar en tiempo real y escuchar lo que está haciendo. La latencia de PulseAudio (aunque no está mal) probablemente sea demasiada para escuchar en tiempo real. El controlador RTaudio/PulseAudio no admite informes de latencia, por lo que no es posible corregirla (como con el controlador Jack). Sin embargo, para editar y mezclar es perfectamente utilizable.</p>
+    <h3 id="ejecutando-solamente-con-midi">Ejecutando solamente con Midi</h3>
+    <p>MusE también se puede iniciar en modo solo Midi, donde MusE no tiene ninguna dependencia externa aparte de ALSA midi. En este caso, inicie MusE desde una terminal:</p>
+    <p><code>$&gt; muse4 -a</code></p>
+    <p>Esto es un remanente de los viejos tiempos, en general, debería haber muy pocas razones para deshabilitar el audio de esta manera, pero la opción está ahí por si alguien lo encuentra útil.</p>
+    <h3 id="alsa-midi-y-jack-midi">ALSA MIDI y jack-midi</h3>
+    <p>MusE admite la conexión a dispositivos midi directamente desde ALSA o por medio de Jack. Si Jack se está ejecutando, por defecto MusE no usará dispositivos ALSA, prefiriendo jack-midi en su lugar. Para forzar el uso de dispositivos ALSA además de jack-midi, inicie MusE con la opción -A:</p>
+    <p><code>$&gt; muse4 -A</code></p>
+    <p><em>Nota (2021): aunque lo anterior sigue siendo más o menos cierto, en estos días es posible encender y apagar dispositivos ALSA dinámicamente en la configuración del dispositivo.</em></p>
+    <p><em>En realidad, se podría argumentar que ALSA midi es una mejor opción debido a posibles problemas de latencia con jack-midi. Esta no es una verdad universal, pero en el caso de MusE todavía se debate como cierta.</em></p>
+    <h3 id="parámetros-de-la-línea-de-comando">Parámetros de la línea de comando</h3>
+    <p><code>$&gt; muse4 -h</code></p>
+    <p>El argumento -h enumerará todos los parámetros de la línea de comandos de MusE. Especialmente cuando se intenta aislar algún problema, puede ser bueno jugar con los diversos parámetros para limitar la carga de los complementos (plugins) o para hacer un seguimiento de depuración más detallado.</p>
+        </div>
+  </div>
+  </body>
+</html>

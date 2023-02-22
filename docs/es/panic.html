@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentación</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="barra-de-herramientas-de-pánico">Barra de herramientas de pánico</h1>
+    <div data-align="CENTER">
+    <p><img src="man/panic_toolbar.png"></img></p>
+    </div>
+    <p>Debido a la forma en que funciona MIDI, a veces es necesario reiniciar el estado de los dispositivos MIDI para desbloquearlos. Esta funcionalidad se recopila en la <strong>barra de herramientas de pánico</strong> (panic toolbar).</p>
+    <h2 id="el-botón-de-pánico">El botón de pánico</h2>
+    <p>En raras ocasiones, es posible que algunas notas midi se atasquen, por lo que debemos acallarlas de inmediato.</p>
+    <p>El botón ‘pánico’ envía al controlador midi un evento llamado ‘todos los sonidos apagados’ y los comandos del modo ‘restablecer todos los controles’ (controladores 0x78 y 0x79) a todos los canales en todos los puertos midi de MusE.</p>
+    <p>El botón de pánico se encuentra disponible en las barras de herramientas Arranger y Midi Editor y en varias otras barras de herramientas de MusE.</p>
+    <h2 id="el-botón-de-apagado-local-local-off">El botón de apagado local (Local Off)</h2>
+    <p>El botón de apagado local envía evento ‘apagado local del controlador midi’ (controlador 0x7a) a todos los canales en todos los puertos midi de MusE.</p>
+    <h2 id="el-botón-para-resetear-instrumentos">El botón para resetear Instrumentos</h2>
+    <p>El botón ‘resetear instrumento’ envía el evento midi llamado “notas apagadas” (notes-off) a todos los canales en todos los puertos midi MusE.</p>
+    <h2 id="el-botón-inicializar-instrumento">El botón Inicializar instrumento</h2>
+    <p>El botón ‘inicializar instrumento’ (init instrument) reenvía mensajes de inicialización (típicamente mensajes de modo <em>sysex</em>) según lo definido por el instrumento (consulte el cuadro de diálogo Editar instrumento).</p>
+    <p>Esto generalmente se hace automáticamente al cargar el proyecto, característica que puede desactivar en Configuración, de ahí la presencia del botón manual aquí.</p>
+    </div>
+  </div>
+  </body>
+</html>

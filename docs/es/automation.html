@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentación</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+   <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="main">
+    <h1 id="automatización">Automatización</h1>
+    <p>La automatización es la capacidad de grabar (o construir) y reproducir secuencias exactas de movimientos de control.</p>
+    <p>MusE puede automatizar tanto MIDI como audio, pero se manejan de manera algo diferente aunque comparten una serie de similitudes.</p>
+    <h2 id="automatización-de-audio">Automatización de audio</h2>
+    <p>Casi todos los controles gráficos de audio en MusE se pueden automatizar. Esto incluye el volumen y el balance de una pista de audio, y los controles de cualquier complemento en el rack de efectos. Y si la pista es una pista de sintetizador, todos los controles del sintetizador.</p>
+    <p>Cada control tiene un valor de ajuste manual. Este valor se muestra cuando no hay ningún dato de automatización o se ha desactivado la automatización.</p>
+    <p>Para los controles de complementos y sintetizadores, generalmente es más deseable manipular la automatización con las GUI de complementos genéricos, porque MusE tiene control total sobre su comportamiento. (Consulte las <a href="plugins.html#gui-de-complementos">GUI de complementos</a>).</p>
+    <p>Hay algunas formas de ingresar datos de automatización de audio:</p>
+    <ul>
+    <li>Ajustando los controles de audio mientras el transporte está rodando. MusE registrará los movimientos exactos.</li>
+    <li>Ajustando los controles de audio mientras el transporte está parado, en diferentes posiciones de transporte. El modo TOUCH permite esto.</li>
+    <li>Haciendo clic con el botón derecho en cualquier control de audio y eligiendo una operación en el menú emergente de automatización. Esto incluye almacenar, borrar y borrar eventos de automatización y buscar el evento anterior o siguiente.</li>
+    <li>Dibujando los datos en los gráficos de automatización de la pista de audio (ver <a href="tracks.html#pistas">pistas</a>).</li>
+    </ul>
+    <h3 id="modos-de-automatización-de-audio">Modos de automatización de audio</h3>
+    <p>Cada banda de pista de audio tiene un botón de modo de automatización en la parte inferior.</p>
+    <p>Hay cuatro modos de automatización:</p>
+    <ul>
+    <li><strong>OFF</strong> (apagado): Desactiva toda la automatización, utiliza siempre el valor manual.</li>
+    <li><strong>READ</strong> (leer): Los datos de automatización se aplican a los controles. Si existe algún dato de automatización, el valor manual es anulado y no tiene ningún efecto.</li>
+    <li><strong>TOUCH</strong> (tocar): Le permite alterar un control en cualquier momento, mientras el transporte está parado o rodando, si está rodando, cuando el control se libera, vuelve a la lectura de los datos de automatización.</li>
+    <li><strong>WRITE</strong> (escritura): Permite ajustar un valor inicial antes de enrollar el transporte. Mientras rueda, cuando el control está liberado, no vuelve a leer los datos de automatización.</li>
+    </ul>
+    <p>Aquí hay una captura de pantalla del modo ESCRITURA de automatización y algunos datos de automatización, con el menú emergente de automatización del panel de pistas a la vista (ver <a href="tracks.html#pistas">pistas</a>):</p>
+    <div data-align="CENTER">
+    <p><img src="man/main_window_with_automation.png"></img></p>
+    </div>
+    <h2 id="automatización-midi">Automatización midi</h2>
+    <p>La automatización MIDI es un concepto ligeramente diferente: a diferencia de la automatización de audio, actualmente no existe ‘modo’ de automatización y no registra movimientos de control gráfico. Los datos se ven desde los editores de pianoroll y percusión, haciendo clic en el botón ‘Ctrl’ en esas secciones.</p>
+    <p>De manera similar a los controles de audio, cada control midi tiene un valor de ajuste manual. Este valor es sobreescrito cuando hay datos de automatización midi.</p>
+    <p>Hay varias formas de introducir datos de automatización MIDI:</p>
+    <ul>
+    <li>Ajustando controles MIDI externos (como el tono del teclado midi o la rueda de modulación) mientras el transporte está rodando y tanto el transporte como la pista midi están en modo de grabación. MusE registrará los movimientos exactos. Como se mencionó anteriormente, tenga en cuenta que los movimientos de control gráfico no se registran.</li>
+    <li>Haciendo clic derecho en cualquier control midi y eligiendo una operación en el menú emergente de automatización. Esto incluye almacenar y borrar eventos de automatización.</li>
+    <li>Dibujando los datos en los gráficos de automatización de una parte midi.</li>
+    </ul>
+    <p>Aquí hay una captura de pantalla de una pista midi, que contiene una parte midi que se ha abierto con el editor de pianoroll y mostrando los datos de automatización.</p>
+    <p>El menú emergente ‘Ctrl’ (abajo a la izquierda) muestra los controladores midi disponibles. El punto verde indica que hay algunos datos.</p>
+    <div data-align="CENTER">
+    <p><img src="man/main_window_with_midi_automation.png"></img></p>
+    </div>
+    </div>
+  </div>
+  </body>
+</html>
