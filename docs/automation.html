@@ -28,7 +28,7 @@
     <li>By drawing the data on the audio track’s automation graphs. (See <a href="#tracks">track automation</a>).</li>
     </ul>
     <h3 id="audio-automation-modes">Audio automation modes</h3>
-    <p>Each audio track strip has an automation mode button at the bottom. There are four automation modes:</p>
+    <p>Each audio track strip has an automation mode button at the bottom. There are five automation modes:</p>
     <ul>
     <li><strong>OFF:</strong><br />
     Disables all automation, uses manual value always.</li>
@@ -36,12 +36,53 @@
     Automation data is applied to controls. If any automation data exists, the manual value is overridden and has no effect.</li>
     <li><strong>TOUCH:</strong><br />
     Allows you to alter a control at any time, while transport is stopped or rolling, If rolling, when the control is released it returns to reading from automation data.</li>
+    <li><strong>LATCH:</strong><br />
+    Allows to adjust an initial value before rolling the transport. While rolling, when the control is released it does not return to reading from
+    automation data.</li>
     <li><strong>WRITE:</strong><br />
-    Allows to adjust an initial value before rolling the transport. While rolling, when the control is released it does not return to reading from automation data.</li>
+    Similar to LATCH mode but in WRITE mode everything from the start to the end of recording is erased, even if the control was not touched
+    until later - but it must have been touched at least once.</li>
     </ul>
-    <p>Here is a screenshot of automation WRITE mode, and some automation data, with the track pane automation popup menu showing (see <a href="#tracks">track automation</a>):</p>
+    <p>Choose which graphs are shown by right-clicking the Automation column in the track pane.</p>
+    <p>To draw, edit, or erase points on the graph, first select the Edit Automation tool on the Tools toolbar. Two types of points can be drawn.
+    Discrete, which are flat steps between points, and Interpolated, which are slopes between points. The Automation toolbar has two buttons
+    for that. There is also a button that eliminates redundant recorded straight-line points. Here is the Automation toolbar (with the Edit Automation Tool toolbar button showing to the left):</p>
     <div data-align="CENTER">
-    <p><img src="man/main_window_with_automation.png"></img></p>
+    <p><img src="man/automation_toolbar_buttons.png"></img></p>
+    </div>
+    <p>Selected points can be easily converted between the two types by right-clicking any area on the graph and using the Graphs popup menu item.
+    Note that some controller types might not support interpolation. Discrete points are shown as boxes on the graph while interpolated points
+    are shown as circles. The size of the points is adjustable in the Global Settings > GUI tab.</p>
+    <div data-align="CENTER">
+    <p><img src="man/automation_point_radius_setting.png"></img></p>
+    </div>
+    <p>Here is a screenshot of automation WRITE mode, and some discrete and interpolated automation data with exaggerated point size,
+    and the track pane automation popup menu showing (see <a href="#tracks">track automation</a>):</p>
+    <div data-align="CENTER">
+    <p><img src="man/main_window_with_automation_2.png"></img></p>
+    </div>
+    <p>Two more buttons on the Automation toolbar control whether the points are shown at all. Here they are off:</p>
+    <div data-align="CENTER">
+    <p><img src="man/main_window_with_automation_points_off.png"></img></p>
+    </div>
+    <p>The graphs fully support copy/paste/cut/delete operations. Selected points on a single graph can be copied and pasted to another graph,
+    even in another track.</p>
+    <p>Selected points can be dragged around the graph. Holding the control key before dragging creates a copy of them when dropped.
+    Pressing the shift key before dragging restricts motion up or down depending on which direction the points are moved.
+    Holding the shift key while dragging the points turns of snapping to the grid, for fine-grained movement.</p>
+    <p>When points on a graph are dragged and dropped, there is a setting in the graph right-click Graphs menu which determines
+    how existing points are erased underneath the dropped points. No erasing can be chosen, but note that dropping a point directly
+    over an existing point still replaces the existing point with the dropped one. Existing points can be erased between dropped points,
+    but any gaps (unselected points) in the original selected points are not erased underneath the dropped points. A third setting erases
+    everything between the leftmost and rightmost dropped points - even if there were unselected points in between the original selected points.</p>
+    <p>While dragging points around, depending on the erase setting colored areas may be shown. These indicate what WOULD be erased if dropped.
+    These colored areas allow FURTHER movement of the points after dropping them, WITHOUT erasing anything underneath the drop positions.
+    After dropping the points, the colored areas persist until a blank area is clicked or End Paste Drop Mode is clicked in the context menu.
+    It is only when these colored areas disappear, that actual changes and erasures on the track take place. There is no 'cancel drop' feature
+    since Undo (and Redo) already handle it, remembering the colored areas too.</p>
+    <p>Here are two groups of points being moved, while the erase mode is normal (respecting gaps):</p>
+    <div data-align="CENTER">
+    <p><img src="man/main_window_with_automation_movement.png"></img></p>
     </div>
     <h2 id="midi-automation">Midi automation</h2>
     <p>MIDI automation is a slightly different concept: Unlike audio automation, currently there is no automation ‘mode’ and it doesn’t record graphical control movements. Data is viewed from within the pianoroll and drum editors, by clicking on the ‘Ctrl’ button on those canvases.</p>
