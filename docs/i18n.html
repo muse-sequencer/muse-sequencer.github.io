@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+  <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="maincontainer">
+        <div id="main">
+            <h1 id="i18n_intro">Internationalisation</h1>
+            <p>If you want to contribute a translation the following hints may be of help to you.</p>
+            <h2 id="i18n_step_1">Step 1:</h2>
+            <p>If you want to update an existing translation, skip to step 2.</p>
+            <p>If you want to do a new translation, start with creating an empty translation file:</p>
+            <p><code>touch share/locale/muse_fr.ts</code></p>
+            <h2 id="i18n_step_2">Step 2:</h2>
+            <p>Populate your .ts file with the newest strings.</p>
+            <p><code>mkdir build</code></p>
+            <p><code>cd build</code></p>
+            <p><code>cmake -DUPDATE_TRANSLATIONS=ON ..</code></p>
+            <p><code>make translations</code></p>
+            <p><code>cmake -DUPDATE_TRANSLATIONS=OFF ..</code></p>
+            <p><code>cd ..</code></p>
+            <p>Your file share/locale/muse_fr.ts is now ready for translation. It is recommended that you copy this file
+            to some other place and and work on the copy.</p>
+            <h2 id="i18n_step_3">Step 3:</h2>
+            <p>Edit &quot;muse_fr.ts&quot; manually or use the QtLinguist tool:</p>
+            <p><code>linguist muse_fr.ts</code></p>
+            <h2 id="i18n_step_4">Step 4:</h2>
+            <p>Save the edited file &quot;muse_fr.ts&quot; from linguist and start File-&gt;Release.
+            This generates the file &quot;muse_fr.qm&quot;.
+            Copy this file into your muse installation folder, /share/muse-4.0/locale/</p>
+            <p>or</p>
+            <p>Copy your edited &quot;muse_fr.ts&quot; into share/locale in the source tree and rebuild/install muse:</p>
+            <p><code>cd build</code></p>
+            <p><code>cmake -DUPDATE_TRANSLATIONS=OFF ..</code></p>
+            <p><code>make</code></p>
+            <p><code>sudo make install</code></p>
+            <h2 id="i18n_step_5">Step 5:</h2>
+            <p>Test: If your system locale is set to the same language as your translation, simply start MusE:</p>
+            <p><code>muse4</code></p>
+            <p>Otherwise, start MusE with the desired locale using the -l flag</p>
+            <p><code>muse4 -l fr</code></p>
+        </div>
+    </div>
+  </div>
+  </body>
+</html>

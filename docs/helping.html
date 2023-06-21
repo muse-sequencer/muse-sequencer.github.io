@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">	
+<html>
+  <head>
+    <title>MusE Sequencer Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+  <body>
+  <div id="container">
+    <div id="contents">
+    <embed src="contents.html" type="text/html" height="100%">
+    </div>
+    <div id="maincontainer">
+        <div id="main">
+        <h1 id="helping">Helping</h1>
+        <p>Want to help us out with MusE? Great! You don't have to be a C++ guru and you don't need to spend lots of time. A big portion of the help we need is <strong>feedback</strong> and reporting bugs.</p>
+        <h2 id="helping_donate">Donate</h2>
+        <p>If you like MusE and would like to show your appreciation for all time spent improving it by supporting the project.
+        Tim's donation page is <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YJCUXMC9MBG7Y">here</a>.
+        <h2 id="helping_develop">Develop</h2>
+        <p>MusE is programmed in C++ using the Qt5 toolkit, currently it is running on Linux. There are always zillions of ideas for
+        enhancements floating around. Do you have your own ideas or just want to try your hand at enhancing MusE, do contact us on the forum.</p>
+        <h2 id="helping_document">Document</h2>
+        <p>There is documentation here on the site that unfortunately is more incomplete than finished.
+        Suggestions for work ideas here is to pick a dialog that isn't documented and describe each function in it, with screenshots,
+        and add it to the wiki (contact us for access).</p>
+        <p>If you would like to write some articles, help to maintain the homepage or if you have got some artistic skills and would
+        like to create new images feel free to do so. Do contact us before hand if you are planning to make a major effort, mainly to
+        limit double effort or possible other plans.</p>
+        <h2 id="helping_create_idf_files">Creating Instrument Definition Files (IDF)</h2>
+        <p>Instrument definition files are best created by people that own the hardware in question. If you do create IDF files
+        for some specific midi hardware, do send us the result. There is documentation in the distribution about how to create IDF files.</p>
+        <h2 id="helping_report_bugs">Report bugs</h2>
+        <p>Before submitting a bug report, search the <a href="https://github.com/muse-sequencer/muse/issues">bug tracker</a>
+        to make sure your bug hasn't already been reported. If it has, then feel free to add any extra details you want to be there.
+        Before submitting a new bug, think about that you should give use as much information as you can.</p>
+        <li>Kernel version</li>
+        <li>MusE version</li>
+        <li>jackd version</li>
+        <li>anything you think could be important</li>
+        <p>If your problem is a repeatable crash, it is very good if you could create a crash dump and/or a backtrace of where the problem occurs.
+        For this to work best you need to have a MusE build with debug enabled.</p>
+        <p>The process of building MusE with debug differs from the usual build instructions as follows:</p>
+        <li>1. Run cmake with the added parameter <code>-DCMAKE_BUILD_TYPE=Debug</code>
+            also <code>-DCMAKE_INSTALL_PREFIX=&lt;some other location&gt;</code>, e.g. <code>$HOME/muse_debug</code> is useful
+            to place the installation in a separate location, leaving your ordinary installation untouched.
+            <em>Easiest way to do this is to edit the compile_muse.sh script.</em></li>
+        <li>2. If you previously built MusE in this build dir remember to run '<code>make clean</code>'.
+            NOTE: Recent compile_muse.sh does this automatically.</li>
+        <li>3. Now run '<code>make</code>' and '<code>make install</code>'</li>
+        <li>4. Start muse with '<code>gdb &lt;path to the installed muse binary&gt;</code>', e.g <code>$HOME/muse_debug/bin/muse3</code>
+            if you built it with the prefix suggested above.</li>
+        <li>5. Type '<code>run</code>' at the gdb prompt. MusE should now start.
+            <em>The debugger may stop MusE during start up a few times. If the MusE GUI does not show up and you get back the (gdb) prompt in the
+            terminal, type 'continue' and press enter and the startup should proceed. Repeat this until MusE has fully started, it should
+            get there eventually.</em></li>
+        <li>6. Do the procedure in MusE that causes it to crash.</li>
+        <li>7. The gdb console will have stopped the binary at the crash point, type '<code>bt full</code>'
+            to print a full backtrace leading up to the problem.</li>
+        <li>8. Paste all this, including original error printed automatically by gdb, in the bug report.</li>
+        <h2 id="helping_translate">Translate</h2>
+        <p>We are always seaching for developers who can help us to translate the MusE interface. The handy thing is that it is very easy
+        to do that, you just need the linguist tool, MusE working, time and some cups of really good coffee or whatever you like!</p>
+        <p>Look at <a href="i18n.html">Internationalisation</a>, or at the README.translate
+        file in the distribution for more details.</p>
+        <h2 id="helping_fix_bugs">Fix Bugs</h2>
+        <p>Is there some bug that really bothers you? If you have the know how and wish to learn the muse codebase, feel free
+        to fix it as well. For questions about the inner workings contact us on the forum.</p>
+        <h2 id="helping_create_music">Create music</h2>
+        <p>MusE is nothing without people using it and if you wish we can put links to your work as show cases on our home page.
+        Plus, we really want to hear what people are able to create with MusE.</p>
+        </div>
+    </div>
+  </div>
+  </body>
+</html>
