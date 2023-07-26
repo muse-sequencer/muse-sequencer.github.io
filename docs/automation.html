@@ -84,6 +84,59 @@
     <div data-align="CENTER">
     <p><img src="man/main_window_with_automation_movement.png"></img></p>
     </div>
+    <h3 id="audio-automation-midi-assign">Audio automation midi assignment</h3>
+    <p>All audio controls can be manipulated by midi input. This is called assigning a midi controller to an audio controller.</p>
+    <p>The midi assignment dialog window can be accessed as shown in one of the pictures above by right-clicking any controller
+    in the track list and navigating the popup menu to the desired controller and clicking 'Assign' under the heading 'Midi control'.
+    Alternatively, any on-screen audio control (such as volume or pan or generic plugin UI controls) can be right-clicked, and a
+    similar popup menu will appear where you click 'Assign' under the heading 'Midi control'.</p>
+    <div data-align="CENTER">
+    <p><img src="man/automation_midi_assign.png"></img></p>
+    </div>
+    <p>The exact midi controller input port, channel, controller type, and high and low control numbers can be entered.</p>
+    <p>An easier way is to click the 'Learn' button. While the button is down, manipulate any input midi device connected to MusE,
+    and the correct values will automatically be filled in provided it did actually receive something from midi input.</p>
+    <p>If you are satisfied that the desired input midi controller has been chosen, click OK. The dialog will close and
+    from now on, adjusting the midi controller will automatically adjust the audio control it is assigned to.</p>
+    <p>In that same the popup menu, under the heading 'Midi control', information about the assignment is shown.
+    The assignment can be cleared and removed by clicking 'Clear'.</p>
+    <p>Two additional buttons may also be shown in the assignment dialog: 'Track' and 'Song'. 'Track' assigns to an audio control
+    on the given track only. 'Song' dynamically assigns to ANY tracks having that audio controller when the tracks are selected (highlighted)
+    in the track list or in the mixer, and when the tracks are no longer selected the assignment disappears.</p>
+    <h3 id="audio-automation-log-controls">Some important technical info about logarithmic audio controls</h3>
+    <p>With the exception of our built-in audio logarithmic volume controllers (for which we have the luxury of
+    having a minimum slider decibel Global Setting), some logarithmic plugin controllers specify a minimum value of 0.0.</p>
+    <p>This presents a problem: When we want to display or manipulate (increment, adjust) the value in units of decibels,
+    there is no specification of what a reasonable minimum decibel value would be.
+    No plugin architecture has such a specification for this value.
+    A minimum decibel value MUST be chosen before any math can be performed in units of decibels.
+    It cannot be -inifinte decibels as the stated 0.0 minimum log value suggests.
+    Otherwise you end up with NAN infinite values and so on.</p>
+    <p>When a plugin's minimum log value states it is 0.0, it implies that it is up to the user (or the app) to choose a minimum decibel value.
+    Unfortunately MusE doesn't currently have per-controller user-settable decibel minimums and maximums.
+    It would be a lot of user micro-management. And without an 'overview' window, the user might be lost, unsure of
+    how many of the potentially hundreds of controllers available have what particular settings.</p>
+    <p>So there was no choice but to 'compose' or 'educated guess' pick a minimum decibel value based on the overall
+    value range of the controller. What this means is that a plugin's native UI logarithmic control might jump to -infinite dB a bit
+    too soon when its corresponding generic UI control is moved towards zero.</p>
+    <p>A random example is the LSP suite of plugins. Some of their plugin native UIs have 'level' controls which, when rotated clockwise,
+    jump from -infinite dB to -80 dB, and then smoothly rise to say, 60 dB.
+    But our generic UI version of that control has <b>no way of knowing that the plugin control's minimum dB value is -80 dB
+    before it jumps down to -infinite dB.</b> There is no specification of that value in any plugin architecture.
+    Therefore the semi-educated minimum dB value that is picked by the application might be somewhat higher than -80dB.
+    This means the native control might jump a bit too soon from a minimum value that was picked of say, -60dB, down to -infinite dB,
+    as the corresponding generic UI control is lowered.</p>
+    <p>The exact same rules apply to midi-to-audio controller assignment discussed here.
+    You may see the native UI control jump a bit too soon to -infinite dB as the the external midi controller is lowered.</p>
+    <p>There is another problem with logarithmic plugin controls: There is no way to know whether a logarithmic control <b>should</b> be
+    displayed in decibels, frequency (Hertz), pure log, or some other units. Even when the plugin's own native UI displays the control
+    in units of decibels for example, there is no <b>reliable</b> mechanism by which we can know that we too, in our generic UI,
+    should also show it in decibel units. Logarithmic controls whose units are of frequency (Hertz) face a similar problem.</p>
+    <p>Once again, it would be up to the user (or the app) to choose how to display every available logarithmic control in our
+    generic plugin UIs - as decibels, frequency (Hertz), pure log, or some other unit. It would be yet more user micro-management.</p>
+    <p>In future releases this level of manipulation might be possible to add to MusE.
+    But for now, you will see a plugin's native UI logarithmic controls in decibels, Hertz or other units,
+    while our corresponding generic UI controls will always be shown in <b>pure logarithmic units</b>.</p>
     <h2 id="midi-automation">Midi automation</h2>
     <p>MIDI automation is a slightly different concept: Unlike audio automation, currently there is no automation ‘mode’ and it doesn’t record graphical control movements. Data is viewed from within the pianoroll and drum editors, by clicking on the ‘Ctrl’ button on those canvases.</p>
     <p>Similar to audio controls, each midi control has a manual adjustment value. This value is overridden when there is midi automation data.</p>
