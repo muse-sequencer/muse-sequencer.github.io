@@ -27,7 +27,17 @@ function pressExpandButton() {
 }
 
 function afterSidebarLoaded() {
-	document.querySelector('#mobile-bar-expand-button').addEventListener('click', pressExpandButton);
+	document.querySelector('#mobile-bar').addEventListener('click', pressExpandButton);
+	document.querySelector('#mini-searchbar').addEventListener('keydown', (event) => {
+		if(event.key !== 'Enter') return;
+		window.location.href = `search.html?search=${event.target.value}`;
+	});
+
+	const first_h1_element = document.querySelector('h1');
+
+	if(first_h1_element){
+		document.querySelector('#mobile-bar-title').innerHTML = first_h1_element.innerHTML; 
+	};
 }
 
 

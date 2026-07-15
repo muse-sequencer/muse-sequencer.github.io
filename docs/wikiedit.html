@@ -29,6 +29,32 @@
       <h2>Creating a new page</h2>
       <p>In the templates directory, there is a file called template.html. Click this and copy the contents of the file. Return to the docs directory. Click the add file drop down button and then "Create new file". Paste the template.html contents into this, name your file in the bar at the top and the new file is ready to be edited. As with editing, click commit when you are done</p>
       <img src="man/wikiedit/newfile.webp">
+
+	  <h2>Updating the search index</h2>
+		<div class="note">
+			You do not need to update the search index when pushing your changes, the search index for the main site is generated
+			automatically with github actions, and comitted to the repository afterwards. You generally shouldn't need to update it
+			yourself unless you want to test the search function locally.
+		</div>
+	  <p>
+			The search functionality relies on the search_index.json file, if this file is not up to date, the search will show out of date results.
+			To update the search index: 
+			
+			<ul style="list-style-type:disc">
+				<li>
+					Make sure you have python and beautifulsoup installed, beautifulsoup can be installed using pip: <code>pip install beautifulsoup4</code>
+				</li>
+				<br/>
+
+				<li>Run the generate_search_index.py script from the /docs directory.</li>
+			</ul>
+
+			This script will generate a new search_index.json file in the docs directory, based on the text contents of each file referenced in contents.html.
+
+			<br/>
+			<br/>
+	  </p>
+
       <h2>Submitting your edits</h2>
       <p>Once your edits are complete, all this is needed to be done is to submit them with a pull request. On your github fork main page go the pull requests tab and click the "New Pull Request" button. This will prompt you to create a thread in the main github page's pull request tab. Detail your edits and then click the "Create Pull Request" button"</p>
     </div>
