@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+  <html>
+    <head>
+      <title>MusE Sequencer Documentation</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link href="../css/main.css" rel="stylesheet" type="text/css" />
+      <link href="../css/search.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+      <div id="container">
+        <div id="contents">
+          <script src="../js/sidebar.js"></script>
+        </div>
+        <div id="main">
+          <div id="searchbar-container">
+            <span id="search-icon">⌕</span
+            ><input
+              type="text"
+              id="searchbar"
+              placeholder="Buscar..."
+              maxlength="100"
+			  ></input>
+          </div>
+
+          <div id="message"
+				enter-query-message="Ingresa un término de búsqueda"
+			    results-message="{matches} coincidencias"
+			    no-results-message='No se encontraron resultados para <em>"{searchQuery}"</em> :('
+			  >message</div>
+
+          <div id="searchresults-container">
+            <div id="searchresults">
+              <div class="search-result" id="example-search-result">
+                <div class="search-result-header">
+					<span class="search-result-title">Title</span>
+                  <a href="link.html#link"></a>
+				  <span class="search-result-ocurrences-count">({matches} coincidencias)</span>
+                </div>
+                <div class="search-result-content">
+                  example<marker> mark</marker>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
+</html>
+
+<script src="../js/search.js"></script>

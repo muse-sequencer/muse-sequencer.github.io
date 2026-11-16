@@ -1,0 +1,97 @@
+mark {
+	background: yellow;
+	font-weight: bold;
+}
+
+#searchbar-container {
+	display: flex;
+	overflow: hidden;
+	justify-content: center;
+	align-items: center;
+	max-height: 3em;
+}
+
+#search-icon {
+	position: relative;
+	left: 1.4em;
+	padding-bottom: 6px;
+	font-size: 23px;
+	z-index: 1;
+}
+
+#searchbar {
+	font-size: 17px;
+	padding: 8px;
+	padding-left: 2.1em;
+	width: 100%;
+	border-radius: 2rem;
+}
+
+#searchresults {
+	display: block;
+
+	justify-content: center;
+	align-items: center;
+
+	overflow: auto;
+
+	padding: 2px 1em;
+	width: 100%;
+	margin: auto;
+	margin-top: 4px;
+	border-radius: 0.4em;
+	padding-bottom: 6px;
+}
+
+.search-result {
+	width: 100%;
+	border: solid 1px black;
+	border-radius: 0.4em;
+	margin-bottom: 12px;
+	overflow: hidden;
+
+	position: relative;
+}
+
+.search-result-header {
+	width: 100%;
+	background-color: #008080;
+	color: white;
+	padding: 6px;
+	height: 2em;
+}
+
+.search-result-header a {
+	position: absolute;
+	inset: 0;
+}
+
+.search-result-title {
+	text-decoration: none;
+	color: white;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.search-result-ocurrences-count {
+	color: #e0e0e0;
+	margin-left: 10px;
+	font-size: 0.9em;
+	font-weight: bolder;
+}
+
+.search-result:has(a:hover) {
+	background-color: lightgray;
+}
+
+.search-result-content {
+	overflow: auto;
+	padding: 5px;
+}
+
+#message {
+	margin-top: 6px;
+	width: 100%;
+	text-align: center;
+	color: gray;
+}

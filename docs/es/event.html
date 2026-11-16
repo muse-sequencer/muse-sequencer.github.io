@@ -1,20 +1,93 @@
-<!DOCTYPE html>
-<html lang="es">	
-<html>
-  <head>
-    <title>MusE Sequencer Documentación</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+<!doctype html>
+<html lang="es">
+  <html>
+    <head>
+      <title>MusE Documentación</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link href="../css/main.css" rel="stylesheet" type="text/css" />
     </head>
-  <body>
-   <div id="container">
-    <div id="contents">
-    <embed src="contents.html" type="text/html" height="100%">
-    </div>
-    <div id="main">
-    <h1 id="event-editor">Event editor</h1>
-    </div>
-  </div>
-  </body>
+    <body>
+      <div id="container">
+        <div id="contents">
+          <script src="../js/sidebar.js"></script>
+        </div>
+        <div id="main">
+          <h1 id="event-editor">Event List</h1>
+          <p>
+            Puedes abrir la Lista de Eventos desde la toolbar (Editar > Event
+            List...) o presionando <b>CTRL+L</b> teniendo seleccionada una pista
+            o una parte del tipo adecuado (pistas Midi o de Percusión).
+          </p>
+          <p>
+            Esto abrirá una ventana que contiene una lista de eventos de tipo
+            Note, SysEx, Meta y Control, en la parte seleccionada, o en toda la
+            pista si no hay ninguna parte seleccionada.
+          </p>
+          <img src="../man/eventlist/eventlist.png" />
+          <p>
+            En esta captura se observa la lista de eventos abierta para la pista
+            2, donde se encuentran 12 eventos. 10 de ellos son de tipo Note, y 2
+            son de tipo Ctrl (Program Change).
+          </p>
+          <p>La lista de eventos contiene información como:</p>
+
+          <ul style="list-style-type: disc">
+            <li>El tiempo en el que el evento ocurre (<b>Tick, Bar</b>)</li>
+            <li>
+              El <b>Tipo (Type)</b> del evento, que puede ser Note, SysEx, Ctrl
+              o Meta
+            </li>
+            <li>
+              El <b>Canal (Channel)</b> en el que el evento ocurre, en este caso
+              2, ya que la pista Midi esta en el canal 2.
+            </li>
+            <li>
+              Tres campos de <b>Valor (Value)</b> que varían según el tipo de
+              evento, para un evento de tipo Note, estos corresponden a Note
+              (D4), NoteOn Velocity y NoteOff Velocity.
+            </li>
+          </ul>
+
+          <h3>Crear un evento</h3>
+          <p>
+            <strong>Note</strong><br />
+            Puedes crear un evento de tipo Note presionando el botón
+            <b>Note</b>. Allí puedes configurar su tiempo, duración, tono y
+            velocidad. Sin embargo, dibujar eventos en el piano roll suele ser
+            más sencillo.
+          </p>
+          <p>
+            <strong>SysEx</strong><br />
+            Puedes crear un evento de tipo SysEx presionando el botón
+            <b>SysEx</b>. Los eventos SysEx son menos comunes que los demás;
+            puedes aprender más sobre SysEx en línea.
+          </p>
+          <p>
+            <strong>Ctrl</strong><br />
+            Puedes crear un evento de tipo Ctrl presionando el botón
+            <b>Ctrl</b>. Con los eventos Ctrl puedes ajustar cosas como el
+            Program (Instrumento), Pan, Reverb, Chorus, o incluso eventos de
+            Pitch Wheel. En el ejemplo anterior se utilizaron dos eventos Ctrl
+            para cambiar el instrumento del canal actual dos veces.
+          </p>
+          <p>
+            <strong>Meta</strong><br />
+            Puedes crear un evento de tipo Meta presionando el botón
+            <b>Meta</b>. Los eventos Meta pueden contener cosas como Letras de
+            canciones, Marcadores, entre otros.
+          </p>
+          <h3>Mover, eliminar o editar eventos</h3>
+          <p>
+            Mediante los botones <b>Tick+</b> y <b>Tick-</b>, puedes aumentar o
+            disminuir la posición en ticks del evento o eventos seleccionados en
+            uno. <br /><br />
+            Con el botón <b>Delete</b> puedes eliminar los eventos
+            seleccionados. <br /><br />
+            Para editar un evento existente, puedes hacer doble clic sobre él.
+          </p>
+        </div>
+      </div>
+    </body>
+  </html>
 </html>
